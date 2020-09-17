@@ -1,13 +1,11 @@
 /**************************************************
-Template p5 project
-Pippin Barr
-
-Here is a description of this template p5 project.
+Drawing Experiments
+Vivian Bui
 **************************************************/
 
 // setup()
 //
-// Description of setup() goes here.
+// Draw Examples
 function setup() {
 //r,g,b, transparency: between 0 and 255
 //x,y,w,h
@@ -27,6 +25,7 @@ function setup() {
 
 fill(1,1,1);
 stroke(250,250,250);
+strokeWeight(10)
 //applies color to anything UNDER vvv
 
   ellipse(250,250,250,250);
