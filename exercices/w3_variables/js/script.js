@@ -3,6 +3,9 @@ Variable Experiments
 Vivian Bui
 **************************************************/
 
+
+//** different variables with different propreties
+
 //variable names: (declares/set variables, nicknames, references)
 //element that uses it has the determined number
 // = assignment operator + value
@@ -14,7 +17,20 @@ let circleX = 250;
 let circleY = 250;
 let circleSpeed = 1;
 backgroundShade = 0;
-let circleAcceleration = 0.25;
+//let circleAcceleration = 0.25;
+
+
+//** one variable(object) with different propreties, single entity
+
+//javascript object
+// between curly brackets {}
+// prepreties name x/y/size/speed
+let circle = {
+  x: 0,
+  y: 250,
+  size: 200,
+  speed: 2
+}
 
 // setup()
 //
@@ -53,8 +69,10 @@ circleSize = circleSize+circleSpeed;
 
 // A = A-B ->> A += -B  (-= subtract the value, /= divide, *= multiply)
 //circleX = circleX - circleAcceleration;
-circleX *= circleAcceleration;
-circle(circleX,circleY,circleSize);
+//circleX *= circleAcceleration;
+circle.x += circle.speed;
+circle(circle.x,circle.y,circle.size);
+//changed the nameing to NAME.PROPRETY
 
 
 }
