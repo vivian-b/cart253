@@ -30,6 +30,7 @@ let circle = {
   y: 250,
   size: 200,
   speed: 2,
+  fill: 0,
 }
 
 // setup()
@@ -53,8 +54,9 @@ rect(mouseX,mouseY/2,mouseY,mouseX);
 rectMode(CENTER)
 fill(mouseX,mouseY/2,0)
 
-
-
+//random number with a range between (#x,#y)
+circle.fill = random(40,55)
+fill (circle.fill)
 //following the variable
 //circle(circleX,circleY,mouseX/10,mouseY/2);
 
@@ -75,7 +77,10 @@ ellipse(circleX, circleY, circleSize);
 //circle(circle.x, circle.y, circle.size);
 //changed the nameing to NAME.PROPRETY
 
-console.log (`circleX: ${circleX})
+//console.log (`circleX: ${circleX})
 // string concatenation: joining character strings end-to-end.
 //chat info: understand whats going on (prints out the numbers/variable thats going on)
+
+//let randomNumber = random();
+//console.log (randomNumber)
 }
