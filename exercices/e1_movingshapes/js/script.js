@@ -22,7 +22,7 @@ let circleA = {
   s: 10,
   fill: 0,
   speed: 7,
-  alpha: 200
+  alpha: 100
 };
 
 // Center
@@ -42,9 +42,8 @@ let circleC = {
   s: 30,
   fill: 0,
   speed: 7,
-  alpha: 200
+  alpha: 300
 }
-
 
 // Description of setup() goes here.
 function setup() {
@@ -55,12 +54,13 @@ function setup() {
 
 // draw()
 //
-// Description of draw() goes here.
+// Three circles lined up diagonally in different colors depending on
+// the cursor's location.
 function draw() {
 
 //background
 background(bg.r,bg.g,bg.b);
-bg.r,bg.g,bg.b += 1;
+bg.r += 1;
 bg.r = map(circleA.s, 50,width,0,255);
 
 // circle A
@@ -70,20 +70,20 @@ bg.r = map(circleA.s, 50,width,0,255);
   circleA.s += .53;
   circleA.s = constrain(circleA.s,0,width/4);
 
-    fill(mouseY,mouseX,circleA.alpha);
+    fill(mouseY/4,mouseX,circleA.alpha);
     ellipse(circleA.x,circleA.y,circleA.s);
 
-  // circle B
+// circle B
     circleB.y += circleB.speed;
     circleB.y = constrain(circleB.y,0,width/2);
 
     circleB.s += .5;
     circleB.s = constrain(circleB.s,0,width/4);
 
-      fill(mouseY,circleB.alpha);
+      fill(mouseY/3,mouseX/3,circleB.alpha);
       ellipse(circleB.x,circleB.y,circleB.s);
 
-    // circle C
+// circle C
 
     circleC.y += circleC.speed;
     circleC.y = constrain(circleC.y,0,width*3/4);
@@ -91,8 +91,7 @@ bg.r = map(circleA.s, 50,width,0,255);
     circleC.s += .75;
     circleC.s = constrain(circleC.s,0,width/4);
 
-      fill(mouseX,circleC.alpha);
+      fill(mouseY,mouseX/4,circleC.alpha);
       ellipse(circleC.x,circleC.y,circleC.s);
-
 
 }
