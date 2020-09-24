@@ -15,30 +15,33 @@ let bg = {
   b: 0,
 };
 
-let circle = {
-  x: 0,
-  y: 250,
-  s: 50,
-  fill: 255,
-  speed: 5,
+// Left
+let circleA = {
+  x: 100,
+  y: 0,
+  s: 10,
+  fill: 0,
+  speed: 7,
   alpha: 200
 };
 
-let square = {
-  x: 500,
-  y:250,
-  s: 180,
-  fill: 255,
-  speed: 4,
-  alpha: 255
+// Center
+let circleB = {
+  x: 250,
+  y: 0,
+  s: 20,
+  fill: 0,
+  speed: 7,
+  alpha: 200
 }
 
-let triangle = {
-  x: 500,
-  y:250,
-  s: 75,
-  fill: 255,
-  speed: 4,
+// Right
+let circleC = {
+  x: 400,
+  y: 0,
+  s: 30,
+  fill: 0,
+  speed: 7,
   alpha: 200
 }
 
@@ -58,17 +61,38 @@ function draw() {
 //background
 background(bg.r,bg.g,bg.b);
 bg.r,bg.g,bg.b += 1;
-bg.r = map(circle.s, 50,width,0,255);
+bg.r = map(circleA.s, 50,width,0,255);
 
 // circle A
-  circle.x += circle.speed;
-  circle.x = constrain(circle.x,0,width/3);
-  circle.s += 0.25;
-  circle.s = constrain(circle.s,0,width/6);
+  circleA.y += circleA.speed;
+  circleA.y = constrain(circleA.y,0,width/4);
 
-    fill(circle.fill,circle.alpha);
-    ellipse(circle.x,circle.y,circle.s);
-  
+  circleA.s += .53;
+  circleA.s = constrain(circleA.s,0,width/4);
+
+    fill(mouseY,mouseX,circleA.alpha);
+    ellipse(circleA.x,circleA.y,circleA.s);
+
+  // circle B
+    circleB.y += circleB.speed;
+    circleB.y = constrain(circleB.y,0,width/2);
+
+    circleB.s += .5;
+    circleB.s = constrain(circleB.s,0,width/4);
+
+      fill(mouseY,circleB.alpha);
+      ellipse(circleB.x,circleB.y,circleB.s);
+
+    // circle C
+
+    circleC.y += circleC.speed;
+    circleC.y = constrain(circleC.y,0,width*3/4);
+
+    circleC.s += .75;
+    circleC.s = constrain(circleC.s,0,width/4);
+
+      fill(mouseX,circleC.alpha);
+      ellipse(circleC.x,circleC.y,circleC.s);
 
 
 }
