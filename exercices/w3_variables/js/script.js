@@ -29,7 +29,7 @@ let circle = {
   x: 0,
   y: 250,
   size: 200,
-  speed: 2
+  speed: 2,
 }
 
 // setup()
@@ -71,8 +71,11 @@ circleSize = circleSize+circleSpeed;
 //circleX = circleX - circleAcceleration;
 //circleX *= circleAcceleration;
 circle.x += circle.speed;
-circle(circle.x,circle.y,circle.size);
+ellipse(circleX, circleY, circleSize);
+//circle(circle.x, circle.y, circle.size);
 //changed the nameing to NAME.PROPRETY
 
-
+console.log (`circleX: ${circleX})
+// string concatenation: joining character strings end-to-end.
+//chat info: understand whats going on (prints out the numbers/variable thats going on)
 }
