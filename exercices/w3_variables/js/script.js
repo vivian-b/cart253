@@ -55,8 +55,11 @@ rectMode(CENTER)
 fill(mouseX,mouseY/2,0)
 
 //random number with a range between (#x,#y)
-circle.fill = random(40,55)
-fill (circle.fill)
+//circle.fill = random(40,55)
+
+//convert range (value you want to convert, convert, converted, converted)
+circle.fill = map(mouseX, 0,width, 0, 1000)
+
 //following the variable
 //circle(circleX,circleY,mouseX/10,mouseY/2);
 
@@ -76,6 +79,9 @@ circle.x += circle.speed;
 ellipse(circleX, circleY, circleSize);
 //circle(circle.x, circle.y, circle.size);
 //changed the nameing to NAME.PROPRETY
+
+//stops proprety/animation at instruction
+//circle.x = constraint(circle.x,0,width)
 
 //console.log (`circleX: ${circleX})
 // string concatenation: joining character strings end-to-end.
