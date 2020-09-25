@@ -1,3 +1,6 @@
-# Template p5 project
+# E1: I like to move it move it!
 
-This is the README file for the entire project. For more official projects you should write information here about the nature of the project, your name, any special explanations of how the project works, etc.
+https://github.com/pippinbarr/cart253-2020/blob/master/exercises/01-i-like-to-move-it-move-it.md
+
+Create a program full of shapes that move, change s and color,
+and anything else you want to experiment with.
