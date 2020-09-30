@@ -6,6 +6,9 @@ Vivian Bui
 
 //* different variables with different propreties/
 
+let angle=0;
+let rectScale = 0;
+
 let caterpillar ={
   x:100,
   y: 250,
@@ -42,8 +45,36 @@ createCanvas(500,500);
 //
 // Description of draw() goes here.
 function draw() {
+
+//push&pop: makes the style an exception to the previous one, and restores it to next commands
+// blue (push)red(pop) blue [previouscolor before pushpop]
+  push();
   background(bg.r,bg.g,bg.b);
   noStroke();
+  pop();
+
+//translate
+// adds to the previous coordinates to a set x/y
+//translate(200,100)
+
+//rotate
+// angle is in radian (2*pi)
+//convert to degrees by rotate(radians(45))
+// rotate
+
+
+//rotation animation
+
+// rotate(angle)
+// angle += 0.01;
+// * must move origin with translate so it rotates on itself
+    // translate (width/2,height/2)
+
+
+//scale
+//scale(rectscale)
+//animated: rectscale += 0.01
+
 
 //if mouse is to the left of circle (behind x)
 if (mouseX < circle.x) {
