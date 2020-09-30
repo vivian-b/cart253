@@ -8,6 +8,8 @@ Vivian Bui
 
 let backgroundshade = 0;
 
+let displayCircle = false
+
 let circle = {
   x:0,
   y:250,
@@ -74,7 +76,20 @@ if(circle.x > width/3){
 //if(!(circle.x < width/3)) {
 //  fill(250,0,0)}
 
+//true or false varriables =  (statement)
+// specific responses (statement === true)
+if (keyIsPressed) {
+  background(255);
+}
 
   ellipse(circle.x,circle.y,circle.size);
 
+}
+
+if (mouseIsPressed){
+  displayCircle = true
+}
+
+if (displayCircle){
+  square(250,250,100,100)
 }
