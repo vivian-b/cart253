@@ -44,13 +44,36 @@ if (circle.x <0){
 }
 
 //above halfway makes it change color
-if (mouseY < height/2){
+if (mouseY < height/3){
   fill(255,0,0)
 }
-
-if (mouseY > height/2){
-  fill(0,250,0)
+//if "if" is false
+else if (mouseY < 2 * width/3) {
+  fill(0,0,255)
 }
+// no condition () needed since it depends on previous statements (1/3 to 2/3 to 3/3)
+else {
+  fill(0,255,0)
+}
+
+//needs both statements to be true, nested statements
+// or two amperstands between statements
+// if(circle.x > width/3) && circle.x < 2 * width/3)
+
+if(circle.x > width/3){
+  if (circle.x < 2 * width/3){
+    fill (0,0,0)
+  }
+}
+
+// either of the statements are true, ||
+//if(circle.x > width/3) || circle.x < 2 * width/3){
+
+// if not, (!(...))
+// negation = !, so (not(statement))
+//if(!(circle.x < width/3)) {
+//  fill(250,0,0)}
+
 
   ellipse(circle.x,circle.y,circle.size);
 
