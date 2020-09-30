@@ -12,6 +12,17 @@ let caterpillar ={
   segmentSize:50
 }
 
+let circle = {
+  x:250,
+  y:250,
+  size:100
+}
+
+let bg = {
+  r:0,
+  g:0,
+  b:0
+}
 // setup()
 //
 // Variable Testing
@@ -23,7 +34,7 @@ createCanvas(500,500);
 //
 // Description of draw() goes here.
 function draw() {
-  background(0);
+  background(bg.r,bg.g,bg.b);
   noStroke();
   fill(100,200,100);
 
@@ -63,6 +74,20 @@ let numSegments = 10;
 for(let i = 0; i < numSegments; i++){
 ellipse (x,caterpillar.y, caterpillar.segmentSize);
 x = x + 40;
+}
+
+ellipse(circle.x,circle.y,circle.size)
+
+//makes the circle move to the location that was mousePressed
+function mousePressed() {
+  circle.x = mouseX;
+  circle.y = mouseY;
+}
+//makes bg change color randomly after every click
+function mousePressed (){
+  bg.r = random(0,255);
+  bg.g = random(0,255);
+  bg.b = random(0,255);
 }
 
 }
