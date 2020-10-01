@@ -6,96 +6,127 @@ Create an interactive program where the the user has to avoid
 certain shapes.
 **************************************************/
 
-// object to dodge
+//loadImage
+let victimImage;
 function preload (){
-  img = loadImage ('assets/images/poison.orb.gif')
+  img = loadImage ('assets/images/victim.png')
 }
 
-let backgroundShade = 0
+//background
+let bg = {
+  r:1,
+  g:20,
+  b:45,
+}
 
-let poison ={
+//bubble (target)
+let bubble ={
   x:0,
   y:250,
-  size: 100,
+  size: 70,
   vx: 0,
   vy: 0,
-  speed: 25,
+  speed: 18,
   fill: {
-    r:60,
-    g:200,
-    b:50
+    r:15,
+    g:170,
+    b:245
   }
+
 };
 
+//user (avatar)
 let user ={
   x:250,
   y:250,
-  size: 80,
-  fill: 255,
-  ax: 0,
-  ay: 0,
-  acceleration: 0.9,
-  maxSpeed: 20,
+  size: 110,
+  vx: 0,
+  vy: 0,
+  speed: 5,
+
 };
 
+//user (ball)
+let ball ={
+
+  x:0,
+  y:250,
+  size: 20,
+  fill: {
+    r:180,
+    g:2,
+    b:70
+  }}
+
 // setup()
-// Description of setup() goes here.
+// canvas size, bubble's speed and spawn point
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
-  poison.y = random(0,height);
-  poison.vx = poison.speed;
+  bubble.vy = bubble.speed;
+  bubble.x = random(0,height);
 
+  noStroke();
   noCursor();
-
-  loadImage('assets/images/poison.orb.gif', img => {
-      image(img, 0, 0);
-    })
-
 }
 
 // draw()
-//
-// Description of draw() goes here.
 function draw() {
-  background(0);
 
-  poison.x += poison.vx
-  poison.y += poison.vy
+//background color (static)
+  background(bg.r,bg.g,bg.b)
 
-  if (poison.x > width) {
-    poison.x = 0;
-    poison.y = random(0,height);
+//bubble's movement
+  bubble.x += bubble.vx
+  bubble.y += bubble.vy
+
+//bubble's spawn reset
+// target comes back to the top once it reaches the bottom
+  if (bubble.y > height+bubble.size/2) {
+      bubble.y = 0;
+      bubble.x = random(0,width);
   }
 
-user.x = mouseX
-user.y = mouseY
 
-//growth of the poison whenever it is in contact with the user
-let d = dist(user.x, user.y, poison.x,poison.y);
-if (d < poison.size/2 + user.size/2) {
-poison.size *= 1.1
+//growth of the bubble whenever it is in contact with the user
+  let d = dist(user.x, user.y, bubble.x,bubble.y);
+    if (d < bubble.size/2 + user.size/2) {
+    bubble.size *= 1.1;
 }
 
-//cap on the size of the poison to signal it is game over
-if (poison.size > 3*windowHeight){
+//cap on the size of the bubble
+// "game over" when it reaches the max
+if (bubble.size > 3*windowHeight){
   noLoop();
 }
 
-if (poison.size >= windowHeight/2){
-  user.size = 40;
+//bubble
+fill(bubble.fill.r, bubble.fill.g, bubble.fill.b);
+ellipse(bubble.x,bubble.y,bubble.size);
+
+
+//user hitbox
+noFill(user)
+ellipse(user.x,user.y,user.size)
+
+//user controls
+// user.x = mouseX
+user.y = windowHeight;
+
+if (mouseX > user.x) {
+  user.vx = user.speed;
+}
+else if (mouseX < user.x) {
+  user.vx = -user.speed;
+
 }
 
+user.x = user.x + user.vx;
 
-//adjust the poison's speed so it follows the size change
-poison.speed *= poison.size *1.1
+//user avatar
+image(img, user.x-78, user.y-86, 140, 110);
 
-//poison
-fill(poison.fill.r, poison.fill.g, poison.fill.b);
-ellipse(poison.x,poison.y,poison.size);
-
-//user
-fill(user.fill)
-ellipse(user.x,user.y,user.size)
+fill(ball.fill.r,ball.fill.g,ball.fill.b);
+ellipse(mouseX,mouseY,ball.size);
 
 }
