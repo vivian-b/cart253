@@ -1,47 +1,56 @@
 /**************************************************
-Activity 4: Dodging COVID-19
+Exercise 02: Dodge-Em
 Vivian Bui
 
-Display the COVID-19 circle and move it across the screen, starting at a random y
-Make the COVID-19 circle move back to the left if it goes off the right side
-Display the user circle at the mouse location
-Check if the two circles overlap and, if they do, stop the program
-Display random static in the background for a visual flourish
-Hide the mouse cursor
-
+Create an interactive program where the the user has to avoid
+certain shapes.
 **************************************************/
 
-let covid19 ={
+// object to dodge
+function preload (){
+  img = loadImage ('assets/images/poison.orb.gif')
+}
+
+let backgroundShade = 0
+
+let poison ={
   x:0,
   y:250,
   size: 100,
   vx: 0,
   vy: 0,
-  speed: 10,
+  speed: 25,
   fill: {
-    r:255,
-    g:0,
-    b:0
+    r:60,
+    g:200,
+    b:50
   }
 };
 
 let user ={
   x:250,
   y:250,
-  size: 100,
+  size: 80,
   fill: 255,
+  ax: 0,
+  ay: 0,
+  acceleration: 0.9,
+  maxSpeed: 20,
 };
 
 // setup()
-//
 // Description of setup() goes here.
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
-  covid19.y = random(0,height);
-  covid19.vx = covid19.speed;
+  poison.y = random(0,height);
+  poison.vx = poison.speed;
 
   noCursor();
+
+  loadImage('assets/images/poison.orb.gif', img => {
+      image(img, 0, 0);
+    })
 
 }
 
@@ -51,36 +60,39 @@ function setup() {
 function draw() {
   background(0);
 
-//display static
-for (let i = 0; i < 100; i++) {
-let x = random (0,width);
-let y = random(0,height);
-stroke (255);
-point(x,y);
-}
+  poison.x += poison.vx
+  poison.y += poison.vy
 
-  covid19.x += covid19.vx
-  covid19.y += covid19.vy
-
-  if (covid19.x >width) {
-    covid19.x = 0;
-    covid19.y = random(0,height);
-
+  if (poison.x > width) {
+    poison.x = 0;
+    poison.y = random(0,height);
   }
 
 user.x = mouseX
 user.y = mouseY
 
-//check for catching
-let d = dist(user.x, user.y, covid19.x,covid19.y);
-if (d< covid19.size/2 + user.size/2) {
+//growth of the poison whenever it is in contact with the user
+let d = dist(user.x, user.y, poison.x,poison.y);
+if (d < poison.size/2 + user.size/2) {
+poison.size *= 1.1
+}
+
+//cap on the size of the poison to signal it is game over
+if (poison.size > 3*windowHeight){
   noLoop();
 }
 
-//covid
-fill(covid19.fill.r, covid19.fill.g, covid19.fill.b);
-ellipse(covid19.x,covid19.y,covid19.size);
+if (poison.size >= windowHeight/2){
+  user.size = 40;
+}
 
+
+//adjust the poison's speed so it follows the size change
+poison.speed *= poison.size *1.1
+
+//poison
+fill(poison.fill.r, poison.fill.g, poison.fill.b);
+ellipse(poison.x,poison.y,poison.size);
 
 //user
 fill(user.fill)
