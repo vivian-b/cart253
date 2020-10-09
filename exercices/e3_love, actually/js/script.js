@@ -54,8 +54,17 @@ let vnm ={
     y:0
 }
 
+let ily ={
+  string:`ily <3`,
+  x:0,
+  y:0
+}
 
 let state = `title`
+
+
+///////////
+
 
 function setup() {
 createCanvas(windowWidth,windowHeight);
@@ -82,7 +91,6 @@ title();
 text(`Across Languages`, windowWidth/2 -50,windowHeight/2 +50);
     text(`press to enter start`, 5,windowHeight-5)}
 
-
 if (keyIsDown(13)) {
       state = `stimulation`
     }
@@ -90,7 +98,6 @@ if (keyIsDown(13)) {
 if (state === `simulation`){
   simulation();
 }
-
 
 function simulation(){
   display();
@@ -102,7 +109,6 @@ function checkTranslation(){
 
 if (mouseIsPressed && dist(mouseX,mouseY,eng.x,eng.y) < 25){
       state = `translateENG`;
-
 }
 
 if(mouseIsPressed && dist(mouseX,mouseY,fr.x,fr.y)< 25) {
@@ -129,6 +135,8 @@ if(mouseIsPressed && dist(mouseX,mouseY,vnm.x,vnm.y)< 35) {
   state = `translateVNM`
 }
 
+if(mouseIsPressed && dist(mouseX,mouseY,ily.x,ily.y)< 35) {
+pause( )}
   }
 
 if (state === `translateENG`) {
@@ -236,8 +244,6 @@ if (state === `translateENG`) {
                 textSize(20)
               }
 
-
-
 function display (){
   ellipse(mouseX,mouseY,user.size)
 }
@@ -274,6 +280,13 @@ function setupSimulation(){
   vnm.x = random(60,windowWidth-80);
   vnm.y = windowHeight-80;
   text(vnm.string,vnm.x,vnm.y);
+  pop();
+
+push();
+fill(200,100,100);
+  ily.x = windowWidth - 50;
+  ily.y = windowHeight;
+  text(ily.string,ily.x,ily.y)
   pop();
 }
 
