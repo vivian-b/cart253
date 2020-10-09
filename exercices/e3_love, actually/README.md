@@ -1,3 +1,4 @@
-# Template p5 project
+E3: Love, actually
+https://github.com/pippinbarr/cart253-2020/blob/master/exercises/03-love-actually.md
 
-This is the README file for the entire project. For more official projects you should write information here about the nature of the project, your name, any special explanations of how the project works, etc.
+Change the meaning/nature of a "love" simulation: love being expressed in multiple languages like how there are many ways to express your feelings.
