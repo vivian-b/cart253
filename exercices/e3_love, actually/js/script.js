@@ -89,7 +89,6 @@ if (keyIsDown(13)) {
 
 if (state === `simulation`){
   simulation();
-  text(`press backspace to restart`, 5,windowHeight-5)
 }
 
 
@@ -99,55 +98,143 @@ function simulation(){
   checkTranslation()
 }
 
-////
-
-
-function translateFR() {
-  textSize(64);
-  textAlign(CENTER,CENTER);
-  text(`FRENCH`,width/2, height/2);
-}
-
 function checkTranslation(){
 
-  if (mouseIsPressed && dist(mouseX,mouseY,eng.x,eng.y) < 15){
-      state = `translateENG`
+if (mouseIsPressed && dist(mouseX,mouseY,eng.x,eng.y) < 25){
+      state = `translateENG`;
+
 }
 
-if(mouseIsPressed && dist(mouseX,mouseY,fr.x,fr.y)<5) {
+if(mouseIsPressed && dist(mouseX,mouseY,fr.x,fr.y)< 25) {
   state = `translateFR`
 }
 
-if(mouseIsPressed && dist(mouseX,mouseY,spn.x,spn.y)<5) {
+if(mouseIsPressed && dist(mouseX,mouseY,spn.x,spn.y)< 35) {
   state = `translateSPN`
 }
 
+if(mouseIsPressed && dist(mouseX,mouseY,kr.x,kr.y)< 35) {
+  state = `translateKR`
 }
 
-if (state === `translateENG`) {
-  translateENG();
+if(mouseIsPressed && dist(mouseX,mouseY,chn.x,chn.y)< 35) {
+  state = `translateCHN`
 }
+
+if(mouseIsPressed && dist(mouseX,mouseY,ita.x,ita.y)< 35) {
+  state = `translateITA`
+}
+
+if(mouseIsPressed && dist(mouseX,mouseY,vnm.x,vnm.y)< 35) {
+  state = `translateVNM`
+}
+
+  }
+
+if (state === `translateENG`) {
+  translateENG()}
+
   function translateENG() {
+    fill(255)
     push();
     textSize(90);
-    fill(255)
     textAlign(CENTER,CENTER);
     text(`ENGLISH`,width/2, height/2);
     pop();
+    text(`love`, width/2 -25, height/2 - 90);
+    textSize(20)
   }
 
+
   if (state === `translateFR`) {
-    translateENG();
-  }
+    translateFR()}
+
     function translateFR() {
+      fill(255);
       push();
       textSize(90);
       fill(255)
       textAlign(CENTER,CENTER);
       text(`FRENCH`,width/2, height/2);
       pop();
+      text(`amour`, width/2 -25, height/2 - 90);
+      textSize(20)
     }
 
+    if (state === `translateSPN`) {
+      translateSPN()}
+
+      function translateSPN() {
+        fill(255);
+        push();
+        textSize(90);
+        fill(255)
+        textAlign(CENTER,CENTER);
+        text(`SPANISH`,width/2, height/2);
+        pop();
+        text(`amor`, width/2 -20, height/2 - 90);
+        textSize(20)
+      }
+
+      if (state === `translateKR`) {
+        translateKR()}
+
+        function translateKR() {
+          fill(255);
+          push();
+          textSize(90);
+          fill(255)
+          textAlign(CENTER,CENTER);
+          text(`KOREAN`,width/2, height/2);
+          pop();
+          text(`연애`, width/2 -20, height/2 - 90);
+          textSize(20)
+        }
+
+        if (state === `translateCHN`) {
+          translateCHN()}
+
+          function translateCHN() {
+            fill(255);
+            push();
+            textSize(90);
+            fill(255)
+            textAlign(CENTER,CENTER);
+            text(`CHINESE`,width/2, height/2);
+            pop();
+            text(`爱`, width/2 -20, height/2 - 90);
+            textSize(20)
+          }
+
+          if (state === `translateITA`) {
+            translateITA()}
+
+            function translateITA() {
+              fill(255);
+              push();
+              textSize(90);
+              fill(255)
+              textAlign(CENTER,CENTER);
+              text(`ITALIAN`,width/2, height/2);
+              pop();
+              text(`amore`, width/2 -20, height/2 - 90);
+              textSize(20)
+            }
+
+            if (state === `translateVNM`) {
+              translateVNM()}
+
+              function translateVNM() {
+                fill(255);
+                push();
+                textSize(90);
+                fill(255)
+                textAlign(CENTER,CENTER);
+                text(`VIETNAMESE`,width/2, height/2);
+                pop();
+                text(`yêu`, width/2 -20, height/2 - 90);
+                textSize(20)
+              }
 
 
 
