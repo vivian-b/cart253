@@ -112,7 +112,8 @@ function simulation(){
   setupSimulation(); //text
 }
 
-function checkTranslation(){ //hitbox of the text
+
+function checkTranslation(){ //hitbox of the texts
 
 if (mouseIsPressed && dist(mouseX,mouseY,eng.x,eng.y) < 25){
       state = `translateENG`;
@@ -254,6 +255,9 @@ if (state === `translateENG`) {
 function display (){
   ellipse(mouseX,mouseY,user.size)
 }
+
+///
+// words jump across the screen on a horizontal axis.
 
 function setupSimulation(){
   push();
