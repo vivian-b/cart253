@@ -6,7 +6,7 @@ Vivian Bui
 **************************************************/
 
 var score = 0;
-
+let bg = (137, 237, 119);
 let user = {
   x: 250,
   y: 400,
@@ -21,20 +21,20 @@ let user = {
   let daggerTop ={
     x:0,
     y:250,
-    height: 25,
-    width: 10,
+    height: 40,
+    width: 18,
     vx: 2,
     vy: 2,
-    speed: 1,
+    speed: 8,
     fill: 255
 }
 
 let daggerLeft ={
   x:0,
   y:250,
-  height: 10,
-  width: 25,
-  vx: 0,
+  height: 24,
+  width: 40,
+  vx: 2,
   vy: 0,
   speed: 6,
   fill: 100,
@@ -43,11 +43,11 @@ let daggerLeft ={
 let daggerRight ={
   x:0,
   y:250,
-  height: 10,
-  width: 25,
-  vx: 0,
+  height: 24,
+  width: 35,
+  vx: 3,
   vy: 0,
-  speed: 6,
+  speed: 7,
   fill: 200,
 }
 
@@ -57,8 +57,8 @@ let carrot ={
   height: 50,
   width: 20,
   vx: 0,
-  vy: 0,
-  speed: 7,
+  vy: 4,
+  speed: 5,
   fill: 300
 }
 
@@ -81,10 +81,10 @@ function preload(){
 }
 
 function setup() {
-  createCanvas(500,500);
+  createCanvas(700,500);
   noStroke();
   imageMode(CENTER);
-
+  background(96, 202, 247);
 }
 
 function draw() {
@@ -96,23 +96,31 @@ if (state === `title`) {
 }
 
 else if (state ===`gameplay`){
-  background(20);
+  background(137, 219, 110);
+  backgroundField();
   simulation();
-  objectMove();
+  move();
+
 }
 
 if (state ===`almostgameover`){
-  background(50);
+  background(137, 219, 110);
+  backgroundField();
   simulation2();
-  objectMove();
+  move();
+
 }
 
 
 if (state ===`gameover`){
-  background(50,50,10);
-  setupSimulation();
+  background(137, 219, 110);
+  backgroundField();
   image(img2hit, user.x, user.y,50,70);
 
+  setupSimulation();
+
+    fill(55, 163, 41)
+    text ("score = "+score,20,height-40);
 }
 }
 
@@ -122,146 +130,59 @@ function mousePressed(){
   }
 
 function simulation(){
-  fill(200)
-  text ("score = "+score,20,height-40)
   handleInput();
-  move();
   setupSimulation();
   checkForCarrot();
   checkForDagger();
 
+  fill(55, 163, 41)
+  text ("score = "+score,20,height-40);
 }
 
 function simulation2(){
-  fill(200)
-  text ("score = "+score,20,height-40);
   handleInput();
-  move();
   setupSimulation();
   checkForDagger2();
   checkForCarrot();
 
+  fill(55, 163, 41)
+  text ("score = "+score,20,height-40);
 }
 
 function setupSimulation(){
 
+noFill();
+  ellipse(daggerTop.x,daggerTop.y+10,daggerTop.width,daggerTop.height)
+
+  ellipse(daggerLeft.x+10,daggerLeft.y,daggerLeft.width,daggerLeft.height)
+
+  ellipse(daggerRight.x-10,daggerRight.y,daggerRight.width,daggerRight.height)
+
+  ellipse(carrot.x,carrot.y,carrot.width,carrot.height)
+
+  ellipse(user.x,user.y+19, user.size+5, user.size-6);
+
   push();
   translate(daggerRight.x, daggerRight.y);
     rotate(90);
-    image(imgdagger, 0, 0,25,55);
+    image(imgdagger, 0, 0,25,60);
     pop();
-    push();
+
+  push();
     translate(daggerLeft.x, daggerLeft.y);
       rotate(-90);
-      image(imgdagger, 0, 0,25,55);
+      image(imgdagger, 0, 0,25,60);
       pop();
 
-  fill(daggerTop.fill)
-  ellipse(daggerTop.x,daggerTop.y+10,daggerTop.width,daggerTop.height)
+      image(imgdagger, daggerTop.x, daggerTop.y,25,65);
 
-  fill(daggerLeft.fill)
-  ellipse(daggerLeft.x,daggerLeft.y,daggerLeft.width,daggerLeft.height)
+  image(imgcarrot, carrot.x, carrot.y,25,60);
 
-  fill(daggerRight.fill)
-  ellipse(daggerRight.x,daggerRight.y,daggerRight.width,daggerRight.height)
-
-  fill(carrot.fill)
-  ellipse(carrot.x,carrot.y,carrot.width,carrot.height)
-
-  noFill();
-  ellipse(user.x,user.y+19, user.size+5, user.size-6);
-
-  image(imgcarrot, carrot.x, carrot.y,25,55);
-
-    image(imgdagger, daggerTop.x, daggerTop.y,25,55);
 
   user.x = constrain (user.x,65,width-65)
   user.y = constrain (user.y,65,height-65)
 
-}
 
-function objectMove(){
-
-//daggerTop's movement (vertical drop)
-daggerTop.y += daggerTop.vy + daggerTop.speed;
-daggerTop.x = daggerTop.x
-
-//daggerTop's spawn reset (comes back to the top once it reaches the bottom)
-  if (daggerTop.y > height) {
-      daggerTop.y = 0;
-      daggerTop.x = random(0,width);
-    }
-
-  //daggerLeft's movement (vertical drop)
-  daggerLeft.x += daggerLeft.vx + daggerLeft.speed
-  daggerLeft.y = daggerLeft.y
-
-  //daggerLeft's spawn reset (comes back to the top once it reaches the bottom)
-    if (daggerLeft.x > width) {
-        daggerLeft.x = 0;
-        daggerLeft.y = random(0,height);
-      }
-
-      daggerRight.x -= daggerRight.vx + daggerRight.speed
-      daggerRight.y = daggerRight.y
-
-
-      //daggerLeft's spawn reset (comes back to the top once it reaches the bottom)
-        if (daggerRight.x < 0) {
-            daggerRight.x = width;
-            daggerRight.y = random(0,height);
-          }
-
-  //daggerTop's movement (vertical drop)
-  carrot.y += carrot.vy + carrot.speed
-  carrot.x = carrot.x
-
-  //daggerTop's spawn reset (comes back to the top once it reaches the bottom)
-    if (carrot.y > height) {
-        carrot.y = 0;
-        carrot.x = random(30,width-30);
-      }
-}
-
-function checkForDagger(){
-
-  if (dist(user.x,user.y,daggerTop.x,daggerTop.y) <25) {
-  state =  `almostgameover`;
-  daggerTop.x = random(0,500)
-  daggerTop.y = 0
-}
-
- if (dist(user.x,user.y,daggerLeft.x,daggerLeft.y) <25) {
-  state =  `almostgameover`
-  daggerLeft.x = random(0,500)
-  daggerLeft.y = 0
-}
-
- if (dist(user.x,user.y,daggerRight.x,daggerRight.y) <25) {
-  state =  `almostgameover`
-  daggerRight.x = random(0,500)
-  daggerRight.y = 0
-}
-}
-
-function checkForDagger2(){
-
-  if (dist(user.x,user.y,daggerTop.x,daggerTop.y) <25) {
-  state =  `gameover`;
-}
-}
-
-function checkForCarrot(){
-if (dist(user.x,user.y,carrot.x,carrot.y) <22) {
-  score+= 1
-  carrot.y = 0
-  carrot.x = random(200,width-50)
-}
-}
-
-function move(){
-  user.x = user.x + user.vx;
-  user.y = user.y + user.vy;
 }
 
 
@@ -298,7 +219,6 @@ function handleInput(){
     else if (state ===`almostgameover`){
     image(img1hit, user.x, user.y,50,70);
     }
-
   }
 
   if (keyIsDown(UP_ARROW)) {
@@ -308,10 +228,102 @@ function handleInput(){
 
   else if (keyIsDown(DOWN_ARROW)){
     user.vy = user.speed;
-
   }
+
   else {
     user.vy = 0;
 
   }
+}
+
+function move(){
+
+//user movements
+  user.x = user.x + user.vx;
+  user.y = user.y + user.vy;
+
+//daggerTop's movement (vertical drop)
+daggerTop.y += daggerTop.vy + daggerTop.speed;
+daggerTop.x = daggerTop.x
+
+//daggerTop's spawn reset (comes back to the top once it reaches the bottom)
+  if (daggerTop.y > height) {
+      daggerTop.y = 0;
+      daggerTop.x = random(0,width);
+    }
+
+//daggerLeft's movement (horizontal swing)
+  daggerLeft.x += daggerLeft.vx + daggerLeft.speed
+
+  //daggerLeft's spawn reset (comes back to the top once it reaches the bottom)
+    if (daggerLeft.x > width) {
+        daggerLeft.x = 0;
+        daggerLeft.y = random(0,height);
+      }
+
+      daggerRight.x -= daggerRight.vx + daggerRight.speed
+      daggerRight.y = daggerRight.y
+
+
+      //daggerLeft's spawn reset (comes back to the top once it reaches the bottom)
+        if (daggerRight.x < 0) {
+            daggerRight.x = width;
+            daggerRight.y = random(0,height);
+          }
+
+  //daggerTop's movement (vertical drop)
+  carrot.y += carrot.vy + carrot.speed
+  carrot.x = carrot.x
+
+  //daggerTop's spawn reset (comes back to the top once it reaches the bottom)
+    if (carrot.y > height) {
+        carrot.y = 0;
+        carrot.x = random(30,width-30);
+      }
+}
+
+
+function checkForDagger(){
+  if (dist(user.x,user.y,daggerTop.x,daggerTop.y) <20) {
+  state =  `almostgameover`;
+  daggerTop.x = random(0,500)
+  daggerTop.y = 0
+}
+
+ if (dist(user.x,user.y,daggerLeft.x,daggerLeft.y) <28) {
+  state =  `almostgameover`
+  daggerLeft.x = random(0,500)
+  daggerLeft.y = 0
+}
+
+ if (dist(user.x,user.y,daggerRight.x,daggerRight.y) <28) {
+  state =  `almostgameover`
+  daggerRight.x = random(0,500)
+  daggerRight.y = 0
+}
+}
+
+function checkForDagger2(){
+
+  if (dist(user.x,user.y,daggerTop.x,daggerTop.y) <20 || dist(user.x,user.y,daggerLeft.x,daggerLeft.y) <28 || dist(user.x,user.y,daggerRight.x,daggerRight.y) <28){
+  state =  `gameover`;
+}
+}
+
+function checkForCarrot(){
+if (dist(user.x,user.y,carrot.x,carrot.y) <22) {
+  score+= 1
+  carrot.y = 0
+  carrot.x = random(200,width-50)
+}
+}
+
+function backgroundField(){
+  push();
+  fill(255, 228, 191);
+  strokeWeight(7);
+  stroke(255, 217, 145);
+  rectMode(CENTER);
+    rect(width/2, height/2, 560, 350, 20);
+  pop();
 }
