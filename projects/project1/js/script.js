@@ -64,14 +64,15 @@ let shadow ={
   width: 45,
 }
 
-let titleString = `press anywhere to start`;
 let state = `title`
-
+let intro = `press anywhere to start`
 
 function preload(){
 
+myFont = loadFont ("assets/fonts/Brandon_reg.otf")
+
 //Bunny Idle
-  img1 = loadImage("assets/images/bun_iddle.png")
+  img_idle = loadImage("assets/images/bun_iddle.png")
   img_idlehit = loadImage("assets/images/bun_hit.png")
   img_dead = loadImage("assets/images/bun_dead.png")
 
@@ -88,7 +89,9 @@ function preload(){
   img_dagger = loadImage("assets/images/dagger.png")
 
 //Graphic Screen Elements
-  imgintro = loadImage("assets/images/title.png")
+  img_title = loadImage("assets/images/title.png")
+  img_carrotbun = loadImage("assets/images/instruction_carrot.png")
+  img_daggerbun = loadImage("assets/images/instruction_run.png")
 }
 
 ///////////////////////////
@@ -105,38 +108,58 @@ angleMode(DEGREES)
 
 //Game States
 if (state === `title`) {
-  fill(66, 152, 245);
-  text(titleString, width/2+90, height/2+110)
-  image(imgintro, width/2, height/2,480,140);
+titleScreen();
 }
 
 else if (state ===`gameplay`){
-  background(137, 219, 110);
-  backgroundField();
-
-  //functions
-  simulation();
-  move();
+gameplay();
 }
 
-if (state ===`gamestrike`){
-  background(137, 219, 110);
-  backgroundField();
-
-  //functions
-  simulation2();
-  move();
+else if (state ===`gamestrike`){
+gamestrike();
 }
 
-if (state ===`gameover`){
-  background(137, 219, 110);
-  backgroundField();
-  image(img_dead, user.x, user.y,50,70);
+else if (state ===`gameover`){
+gameover();
+}
 
-  //functions
-  setupSimulation();
-    fill(55, 163, 41)
-    text ("score = "+score,25,height-30);
+
+function titleScreen(){
+image(img_title, width/2, height/2,480,140);
+image(img_carrotbun, width/2-150, height/3 ,100,100);
+image(img_daggerbun, width/2, height/3 ,130,100);
+
+fill(66, 152, 245);
+textFont(myFont);
+textSize(22);
+text(intro, width/2-90, height/2+130);
+}
+
+function gameplay(){
+background(137, 219, 110);
+backgroundField();
+//functions
+simulation();
+move();
+}
+
+function gamestrike(){
+background(137, 219, 110);
+backgroundField();
+//functions
+simulation2();
+move();
+}
+
+function gameover(){
+background(137, 219, 110);
+backgroundField();
+image(img_dead, user.x, user.y,50,70);
+
+//functions
+setupSimulation();
+  fill(55, 163, 41)
+  text ("score = "+score,25,height-30);
 }
 }
 
@@ -157,7 +180,7 @@ function simulation(){
   checkForDagger();
 
   fill(55, 163, 41)
-  text ("score = "+score,25,height-30);
+  text ("score = "+score,25,height-25);
 }
 
 //1 life left
@@ -168,7 +191,7 @@ function simulation2(){
   checkForCarrot();
 
   fill(55, 163, 41)
-  text ("score = "+score,20,height-30);
+  text ("score = "+score,20,height-25);
 }
 
 function setupSimulation(){
@@ -189,7 +212,7 @@ noFill();
   translate(daggerRight.x, daggerRight.y);
   rotate(90);
   image(img_dagger, 0, 0,25,60);
-    pop();
+  pop();
 
   push();
   translate(daggerLeft.x, daggerLeft.y);
@@ -235,7 +258,7 @@ function handleInput(){
     user.vx = 0;
 
     if (state === `gameplay`){
-    image(img1, user.x, user.y,50,70);
+    image(img_idle, user.x, user.y,50,70);
 }
     else if (state ===`gamestrike`){
     image(img_idlehit, user.x, user.y,50,70);
@@ -310,13 +333,13 @@ function checkForDagger(){
   daggerTop.y = 0
 }
 
- if (dist(user.x,user.y,daggerLeft.x,daggerLeft.y) <28) {
+ if (dist(user.x,user.y,daggerLeft.x,daggerLeft.y) <20) {
   state =  `gamestrike`
   daggerLeft.x = random(30,450)
   daggerLeft.y = 0
 }
 
- if (dist(user.x,user.y,daggerRight.x,daggerRight.y) <28) {
+ if (dist(user.x,user.y,daggerRight.x,daggerRight.y) <20) {
   state =  `gamestrike`
   daggerRight.x = random(30,450)
   daggerRight.y = 0
@@ -364,5 +387,4 @@ function backgroundField(){
     fill(235, 189, 152);
   ellipse(user.x,user.y+30,shadow.width,shadow.height)
 }
-
 }
