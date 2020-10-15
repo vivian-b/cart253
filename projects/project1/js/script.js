@@ -17,6 +17,7 @@ let bg = (137, 237, 119);
 
 let state = `title`
 let intro = `press anywhere to start`
+let instruction = `(use arrowkeys to move around)`
 let restart = `press spacebar to restart`
 
 
@@ -25,8 +26,8 @@ let restart = `press spacebar to restart`
       y: 280,
       size: 40,
       vx: 0,
-      vy: 0,
-      speed: 4,
+      vy: 3,
+      speed: 5,
     }
 
   let daggerTop ={
@@ -152,10 +153,16 @@ function titleScreen(){
   image(img_daggerbun, width/2+230, height/2+25 ,130,100);
 
   //Title Intro text
+  textFont(myFont);
+  textSize(22);
+  push();
+  textAlign(CENTER);
     fill(209, 153, 153);
-    textFont(myFont);
-    textSize(22);
-    text(intro, width/2-90, height/2+110);
+    text(intro, width/2, height/2+110);
+    fill(92, 179, 250);
+    textSize(16);
+    text(instruction,width/2, height/2+210);
+    pop();
   }
 
 function gameplay(){
@@ -183,8 +190,9 @@ function gameover(){
     image(img_carrotbun, 157, height-35 ,100,100);
 
     push();
-      fill(209, 153, 153)
-      text(restart, width/2 - 90, height/2+5);
+      textAlign(CENTER);
+      fill(209, 153, 153);
+      text(restart, width/2, height/2+5);
     pop();
 
     scoreboard();
@@ -348,7 +356,7 @@ function move(){
   //Carrot's spawn reset (comes back to the top once it reaches the bottom)
       if (carrot.y > height) {
           carrot.y = 0;
-          carrot.x = random(40,width-40);
+          carrot.x = random(40,width-60);
       }
 }
 
@@ -387,7 +395,7 @@ function checkForDagger(){
   // User Contact with any DAGGERS (Part 2): Game Over
   function checkForDagger2(){
 
-    if (dist(user.x,user.y,daggerTop.x,daggerTop.y) <20 ||
+    if (dist(user.x,user.y,daggerTop.x,daggerTop.y) <26 ||
     dist(user.x,user.y,daggerLeft.x,daggerLeft.y) <28 ||
     dist(user.x,user.y,daggerRight.x,daggerRight.y) <28){
 
@@ -411,12 +419,12 @@ function checkForDagger(){
 
   //User Contact with CARROT: Scoring System
   function checkForCarrot(){
-    if (dist(user.x,user.y,carrot.x,carrot.y) <22) {
+    if (dist(user.x,user.y,carrot.x,carrot.y) <28) {
       score+= 1
       nomSFX.play();
     //carrot respawn
       carrot.y = 0
-      carrot.x = random(200,width-50)
+      carrot.x = random(95,width-80)
     }
 }
 
@@ -455,12 +463,13 @@ function backgroundField(){
   }
 }
 
-function livecount(){
-  if (state ===`gameplay`){
+  //Visual lifecount on the top left corner of the screen
+  function livecount(){
+    if (state ===`gameplay`){
     image(img_idle, 92, 45,20,30);
     image(img_idle, 115, 45,20,30);
   }
-  else if (state ===`gamestrike`){
+    else if (state ===`gamestrike`){
     image(img_idle, 92, 45,20,30);
   }
 }
