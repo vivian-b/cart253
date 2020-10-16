@@ -11,20 +11,14 @@ The higher the score, the faster the daggers fly! Good Luck~
 
 (all visual were self drawn)
 **************************************************/
-
+"use strict";
 var score = 0;
-let bg = (137, 237, 119);
-
-let state = `title`
-let intro = `press anywhere to start`
-let instruction = `(use arrowkeys to move around)`
-let restart = `press spacebar to restart`
-
 
     let user ={
       x: 350,
-      y: 280,
-      size: 40,
+      y: 250,
+      width: 45,
+      height:38,
       vx: 0,
       vy: 3,
       speed: 5,
@@ -76,6 +70,30 @@ let shadow ={
     height: 20,
     width: 45,
   }
+
+  let bg = (137, 237, 119);
+
+  let state = `title`
+  let intro = `press anywhere to start`
+  let instruction = `(use arrowkeys to move around)`
+  let restart = `press spacebar to restart`
+
+  let nomSFX;
+  let squeakSFX;
+
+  let myFont;
+  let img_idle;
+  let img_idlehit;
+  let img_dead;
+  let img_left;
+  let img_lefthit;
+  let img_right;
+  let img_righthit;
+  let img_carrot;
+  let img_dagger;
+  let img_title;
+  let img_carrotbun;
+  let img_daggerbun;
 
 ////////
 
@@ -240,15 +258,17 @@ function setupSimulation(){
 //Element Hitboxes
 
   //daggers hitbox
-    ellipse(daggerTop.x,daggerTop.y+10,daggerTop.width,daggerTop.height)
-    ellipse(daggerLeft.x+10,daggerLeft.y,daggerLeft.width,daggerLeft.height)
-    ellipse(daggerRight.x-10,daggerRight.y,daggerRight.width,daggerRight.height)
-
+  push ();
+  imageMode(CENTER);
+    ellipse(daggerTop.x,daggerTop.y,daggerTop.width,daggerTop.height)
+    ellipse(daggerLeft.x,daggerLeft.y,daggerLeft.width,daggerLeft.height)
+    ellipse(daggerRight.x,daggerRight.y,daggerRight.width,daggerRight.height)
+pop();
 //carrot hitbox
   ellipse(carrot.x,carrot.y,carrot.width,carrot.height)
 
 //user/bunny hitbox
-  ellipse(user.x,user.y+15, user.size+5, user.size-6);
+  ellipse(user.x,user.y, user.width, user.height);
 
 //Element Graphics
   push();
@@ -473,3 +493,5 @@ function backgroundField(){
     image(img_idle, 92, 45,20,30);
   }
 }
+
+console.log(daggerRight.vx);
