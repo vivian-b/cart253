@@ -14,10 +14,6 @@ class Clown {
     //displayclown(clown)
     //display the provided clown on the canvas
 
-    hitbox(){
-      ellipse(this.x, this.y, 4*(this.size/5), this.size);
-    }
-
      display(clown){
       push();
       noStroke();
@@ -75,4 +71,10 @@ class Clown {
       this.y = constrain(this.y, 160, height-160);
 
     }
-  }
+
+     checkForClown(clown){
+      if (dist(this.x,this.x,user.x,user.y) < 5) {
+        state = `gameover`
+        }
+      }
+}
