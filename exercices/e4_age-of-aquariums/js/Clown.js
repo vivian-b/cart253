@@ -8,7 +8,7 @@ class Clown {
           this.size = size;
           this.vx = 0;
           this.vy = 0;
-          this.speed = 4;
+          this.speed = 9;
         };
 
     //displayclown(clown)
@@ -64,7 +64,7 @@ class Clown {
 
       //constrain
       this.x = constrain (this.x, 0, width);
-      this.y = constrain(this.y, 150, height-150);
+      this.y = constrain(this.y, 160, height-160);
 
     }
   }
