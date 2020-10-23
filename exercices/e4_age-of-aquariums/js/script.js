@@ -6,7 +6,6 @@ Here is a description of this template p5 project.
 
 "use strict";
 
-
 let group = {
   clowns: [],
   numClowns: 13,
@@ -15,19 +14,19 @@ let group = {
 
 let user = {
     x: 350,
-     y: 0,
-     width: 30,
-     height:40,
-     vx: 0,
-     vy: 2,
-     speed: 4,
+   y: 0,
+   width: 30,
+   height:40,
+   vx: 0,
+   vy: 2,
+   speed: 4,
 }
 
 let state = `title`
 let intro = `Use arrow keys to run away from the clowns and reach the exit!`
 let intro2 = `click anywhere to start`
 let exit = `exit`
-let clear = `YOU RAN AWAY SUCCESSFULLY!`
+let clear = `YOU RAN AWAY SUCCESSFULLY!!!`
 let retry = `tap spacebar to retry`
 let caught = `YOU GOT CAUGHT`
 
@@ -45,7 +44,6 @@ createCanvas(700,700);
   let clown = new Clown(x,y,size);
   group.clowns.push(clown)
   }
-
 }
 
 // Description of draw() goes here.
@@ -73,8 +71,9 @@ function draw() {
     function titleScreen(){
       textSize(22);
       textAlign(CENTER);
-        fill(209, 153, 153);
+        fill(0, 200, 0);
         text(intro, width/2, height/2+110);
+        fill(50, 10, 0);
         text(intro2, width/2, height/2+200)
       }
 
@@ -85,15 +84,21 @@ function draw() {
         }
 
         function gameover(){
+        textSize(200);
+        textAlign(CENTER);
+        fill(200, 0, 0);
+        text(caught, width/2, 680);
         reset();
+
 }
 
       function gameclear(){
 
-        textSize(22);
+        textSize(30);
         textAlign(CENTER);
-          fill(209, 153, 153);
+          fill(0, 200, 0);
           text(clear, width/2, height/2+110);
+          textSize(22);
           text(retry, width/2, height/2+200)
 
       reset();
@@ -109,12 +114,12 @@ function simulation(){
 
       textSize(100);
       textAlign(CENTER);
-        fill(20, 60, 0);
-        text(exit, width/2, 680);
+      fill(20, 60, 0);
+      text(exit, width/2, 680);
 
-  handleInput();
-  setupSimulation();
-  userDisplay();
+      handleInput();
+      setupSimulation();
+      userDisplay();
 }
 
 function setupSimulation(){
@@ -195,8 +200,9 @@ function reset(){
   }
 }
 
-function checkForClown(clown){
- if (dist(group.clown.x,group.clown.x,user.x,user.y) < 5) {
-   state = `gameover`
-   }
- }
+// function checkForClown(clown){
+//   let d = dist(group.clown, group.clown, user.x, user.y);
+//  if (d < group.clown / 2 + user.size / 2) {
+//    state = `gameover`
+//    }
+//  }
