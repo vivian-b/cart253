@@ -9,7 +9,7 @@ Here is a description of this template p5 project.
 
 let group = {
   clowns: [],
-  numClowns: 9,
+  numClowns: 15,
 
 };
 
@@ -24,6 +24,7 @@ let user = {
 }
 
 let state = `title`
+let exit = `exit`
 
 // setup()
 //
@@ -62,7 +63,6 @@ function draw() {
 
    if (state ===`gameover`) {
       gameover();
-      reset();
     }
 }
     function titleScreen(){
@@ -77,20 +77,21 @@ function draw() {
 
       function gameplay(){
           simulation();
-              move();
-              checkForExit();
-
-
+          move();
+          checkForExit();
+          checkForClown();
         }
 
-      function gameover(){
-        setupSimulation();
+        function gameover(){
+        reset();
 }
 
-function gameclear(){
-  simulation();
+      function gameclear(){
+      reset();
+
 }
-        //Game States transition
+
+  //Game States transition
 function mousePressed(){
   if (state ===`title`)
     state = `gameplay`
@@ -99,10 +100,8 @@ function mousePressed(){
 function simulation(){
   handleInput();
   setupSimulation();
-  checkForClown();
   userDisplay();
 }
-
 
 function setupSimulation(){
   for (let j = 0; j < group.clowns.length; j++) {
@@ -166,17 +165,24 @@ function move(){
   user.y = user.y + user.vy;
 }
 
-function checkForClown(){
-
-//top dagger touch respawn
-  if (dist(user.x,user.y,group.clowns.x,group.clowns.y) <5) {
-    state =  `gameover`;
-    }
-  }
 
 function checkForExit(){
 if (user.y >= height-85){
   state = `gameclear`
 }
-
 }
+
+function reset(){
+      if (keyIsDown(32)) {
+      if ((state == `gameclear`) || (state ==`gameover`)){
+      state = `gameplay`;
+      user.y = 0
+    }
+  }
+}
+
+function checkForClown(){
+  if (dist(user.x,user.y,group.clowns.hitbox,group.clowns.hitbox) < 5) {
+    state = `gameover`
+    }
+  }
