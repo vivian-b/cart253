@@ -1,8 +1,8 @@
-class Fish {
+class Cat {
 
   constructor(x, y, size){
 
-    //createfish
+    //createcat
           this.x = x;
           this.y = y;
           this.size = size;
@@ -11,18 +11,18 @@ class Fish {
           this.speed = 2;
         };
 
-    //displayfish(fish)
-    //display the provided fish on the canvas
-     display(fish){
+    //displaycat(cat)
+    //display the provided cat on the canvas
+     display(cat){
       push();
-      fill(140,100,100);
+      fill(0,0,0);
       noStroke();
       ellipse(this.x, this.y, this.size);
       pop();
     }
 
-    //moveFish(fish)
-     move(fish){
+    //movecat(cat)
+     move(cat){
 
       //choose whether to change direction
       let change = random(0,1);
@@ -31,7 +31,7 @@ class Fish {
         this.vy = random(-this.speed, this.speed)
       }
 
-      // move the fish
+      // move the cat
       this.x = this.x + this.vx;
       this.y = this.y + this.vy;
 
