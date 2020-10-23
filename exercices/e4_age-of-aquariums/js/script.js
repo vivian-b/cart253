@@ -1,7 +1,7 @@
 /**************************************************
 Exercise 04: Age of aquariums
 
-Here is a description of this template p5 project.
+Run away from the clowns and reach the safety zone on the other side!
 **************************************************/
 
 "use strict";
@@ -9,7 +9,6 @@ Here is a description of this template p5 project.
 let group = {
   clowns: [],
   numClowns: 13,
-
 };
 
 let user = {
@@ -22,34 +21,38 @@ let user = {
    speed: 4,
 }
 
-let state = `title`
-let intro = `Use arrow keys to run away from the clowns and reach the exit!`
-let intro2 = `click anywhere to start`
-let exit = `exit`
-let clear = `YOU RAN AWAY SUCCESSFULLY!!!`
-let retry = `tap spacebar to retry`
-let caught = `YOU GOT CAUGHT`
+//text lines
 
-// setup()
-//
-// Description of setup() goes here.
-function setup() {
-createCanvas(700,700);
+    let state = `title`
+    let intro = `Use arrow keys to run away from the clowns and reach the exit!`
+    let intro2 = `click anywhere to start`
+    let exit = `exit`
+    let clear = `YOU RAN AWAY SUCCESSFULLY!!!`
+    let retry = `tap spacebar to retry`
+    let caught = `YOU GOT CAUGHT`
+
+
+// Setup: Clown grouping
+  function setup() {
+  createCanvas(700,700);
 
   for (let j = 0; j < group.numClowns; j++) {
-  let x = random(0,width);
-  let y = random(0,height);
-  let size = random(80,120);
+    group.numClowns = 13;
+    let x = random(0,width);
+    let y = random(0,height);
+    let size = random(80,120);
 
-  let clown = new Clown(x,y,size);
-  group.clowns.push(clown)
+    let clown = new Clown(x,y,size);
+
+    group.clowns.push(clown)
   }
 }
 
-// Description of draw() goes here.
+// Draw
 function draw() {
   background(0, 30, 0);
   backgroundField();
+
 
   //Game States
     if (state === `title`) {
@@ -68,6 +71,10 @@ function draw() {
       gameover();
     }
 }
+
+//game functions
+
+    //start screen
     function titleScreen(){
       textSize(22);
       textAlign(CENTER);
@@ -77,21 +84,24 @@ function draw() {
         text(intro2, width/2, height/2+200)
       }
 
+      //game screen
       function gameplay(){
           simulation();
           move();
           checkForExit();
+          clown.checkForClown();
         }
 
+        //bad end screen (gameover)
         function gameover(){
         textSize(200);
         textAlign(CENTER);
         fill(200, 0, 0);
         text(caught, width/2, 680);
         reset();
+        }
 
-}
-
+      //good end screen (gameclear)
       function gameclear(){
 
         textSize(30);
@@ -102,15 +112,15 @@ function draw() {
           text(retry, width/2, height/2+200)
 
       reset();
-}
+      }
 
   //Game States transition
-function mousePressed(){
-  if (state ===`title`)
-    state = `gameplay`
-}
+      function mousePressed(){
+        if (state ===`title`)
+        state = `gameplay`
+  }
 
-function simulation(){
+      function simulation(){
 
       textSize(100);
       textAlign(CENTER);
@@ -120,6 +130,8 @@ function simulation(){
       handleInput();
       setupSimulation();
       userDisplay();
+//      clown.checkForClown();
+
 }
 
 function setupSimulation(){
@@ -129,7 +141,6 @@ function setupSimulation(){
   clown.move(group[j]);
   }
 }
-
 
 function backgroundField(){
   push();
@@ -178,31 +189,30 @@ else {
 }
 
 function move(){
-
   //user movements
   user.x = user.x + user.vx;
   user.y = user.y + user.vy;
 }
 
 
-function checkForExit(){
-if (user.y >= height-85){
-  state = `gameclear`
-}
+    function checkForExit(){
+      if (user.y >= height-85){
+      state = `gameclear`
+  }
 }
 
-function reset(){
+    function reset(){
       if (keyIsDown(32)) {
       if ((state == `gameclear`) || (state ==`gameover`)){
       state = `gameplay`;
       user.y = 0
     }
   }
-}
+  }
 
 // function checkForClown(clown){
-//   let d = dist(group.clown, group.clown, user.x, user.y);
-//  if (d < group.clown / 2 + user.size / 2) {
+//   let d = dist(group.clown.x, group.clown.y, user.x, user.y);
+//   if (d < group.clown.size / 2 + user.size / 2) {
 //    state = `gameover`
 //    }
 //  }

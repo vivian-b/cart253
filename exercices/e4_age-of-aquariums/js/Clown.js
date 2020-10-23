@@ -73,9 +73,10 @@ class Clown {
     }
 
    checkForClown(clown){
-    let d = dist(group.clown, group.clown, user.x, user.y);
-     if (d < group.clown / 2 + user.size / 2) {
-       state = `gameover`
+    let d = dist(this.x, this.y, user.x, user.y);
+     if (d < this.size / 2 + user.size / 2) {
+       state === `gameover`
        }
      }
+
 }
