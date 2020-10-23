@@ -9,22 +9,27 @@ Here is a description of this template p5 project.
 
 let group = {
   clowns: [],
-  numClowns: 15,
+  numClowns: 13,
 
 };
 
 let user = {
     x: 350,
      y: 0,
-     width: 45,
-     height:38,
+     width: 30,
+     height:40,
      vx: 0,
      vy: 2,
      speed: 4,
 }
 
 let state = `title`
+let intro = `Use arrow keys to run away from the clowns and reach the exit!`
+let intro2 = `click anywhere to start`
 let exit = `exit`
+let clear = `YOU RAN AWAY SUCCESSFULLY!`
+let retry = `tap spacebar to retry`
+let caught = `YOU GOT CAUGHT`
 
 // setup()
 //
@@ -45,7 +50,7 @@ createCanvas(700,700);
 
 // Description of draw() goes here.
 function draw() {
-  background(155, 223, 250);
+  background(0, 30, 0);
   backgroundField();
 
   //Game States
@@ -66,14 +71,12 @@ function draw() {
     }
 }
     function titleScreen(){
-      push();
-        fill(255, 237, 212);
-        strokeWeight(7);
-        stroke(250, 213, 180);
-        rectMode(CENTER);
-        rect(width/2, height/2, 560, 350, 20);
-      pop();
-    }
+      textSize(22);
+      textAlign(CENTER);
+        fill(209, 153, 153);
+        text(intro, width/2, height/2+110);
+        text(intro2, width/2, height/2+200)
+      }
 
       function gameplay(){
           simulation();
@@ -86,8 +89,14 @@ function draw() {
 }
 
       function gameclear(){
-      reset();
 
+        textSize(22);
+        textAlign(CENTER);
+          fill(209, 153, 153);
+          text(clear, width/2, height/2+110);
+          text(retry, width/2, height/2+200)
+
+      reset();
 }
 
   //Game States transition
@@ -97,6 +106,12 @@ function mousePressed(){
 }
 
 function simulation(){
+
+      textSize(100);
+      textAlign(CENTER);
+        fill(20, 60, 0);
+        text(exit, width/2, 680);
+
   handleInput();
   setupSimulation();
   userDisplay();
@@ -114,14 +129,14 @@ function setupSimulation(){
 function backgroundField(){
   push();
   noStroke();
-  fill(100, 100, 100);
+  fill(20, 100, 20);
     rectMode(CENTER);
     rect(width/2, height/2, width, height-220);
   pop();
 }
 
 function userDisplay(){
-fill(0,0,0);
+fill(200,0,0);
 ellipse(user.x,user.y, user.width, user.height);
 
 user.x = constrain (user.x, 0, width);
