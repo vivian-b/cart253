@@ -19,6 +19,7 @@ let user = {
    vx: 0,
    vy: 2,
    speed: 4,
+   size:5
 }
 
 //text lines
@@ -40,7 +41,7 @@ let user = {
     group.numClowns = 13;
     let x = random(0,width);
     let y = random(0,height);
-    let size = random(80,120);
+    let size = random(60,100);
 
     let clown = new Clown(x,y,size);
 
@@ -89,12 +90,12 @@ function draw() {
           simulation();
           move();
           checkForExit();
-          clown.checkForClown();
+          clownCheck();
         }
 
         //bad end screen (gameover)
         function gameover(){
-        textSize(200);
+        textSize(60);
         textAlign(CENTER);
         fill(200, 0, 0);
         text(caught, width/2, 680);
@@ -210,9 +211,18 @@ function move(){
   }
   }
 
-// function checkForClown(clown){
-//   let d = dist(group.clown.x, group.clown.y, user.x, user.y);
-//   if (d < group.clown.size / 2 + user.size / 2) {
-//    state = `gameover`
-//    }
-//  }
+function clownCheck(){
+  let i;
+  for(i = 0; i < group.clowns.length ; i++){
+     let currClown = group.clowns[i];
+    // let xDist = currClown.x - user.x
+    // let yDist = currClown.y - user.y
+    // let dist = Math.sqrt(xDist + yDist * yDist);
+    // let valueToCmp = ((currClown.size) + user.size)
+    // if (dist < valueToCmp)
+    let d = dist(currClown.x, currClown.y, user.x, user.y);
+     if (d < currClown.size / 2 + user.size / 2) {
+   state = `gameover`
+   }
+ }
+}
