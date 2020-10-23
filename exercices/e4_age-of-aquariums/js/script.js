@@ -6,14 +6,10 @@ Here is a description of this template p5 project.
 
 "use strict";
 
-let aquarium = {
-  foods: [],
-  numFoods: 9,
-};
 
 let pond = {
-  cats: [],
-  numCats: 5,
+  clowns: [],
+  numClowns: 7,
 
 };
 
@@ -24,25 +20,13 @@ let pond = {
 function setup() {
 createCanvas(700,700);
 
-for (let i = 0; i < aquarium.numFoods; i++) {
-
-let x = random(0,width);
-let y = random(0,height);
-let size = random(25,30);
-
-
-let food = new Food(x,y,size);
-aquarium.foods.push(food)
-
-  }
-
-  for (let j = 0; j < pond.numCats; j++) {
+  for (let j = 0; j < pond.numClowns; j++) {
   let x = random(0,width);
   let y = random(0,height);
-  let size = random(70,100);
+  let size = random(80,120);
 
-  let cat = new Cat(x,y,size);
-  pond.cats.push(cat)
+  let clown = new Clown(x,y,size);
+  pond.clowns.push(clown)
 }
 }
 
@@ -51,18 +35,24 @@ aquarium.foods.push(food)
 // Description of draw() goes here.
 function draw() {
   background(155, 223, 250);
+  backgroundField();
 
 
-  for (let i = 0; i < aquarium.foods.length; i++) {
-    let food = aquarium.foods[i];
-  food.display(aquarium[i]);
-  food.move(aquarium[i]);
+
+
+for (let j = 0; j < pond.clowns.length; j++) {
+  let clown = pond.clowns[j];
+clown.display(pond[j]);
+clown.move(pond[j]);
+}
+
 
 }
 
-for (let j = 0; j < pond.cats.length; j++) {
-  let cat = pond.cats[j];
-cat.display(pond[j]);
-cat.move(pond[j]);
-}
+function backgroundField(){
+  push();
+  fill(255, 237, 212);
+    rectMode(CENTER);
+    rect(width/2, height/2, width, height-270);
+  pop();
 }
