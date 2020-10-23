@@ -72,9 +72,5 @@ class Clown {
 
     }
 
-     checkForClown(clown){
-      if (dist(this.x,this.x,user.x,user.y) < 5) {
-        state = `gameover`
-        }
-      }
+
 }

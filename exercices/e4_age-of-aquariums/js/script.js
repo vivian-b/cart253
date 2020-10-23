@@ -13,7 +13,15 @@ let group = {
 
 };
 
-let user = new User(x,y,size)
+let user = {
+    x: 350,
+     y: 0,
+     width: 45,
+     height:38,
+     vx: 0,
+     vy: 2,
+     speed: 4,
+}
 
 let state = `title`
 let exit = `exit`
@@ -71,7 +79,6 @@ function draw() {
           simulation();
           move();
           checkForExit();
-          clown.checkForClown();
         }
 
         function gameover(){
@@ -107,7 +114,7 @@ function setupSimulation(){
 function backgroundField(){
   push();
   noStroke();
-  fill(255, 237, 212);
+  fill(100, 100, 100);
     rectMode(CENTER);
     rect(width/2, height/2, width, height-220);
   pop();
@@ -172,3 +179,9 @@ function reset(){
     }
   }
 }
+
+function checkForClown(clown){
+ if (dist(group.clown.x,group.clown.x,user.x,user.y) < 5) {
+   state = `gameover`
+   }
+ }
