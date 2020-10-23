@@ -100,6 +100,9 @@ function draw() {
         fill(200, 0, 0);
         text(caught, width/2, 680);
         reset();
+        fill(20, 0, 0);
+        textSize(22);
+        text(retry, width/2, height/2+200)
         }
 
       //good end screen (gameclear)
@@ -215,11 +218,6 @@ function clownCheck(){
   let i;
   for(i = 0; i < group.clowns.length ; i++){
      let currClown = group.clowns[i];
-    // let xDist = currClown.x - user.x
-    // let yDist = currClown.y - user.y
-    // let dist = Math.sqrt(xDist + yDist * yDist);
-    // let valueToCmp = ((currClown.size) + user.size)
-    // if (dist < valueToCmp)
     let d = dist(currClown.x, currClown.y, user.x, user.y);
      if (d < currClown.size / 2 + user.size / 2) {
    state = `gameover`
