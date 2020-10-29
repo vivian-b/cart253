@@ -8,14 +8,15 @@ Here is a description of this template p5 project.
 "use strict";
 
 let basket = {
- balls: [],
- numBalls: 3,
+  balls: [],
+  numBalls: 3,
 };
 
 let gravityForce = 0.0025;
 let user;
 let catcher;
 
+let state = 'title'
 
 // setup()
 //
@@ -29,7 +30,9 @@ function setup() {
   for (let i = 0; i < basket.numBalls; i++) {
     let x = random(150, width);
     let y = random(-400, -100);
+
     let ball = new Ball(x, y);
+
     basket.balls.push(ball);
   }
 }
@@ -38,57 +41,72 @@ function setup() {
 //
 // Description of draw() goes here.
 function draw() {
-  background(0);
+  background(40);
 
+  //Game States
+  if (state === `title`) {
+    gameplay();
+  }
 
-//Game States
+  if (state === `gameclear`) {
+    gameclear();
+  }
 
-  // if (state === `title`) {
-  //       gameplay();
-  //     }
-  //
-  //   else if (state ===`gameclear`) {
-  //       gameclear();
-  //     }
-  //
-  //     else if (state ===`gameover`) {
-  //         gameover();
-  //       }
+  if (state === `gameover`) {
+    gameover();
+  }
+}
 
-  user.display();
+function gameplay() {
+
+  simulation();
+  gameDisplay();
+
+}
+
+function gameclear() {
+
+  gameDisplay();
+
+}
+
+function gameover() {
+
+  gameDisplay();
+
+}
+
+function mousePressed() {
+  if ((state === `gameclear`) || (state === `gameover`)){
+    state = `gameplay`}
+}
+
+function simulation() {
   user.move();
   user.handleInput();
+  setupSimulation();
 
-  catcher.display();
+}
 
-let i;
+function gameDisplay(){
+    user.display();
+    catcher.display();
+}
+
+function setupSimulation(){
+  let i;
   for (let i = 0; i < basket.balls.length; i++) {
     let ball = basket.balls[i];
     if (ball.active) {
       ball.gravity(gravityForce);
       ball.move();
       ball.bounce(user);
-
       ball.display();
+    }
+
+    let d = dist(ball.x, ball.y, catcher.x, catcher.y);
+    if (d < ball.size / 2 + catcher.height / 2) {
+  state = 'gameclear'
+    }
   }
-
-  let d = dist(ball.x, ball.y, catcher.x, catcher.y);
-  if (d < ball.size / 2 + catcher.height / 2) {
-    background(20);
-    pause();
-  }
-
-}
-
-  // function hoopCheck() {
-  //   let j;
-  //   for (j = 0; j < basket.balls.length; j++) {
-  //     let multipleBalls = basket.ball[i];
-  //     let d = dist(multipleBalls.x, multipleBalls.y, catcher.width, catcher.width);
-  //     if (d < multipleBalls.size / 2 + catcher.width / 2) {
-  //       background(20);
-  //     }
-  //
-  //   }
-  // }
 }
