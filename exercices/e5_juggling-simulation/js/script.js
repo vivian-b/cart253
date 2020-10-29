@@ -8,9 +8,10 @@ Here is a description of this template p5 project.
 "use strict";
 
 let gravityForce = 0.0025;
-let paddle;
+let paddle1;
+let paddle2;
 let balls = [];
-let numBalls = 3;
+let numBalls = 5;
 
 // setup()
 //
@@ -18,7 +19,8 @@ let numBalls = 3;
 function setup() {
   createCanvas(600, 600),
 
-    paddle = new Paddle(300, 20);
+    paddle1 = new PaddleBot(50, 30);
+    paddle2 = new PaddleTop(90, 40);
 
   for (let i = 0; i < numBalls; i++) {
     let x = random(0, width);
@@ -34,15 +36,20 @@ function setup() {
 function draw() {
   background(0);
 
-  paddle.move();
-  paddle.display();
+  paddle1.display();
+  paddle1.move();
+
+  paddle2.display();
+
 
   for (let i = 0; i < balls.length; i++) {
     let ball = balls[i];
     if (ball.active) {
       ball.gravity(gravityForce);
       ball.move();
-      ball.bounce(paddle);
+      ball.bounce(paddle1);
+      ball.bounce(paddle2);
+
       ball.display();
     }
   }

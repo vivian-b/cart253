@@ -23,8 +23,8 @@ class Ball {
     this.vy = this.vy + this.ay;
 
     //limit the velocity
-    this.vx = constrain(this.vx, -this.maxSpeed, -this.maxSpeed);
-    this.vy = constrain(this.vy, -this.maxSpeed, -this.maxSpeed);
+    this.vx = constrain(this.vx, -this.maxSpeed, this.maxSpeed);
+    this.vy = constrain(this.vy, -this.maxSpeed, this.maxSpeed);
 
     //allow the object to move by combining the speed + movement
     this.x = this.x + this.vx;
@@ -35,18 +35,17 @@ class Ball {
     }
   }
 
-  bounce(paddle) {
-    if (this.x > paddle.x - paddle.width / 2 &&
-      this.x < paddle.x + paddle.width / 2 &&
-    this.y + this.size/2 > paddle.y - paddle.height/2 &&
-    this.y - this.size/2 < paddle.y + paddle.height/2
+  bounce(paddle1) {
+    if (this.x > paddle1.x - paddle1.width / 2 &&
+      this.x < paddle1.x + paddle1.width / 2 &&
+    this.y + this.size/2 > paddle1.y - paddle1.height/2 &&
+    this.y - this.size/2 < paddle1.y + paddle1.height/2
   ) {
 
 
-
     //bouncing
-    let dx = this.x - paddle.x;
-    this.vx = this.vx + map(dx,-paddle.width/2,paddle.width/2,-2,2);
+    let dx = this.x - paddle1.x;
+    this.vx = this.vx + map(dx,-paddle1.width/2,paddle1.width/2,-2,2);
 
     this.vy = -this.vy;
     this.ay = 0
