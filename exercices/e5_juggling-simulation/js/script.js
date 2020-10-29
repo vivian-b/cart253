@@ -16,14 +16,14 @@ let numBalls = 3;
 //
 // Description of setup() goes here.
 function setup() {
-  createCanvas(600,600),
+  createCanvas(600, 600),
 
-  paddle = new Paddle(300,20);
+    paddle = new Paddle(300, 20);
 
-  for (let i = 0; i < numBalls; i++){
-    let x = random(0,width);
-    let y = random(-400,-100);
-    let ball = new Ball(x,y);
+  for (let i = 0; i < numBalls; i++) {
+    let x = random(0, width);
+    let y = random(-400, -100);
+    let ball = new Ball(x, y);
     balls.push(ball);
   }
 }
@@ -37,12 +37,13 @@ function draw() {
   paddle.move();
   paddle.display();
 
-  for (let i = 0; i < balls.length; i++){
+  for (let i = 0; i < balls.length; i++) {
     let ball = balls[i];
-    ball.gravity(gravityForce);
-    ball.move();
-    ball.bounce();
-    ball.display();
-
-}
+    if (ball.active) {
+      ball.gravity(gravityForce);
+      ball.move();
+      ball.bounce(paddle);
+      ball.display();
+    }
+  }
 }
