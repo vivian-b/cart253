@@ -8,8 +8,8 @@ Here is a description of this template p5 project.
 "use strict";
 
 let gravityForce = 0.0025;
-let paddle1;
-let paddle2;
+let user;
+let catcher;
 let balls = [];
 let numBalls = 5;
 
@@ -19,8 +19,8 @@ let numBalls = 5;
 function setup() {
   createCanvas(600, 600),
 
-    paddle1 = new PaddleBot(50, 30);
-    paddle2 = new PaddleTop(90, 40);
+    user = new Player(50, 30);
+  catcher = new Hoop(90, 40);
 
   for (let i = 0; i < numBalls; i++) {
     let x = random(0, width);
@@ -36,10 +36,26 @@ function setup() {
 function draw() {
   background(0);
 
-  paddle1.display();
-  paddle1.move();
 
-  paddle2.display();
+//Game States
+
+  // if (state === `title`) {
+  //       gameplay();
+  //     }
+  //
+  //   else if (state ===`gameclear`) {
+  //       gameclear();
+  //     }
+  //
+  //     else if (state ===`gameover`) {
+  //         gameover();
+  //       }
+
+  user.display();
+  user.move();
+  user.handleInput();
+
+  catcher.display();
 
 
   for (let i = 0; i < balls.length; i++) {
@@ -47,10 +63,21 @@ function draw() {
     if (ball.active) {
       ball.gravity(gravityForce);
       ball.move();
-      ball.bounce(paddle1);
-      ball.bounce(paddle2);
+      ball.bounce(user);
 
       ball.display();
+    }
+  }
+
+  function hoopCheck() {
+    let j;
+    for (j = 0; j < balls.ball.length; j++) {
+      let currBalls = balls.ball[i];
+      let d = dist(currBalls.x, currBalls.y, catcher.x, catcher.y);
+      if (d < currBalls.size / 2 + catcher.size / 2) {
+        state = `scored`
+      }
+
     }
   }
 }

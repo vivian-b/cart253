@@ -1,4 +1,4 @@
-class PaddleTop {
+class Hoop {
 
   constructor(w, h) {
     this.width = w;
