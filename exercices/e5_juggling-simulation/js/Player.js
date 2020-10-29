@@ -31,7 +31,7 @@ class Player {
     fill(255);
     rect(this.x, this.y, this.width, this.height);
 
-    this.x = constrain(this.x, 150, width-30);
+    this.x = constrain(this.x, 125, width-30);
     this.y = constrain(this.y, height-5, width);
 
     pop();

@@ -9,7 +9,7 @@ Here is a description of this template p5 project.
 
 let basket = {
  balls: [],
- numBalls: 5,
+ numBalls: 3,
 };
 
 let gravityForce = 0.0025;
@@ -24,10 +24,10 @@ function setup() {
   createCanvas(600, 600),
 
     user = new Player(50, 30);
-  catcher = new Hoop(90, 40);
+  catcher = new Hoop(90, 20);
 
   for (let i = 0; i < basket.numBalls; i++) {
-    let x = random(0, width);
+    let x = random(150, width);
     let y = random(-400, -100);
     let ball = new Ball(x, y);
     basket.balls.push(ball);
@@ -73,7 +73,7 @@ let i;
   }
 
   let d = dist(ball.x, ball.y, catcher.x, catcher.y);
-  if (d < ball.size / 2 + catcher.width / 2) {
+  if (d < ball.size / 2 + catcher.height / 2) {
     background(20);
     pause();
   }
