@@ -29,6 +29,7 @@ let state = 'title'
 let intro = `Juggle the balls to the hoop!`
 let intro2 = `do not let any of them fall before scoring!`
 let intro3 = `(use arrow keys to move around)`
+let intro4 = `click anywhere to start`
 let clear = 'GG! :)'
 let fail = 'GG. :('
 let retry = `click anywhere to restart`
@@ -86,6 +87,7 @@ function titlescreen() {
   textSize(22);
   text(intro2, width / 2, height / 2 + 200)
   text(intro3, width / 2, height / 2 + 230)
+  text(intro4, width / 2, height / 2 + 260)
 }
 
 //Gameplay screen (main state)
@@ -127,12 +129,9 @@ function gameover() {
 
 //Resetting state / Starting game through first state
 function mousePressed() {
-  if ((state === `gameclear`) || (state === `gameover`)) {
-    state = `title`;
-
-  } else if (state === `title`) {
-    state = `gameplay`
-  }
+  if ((state === `gameclear`) || (state === `gameover`) || (state === `title`)) {
+    state = `gameplay`;
+}
 }
 
 //Gameplay components
