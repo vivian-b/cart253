@@ -12,7 +12,6 @@ class Ball {
     this.active = true;
     this.fall = false;
 
-
   }
 
   gravity(force) {
@@ -63,10 +62,10 @@ class Ball {
 
   display() {
     push();
-    fill(200, 50, 50);
-    stroke(0);
+    fill(252, 144, 3);
+    stroke(20);
     ellipse(this.x, this.y, this.size);
-    this.x = constrain(this.x, 0, width);
+    this.x = constrain(this.x, -20, width);
 
     pop();
   }

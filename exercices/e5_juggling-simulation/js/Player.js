@@ -1,8 +1,8 @@
 class Player {
 
   constructor(x,y) {
-    this.width = 50;
-    this.height = 30;
+    this.width = 70;
+    this.height = 50;
 
     this.x = x;
     this.y = height;
@@ -26,9 +26,9 @@ class Player {
 
 
     //head
-    rect(this.x, this.y - 40, this.width - 10, this.height + 5);
+    rect(this.x, this.y - 65, this.width - 10, this.height + 5);
 
-    this.x = constrain(this.x, 110, width-30);
+    this.x = constrain(this.x, 110, width+20);
     this.y = constrain(this.y, height-5, width);
 
     pop();
