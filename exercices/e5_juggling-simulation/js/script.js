@@ -17,8 +17,11 @@ let user;
 let catcher;
 
 let state = 'title'
-let intro = `Bounce the ball into the hoop!`
-let intro2 = `use arrow keys to move around`
+let intro = `Juggle the balls to the hoop!`
+let intro2 = `do not let any of them fall before scoring`
+let intro3 = `(use arrow keys to move around)`
+let clear = 'GG! :)'
+let fail = 'GG. :('
 let retry = `click anywhere to restart`
 
 
@@ -32,7 +35,7 @@ function setup() {
   catcher = new Hoop(90, 20);
 
   for (let i = 0; i < basket.numBalls; i++) {
-    let x = random(500, width);
+    let x = random(550, width-40);
     let y = random(-400, -100);
 
     let ball = new Ball(x, y);
@@ -49,38 +52,73 @@ function draw() {
 
   //Game States
   if (state === `title`) {
-    gameplay();
+    titlescreen();
   }
 
-  if (state === `gameclear`) {
+  else if (state === 'gameplay'){
+    gameplay();
+
+  }
+
+else  if (state === `gameclear`) {
     gameclear();
   }
 
-  if (state === `gameover`) {
+else  if (state === `gameover`) {
     gameover();
+
   }
+}
+
+function titlescreen(){
+  textSize(30);
+        textAlign(CENTER);
+        fill(252, 169, 3);
+          text(intro, width/2, height/2+110);
+          textSize(22);
+          text(intro2, width/2, height/2+200)
+          text(intro3, width/2, height/2+250)
 }
 
 function gameplay() {
 
   simulation();
   gameDisplay();
-
 }
 
 function gameclear() {
 
+  textSize(50);
+        textAlign(CENTER);
+          fill(252, 169, 3);
+          text(clear, width/2, height/2);
+
+
   gameDisplay();
+  reset();
+
 }
 
 function gameover() {
 
+  textSize(50);
+        textAlign(CENTER);
+        fill(252, 169, 3);
+          text(fail, width/2, height/2+50);
+
   gameDisplay();
+  reset();
 }
 
 function mousePressed() {
   if ((state === `gameclear`) || (state === `gameover`)){
-    state = `title`}
+    state = `title`;
+
+    }
+
+    else if  (state === `title`){
+      state = `gameplay`
+    }
 }
 
 function simulation() {
@@ -109,8 +147,8 @@ function ballSimulation(){
     }
 
     if (ball.y > height){
-      state = 'gameover'
-    }
+      state = 'gameover';
+      }
 
     // if(ball.fall){
     //    state = 'gameover'
@@ -123,6 +161,13 @@ function ballSimulation(){
   }
 }
 
+function reset(){
+  for (let i = 0; i < basket.balls.length; i++) {
+    let ball = basket.balls[i];
+  ball.y = random(-400, -500);
+
+}
+}
   // I could not figure out how to make it so it only ends after every balls have fallen instead of a single one
 
 // function ballFall(){

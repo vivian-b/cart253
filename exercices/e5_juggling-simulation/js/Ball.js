@@ -32,7 +32,7 @@ class Ball {
     this.x = this.x + this.vx;
     this.y = this.y + this.vy;
 
-    if(this.y - this.size/2 > height){
+    if (this.y - this.size / 2 > height) {
       this.active = false;
     }
   }
@@ -40,21 +40,21 @@ class Ball {
   bounce(player) {
     if (this.x > player.x - player.width / 2 &&
       this.x < player.x + player.width / 2 &&
-    this.y + this.size/2 > player.y - player.height/2 &&
-    this.y - this.size/2 < player.y + player.height/2
-  ) {
+      this.y + this.size / 2 > player.y - player.height / 2 &&
+      this.y - this.size / 2 < player.y + player.height / 2
+    ) {
 
 
-    //bouncing
-    let dx = this.x - player.x;
-    this.vx = this.vx + map(dx,-player.width/2,player.width/2,-2,2);
+      //bouncing
+      let dx = this.x - player.x;
+      this.vx = this.vx + map(dx, -player.width / 2, player.width / 2, -2, 2);
 
-    this.vy = -this.vy;
-    this.ay = 0
+      this.vy = -this.vy;
+      this.ay = 0
 
     }
   }
-  // 
+  //
   // fallen(){
   //   if (this.y > height){
   //     this.fall = true;

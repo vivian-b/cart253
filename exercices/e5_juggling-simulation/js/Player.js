@@ -8,7 +8,7 @@ class Player {
     this.y = height;
     this.vx = 0;
     this.vy = 2;
-    this.speed = 4;
+    this.speed = 5;
   }
 
 
