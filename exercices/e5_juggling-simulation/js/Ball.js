@@ -10,6 +10,8 @@ class Ball {
     this.maxSpeed = 10;
     this.size = 40;
     this.active = true;
+    this.fall = false;
+
 
   }
 
@@ -52,12 +54,20 @@ class Ball {
 
     }
   }
+  // 
+  // fallen(){
+  //   if (this.y > height){
+  //     this.fall = true;
+  //   }
+  // }
 
   display() {
     push();
     fill(200, 50, 50);
     stroke(0);
     ellipse(this.x, this.y, this.size);
+    this.x = constrain(this.x, 0, width);
+
     pop();
   }
 }

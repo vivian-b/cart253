@@ -1,6 +1,6 @@
 class Player {
 
-  constructor(x,y,) {
+  constructor(x,y) {
     this.width = 50;
     this.height = 30;
 
@@ -18,20 +18,17 @@ class Player {
     noStroke();
     rectMode(CENTER);
 
-    //head
-    rect(this.x, this.y - 40, this.width - 10, this.height + 5);
 
-    //mouth
-    fill(0);
-    ellipse(this.x - 17, this.y - 32, 15, 10);
-    fill(255);
-    rect(this.x - 15, this.y - 37, 10, 5);
 
     //body
     fill(255);
     rect(this.x, this.y, this.width, this.height);
 
-    this.x = constrain(this.x, 125, width-30);
+
+    //head
+    rect(this.x, this.y - 40, this.width - 10, this.height + 5);
+
+    this.x = constrain(this.x, 110, width-30);
     this.y = constrain(this.y, height-5, width);
 
     pop();

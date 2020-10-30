@@ -9,7 +9,7 @@ Here is a description of this template p5 project.
 
 let basket = {
   balls: [],
-  numBalls: 3,
+  numBalls: 2,
 };
 
 let gravityForce = 0.0025;
@@ -17,6 +17,10 @@ let user;
 let catcher;
 
 let state = 'title'
+let intro = `Bounce the ball into the hoop!`
+let intro2 = `use arrow keys to move around`
+let retry = `click anywhere to restart`
+
 
 // setup()
 //
@@ -24,11 +28,11 @@ let state = 'title'
 function setup() {
   createCanvas(600, 600),
 
-    user = new Player(50, 30);
+    user = new Player(350, 30);
   catcher = new Hoop(90, 20);
 
   for (let i = 0; i < basket.numBalls; i++) {
-    let x = random(150, width);
+    let x = random(500, width);
     let y = random(-400, -100);
 
     let ball = new Ball(x, y);
@@ -67,25 +71,23 @@ function gameplay() {
 function gameclear() {
 
   gameDisplay();
-
 }
 
 function gameover() {
 
   gameDisplay();
-
 }
 
 function mousePressed() {
   if ((state === `gameclear`) || (state === `gameover`)){
-    state = `gameplay`}
+    state = `title`}
 }
 
 function simulation() {
   user.move();
   user.handleInput();
-  setupSimulation();
-
+  ballSimulation();
+  // ballFall();
 }
 
 function gameDisplay(){
@@ -93,8 +95,9 @@ function gameDisplay(){
     catcher.display();
 }
 
-function setupSimulation(){
+function ballSimulation(){
   let i;
+
   for (let i = 0; i < basket.balls.length; i++) {
     let ball = basket.balls[i];
     if (ball.active) {
@@ -102,11 +105,39 @@ function setupSimulation(){
       ball.move();
       ball.bounce(user);
       ball.display();
+      // ball.fallen();
     }
 
+    if (ball.y > height){
+      state = 'gameover'
+    }
+
+    // if(ball.fall){
+    //    state = 'gameover'
+    // }
+
     let d = dist(ball.x, ball.y, catcher.x, catcher.y);
-    if (d < ball.size / 2 + catcher.height / 2) {
+    if (d < ball.size / 2 + catcher.height) {
   state = 'gameclear'
     }
   }
 }
+
+  // I could not figure out how to make it so it only ends after every balls have fallen instead of a single one
+
+// function ballFall(){
+//   if (basket.balls.y > height){
+//     state = 'gameover'
+// }
+// }
+
+// function ballFall(){
+// let i;
+//
+// for (let i = 0; i < basket.balls.y; i++) {
+//   let ball = basket.balls[i];
+//   if (basket.balls.y > height){
+//     state = 'gameover'
+// }
+// }
+//  }
