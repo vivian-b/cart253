@@ -4,7 +4,7 @@ class Player {
     this.size = 70;
 
     this.x = x;
-    this.y = height;
+    this.y = y;
     this.vx = 0;
     this.vy = 2;
     this.speed = 5;
@@ -15,10 +15,6 @@ class Player {
     push();
     fill(255);
     noStroke();
-    rectMode(CENTER);
-
-    //body
-    fill(255);
     ellipse(this.x, this.y, this.size);
 
     pop();
