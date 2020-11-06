@@ -329,7 +329,7 @@ function simulation() {
 }
 
 function entranceDisplay() {
-  background(90, 100, 100);
+  background(87, 87, 87);
   textSize(40);
   textAlign(CENTER);
   fill(252);
@@ -342,7 +342,7 @@ function entranceDisplay() {
 }
 
 function room1Display() {
-  background(100, 150, 100);
+  background(130, 130, 130);
   textSize(40);
   textAlign(CENTER);
   fill(252);
@@ -352,7 +352,7 @@ function room1Display() {
 }
 
 function room2Display() {
-  background(100, 150, 0);
+  background(130, 130, 130);
   textSize(40);
   textAlign(CENTER);
   fill(252);
@@ -363,7 +363,7 @@ function room2Display() {
 }
 
 function room3Display() {
-  background(100, 150, 100);
+  background(130, 130, 130);
   textSize(40);
   textAlign(CENTER);
   fill(252);
@@ -373,7 +373,7 @@ function room3Display() {
 }
 
 function room4Display() {
-  background(90, 100, 100);
+  background(87, 87, 87);
   textSize(40);
   textAlign(CENTER);
   fill(252);
@@ -384,7 +384,7 @@ function room4Display() {
 }
 
 function room6Display() {
-  background(90, 100, 100);
+  background(87, 87, 87);
   textSize(40);
   textAlign(CENTER);
   fill(252);
@@ -395,7 +395,7 @@ function room6Display() {
 }
 
 function room7Display() {
-  background(50, 100, 100);
+  background(69, 69, 69);
   textSize(40);
   textAlign(CENTER);
   fill(252);
@@ -405,7 +405,7 @@ function room7Display() {
 }
 
 function room8Display() {
-  background(50, 100, 100);
+  background(69, 69, 69);
   textSize(40);
   textAlign(CENTER);
   fill(252);
@@ -416,7 +416,7 @@ function room8Display() {
 }
 
 function room9Display() {
-  background(50, 100, 100);
+  background(69, 69, 69);
   textSize(40);
   textAlign(CENTER);
   fill(252);
