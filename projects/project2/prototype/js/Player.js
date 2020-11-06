@@ -5,7 +5,7 @@ class Player {
 
     this.x = x;
     this.y = y;
-    this.vx = 0;
+    this.vx = 2;
     this.vy = 2;
     this.speed = 5;
   }

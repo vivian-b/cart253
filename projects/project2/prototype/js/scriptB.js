@@ -65,7 +65,7 @@ function setup() {
 function draw() {
 
   if (state === `title`) {
-    room7();
+    room8();
   } else if (state === `room1`) {
     room1();
   } else if (state === `room2`) {
@@ -96,13 +96,12 @@ function room1() {
   room1Display();
   simulation();
 
-
-  // let bd = dist(user.x, user.y, bottomPortal.x, bottomPortal.y);
-  // if (bd < bottomPortal.size / 2 + user.size / 2) {
-  //   state = "room4";
-  //   user.y = exitBottomY
-  //   user.x = exitBottomX
-  // }
+  let bd = dist(user.x, user.y, bottomPortal.x, bottomPortal.y);
+  if (bd < bottomPortal.size / 2 + user.size / 2) {
+    state = "room4";
+    user.y = exitBottomY
+    user.x = exitBottomX
+  }
 
   let rd = dist(user.x, user.y, rightPortal.x, rightPortal.y);
   if (rd < rightPortal.size / 2 + user.size / 2) {
@@ -168,12 +167,12 @@ function room4() {
 
 
 
-  // let td = dist(user.x, user.y, topPortal.x, topPortal.y);
-  // if (td < topPortal.size / 2 + user.size / 2) {
-  //   state = "room1";
-  //   user.y = exitTopY
-  //   user.x = exitTopX
-  // }
+  let td = dist(user.x, user.y, topPortal.x, topPortal.y);
+  if (td < topPortal.size / 2 + user.size / 2) {
+    state = "room1";
+    user.y = exitTopY
+    user.x = exitTopX
+  }
 
   let bd = dist(user.x, user.y, bottomPortal.x, bottomPortal.y);
   if (bd < bottomPortal.size / 2 + user.size / 2) {
@@ -210,19 +209,19 @@ function room5() {
     user.x = exitLeftX
   }
 
-  let rd = dist(user.x, user.y, rightPortal.x, rightPortal.y);
-  if (rd < rightPortal.size / 2 + user.size / 2) {
-    state = "room6";
-    user.y = exitRightY
-    user.x = exitRightX
-  }
-
-  // let bd = dist(user.x, user.y, bottomPortal.x, bottomPortal.y);
-  // if (bd < bottomPortal.size / 2 + user.size / 2) {
-  //   state = "room8";
-  //   user.y = exitBottomY
-  //   user.x = exitBottomX
+  // let rd = dist(user.x, user.y, rightPortal.x, rightPortal.y);
+  // if (rd < rightPortal.size / 2 + user.size / 2) {
+  //   state = "room6";
+  //   user.y = exitRightY
+  //   user.x = exitRightX
   // }
+
+  let bd = dist(user.x, user.y, bottomPortal.x, bottomPortal.y);
+  if (bd < bottomPortal.size / 2 + user.size / 2) {
+    state = "room8";
+    user.y = exitBottomY
+    user.x = exitBottomX
+  }
 
 }
 
@@ -231,13 +230,13 @@ function room6() {
   simulation();
 
 
-  let ld = dist(user.x, user.y, leftPortal.x, leftPortal.y);
-  if (ld < leftPortal.size / 2 + user.size / 2) {
-    state = "room5";
-    user.y = exitLeftY
-    user.x = exitLeftX
-
-  }
+  // let ld = dist(user.x, user.y, leftPortal.x, leftPortal.y);
+  // if (ld < leftPortal.size / 2 + user.size / 2) {
+  //   state = "room5";
+  //   user.y = exitLeftY
+  //   user.x = exitLeftX
+  //
+  // }
 
   let bd = dist(user.x, user.y, bottomPortal.x, bottomPortal.y);
   if (bd < bottomPortal.size / 2 + user.size / 2) {
@@ -281,31 +280,31 @@ function room8() {
   room8Display();
   simulation();
 
-  // let td = dist(user.x, user.y, topPortal.x, topPortal.y);
-  // if (td < topPortal.size / 2 + user.size / 2) {
-  //   state = "room5";
-  //   user.y = exitTopY
-  //   user.x = exitTopX
-  // }
-  //
+  let td = dist(user.x, user.y, topPortal.x, topPortal.y);
+  if (td < topPortal.size / 2 + user.size / 2) {
+    state = "room5";
+    user.y = exitTopY
+    user.x = exitTopX
+  }
+
   // let ld = dist(user.x, user.y, leftPortal.x, leftPortal.y);
   // if (ld < leftPortal.size / 2 + user.size / 2) {
   //   state = "room7";
   //   user.y = exitLeftY
   //   user.x = exitLeftX
   // }
+  //
+  // let rd = dist(user.x, user.y, rightPortal.x, rightPortal.y);
+  // if (rd < rightPortal.size / 2 + user.size / 2) {
+  //   state = "room9";
+  //   user.y = exitRightY
+  //   user.x = exitRightX
+//  }
 
-  let rd = dist(user.x, user.y, rightPortal.x, rightPortal.y);
-  if (rd < rightPortal.size / 2 + user.size / 2) {
-    state = "room9";
-    user.y = exitRightY
-    user.x = exitRightX
-  }
-
-  let ed = dist(user.x, user.y, exitPortal.x, exitPortal.y);
-  if (ed < exitPortal.size / 2 + user.size / 2) {
-    state = "clear";
-}
+//   let ed = dist(user.x, user.y, exitPortal.x, exitPortal.y);
+//   if (ed < exitPortal.size / 2 + user.size / 2) {
+//     state = "clear";
+// }
 }
 
 function room9() {
@@ -320,11 +319,16 @@ function room9() {
     user.x = exitTopX
   }
 
-  let ld = dist(user.x, user.y, leftPortal.x, leftPortal.y);
-  if (ld < leftPortal.size / 2 + user.size / 2) {
-    state = "room8";
-    user.y = exitLeftY
-    user.x = exitLeftX
+  // let ld = dist(user.x, user.y, leftPortal.x, leftPortal.y);
+  // if (ld < leftPortal.size / 2 + user.size / 2) {
+  //   state = "room8";
+  //   user.y = exitLeftY
+  //   user.x = exitLeftX
+  // }
+
+    let ed = dist(user.x, user.y, exitPortal.x, exitPortal.y);
+    if (ed < exitPortal.size / 2 + user.size / 2) {
+      state = "clear";
   }
 }
 
@@ -340,7 +344,7 @@ function room1Display() {
   textAlign(CENTER);
   fill(252);
   text(roomN1, width / 2, height / 2);
-  // bottomPortal.display();
+  bottomPortal.display();
   rightPortal.display();
 }
 
@@ -371,7 +375,7 @@ function room4Display() {
   textAlign(CENTER);
   fill(252);
   text(roomN4, width / 2, height / 2);
-  // topPortal.display();
+  topPortal.display();
   bottomPortal.display();
   rightPortal.display();
 }
@@ -385,8 +389,8 @@ function room5Display() {
 
   topPortal.display();
   leftPortal.display();
-  rightPortal.display();
-  // bottomPortal.display();
+  // rightPortal.display();
+  bottomPortal.display();
 
 }
 
@@ -396,7 +400,7 @@ function room6Display() {
   textAlign(CENTER);
   fill(252);
   text(roomN6, width / 2, height / 2);
-  leftPortal.display();
+  // leftPortal.display();
   topPortal.display();
   bottomPortal.display();
 }
@@ -413,27 +417,29 @@ function room7Display() {
 
 function room8Display() {
   background(69, 69, 69);
-  exitPortal.display();
+  // exitPortal.display();
 
   textSize(40);
   textAlign(CENTER);
   fill(252);
   text(roomN8, width / 2, height / 2);
 
-  // topPortal.display();
+  topPortal.display();
   // leftPortal.display();
-  rightPortal.display();
+  // rightPortal.display();
 }
 
 function room9Display() {
   background(69, 69, 69);
+  exitPortal.display();
+
   textSize(40);
   textAlign(CENTER);
   fill(252);
   text(roomN9, width / 2, height / 2);
 
   topPortal.display();
-  leftPortal.display();
+  // leftPortal.display();
 }
 
 function gameclear(){
