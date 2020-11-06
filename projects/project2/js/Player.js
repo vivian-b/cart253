@@ -1,7 +1,7 @@
 class Player {
 
   constructor(x,y) {
-    this.size = 70;
+    this.size = 40;
 
     this.x = x;
     this.y = y;

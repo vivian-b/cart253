@@ -1,7 +1,7 @@
 class Portal {
 
   constructor(x,y) {
-    this.size = 70;
+    this.size = 35;
 
     this.x = x;
     this.y = y;
