@@ -57,7 +57,6 @@ function setup() {
   rightPortal = new Portal(width, height / 2);
   bottomPortal = new Portal(width / 2, height);
 
-
 }
 
 
@@ -67,7 +66,7 @@ function setup() {
 function draw() {
 
   if (state === `title`) {
-    gameEntrance();
+    room7();
   } else if (state === `room1`) {
     room1();
   } else if (state === `room2`) {
@@ -76,6 +75,8 @@ function draw() {
     room3();
   } else if (state === `room4`) {
     room4();
+  } else if (state === `room5`) {
+    room5();
   } else if (state === `room6`) {
     room6();
   } else if (state === `room7`) {
@@ -88,7 +89,7 @@ function draw() {
 
 }
 
-function gameEntrance() {
+function room5() {
   entranceDisplay();
   simulation();
 
@@ -151,7 +152,7 @@ function room2() {
 
   let bd = dist(user.x, user.y, bottomPortal.x, bottomPortal.y);
   if (bd < bottomPortal.size / 2 + user.size / 2) {
-    state = "title";
+    state = "room5";
     user.y = exitBottomY
     user.x = exitBottomX
   }
@@ -216,7 +217,7 @@ function room4() {
 
   let rd = dist(user.x, user.y, rightPortal.x, rightPortal.y);
   if (rd < rightPortal.size / 2 + user.size / 2) {
-    state = "title";
+    state = "room5";
     user.y = exitRightY
     user.x = exitRightX
   }
@@ -230,7 +231,7 @@ function room6() {
 
   let ld = dist(user.x, user.y, leftPortal.x, leftPortal.y);
   if (ld < leftPortal.size / 2 + user.size / 2) {
-    state = "title";
+    state = "room5";
     user.y = exitLeftY
     user.x = exitLeftX
 
@@ -282,7 +283,7 @@ function room8() {
 
   let td = dist(user.x, user.y, topPortal.x, topPortal.y);
   if (td < topPortal.size / 2 + user.size / 2) {
-    state = "title";
+    state = "room5";
     user.y = exitTopY
     user.x = exitTopX
   }
