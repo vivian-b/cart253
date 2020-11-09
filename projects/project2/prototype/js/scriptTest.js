@@ -46,6 +46,13 @@ let cleared = 'YAY!'
 //states
 let state = 'title'
 
+//randomize
+var mazeStart = [
+  "room7A",
+  "room8B",
+  "room9C"
+];
+
 // setup()
 //Adding User & Portals class
 function setup() {
@@ -65,7 +72,7 @@ function setup() {
 function draw() {
 
   if (state === `title`) {
-    room1();
+    entranceRoom9();
 
     // Layout A: States
   } else if (state === `room1A`) {
@@ -81,9 +88,9 @@ function draw() {
   } else if (state === `room6A`) {
     room6();
   } else if (state === `room7A`) {
-    room7();
+    entranceRoom7();
   } else if (state === `room8A`) {
-    room8();
+    exitRoom8();
   } else if (state === `room9A`) {
     room9();
   }
@@ -104,9 +111,9 @@ function draw() {
   } else if (state === `room7B`) {
     room7();
   } else if (state === `room8B`) {
-    room8();
+    entranceRoom8();
   } else if (state === `room9B`) {
-    room9();
+    exitRoom9();
   }
 
   // Layout C: States
@@ -117,7 +124,7 @@ function draw() {
   } else if (state === `room3C`) {
     room3();
   } else if (state === `room4C`) {
-    room4();
+    exitRoom4();
   } else if (state === `room5C`) {
     room5();
   } else if (state === `room6C`) {
@@ -127,8 +134,11 @@ function draw() {
   } else if (state === `room8C`) {
     room8();
   } else if (state === `room9C`) {
-    room9();
-  } else if (state === `clear`) {
+    entranceRoom9();
+  }
+
+  //gameclear
+  else if (state === `clear`) {
     gameclear();
   }
 
@@ -184,6 +194,7 @@ function room1() {
   }
 
 }
+
 
 function room2() {
   room2Display();
@@ -373,15 +384,18 @@ function room4() {
     state = "room5A";
     user.y = exitRightY
     user.x = exitRightX
-  } else if (rd < rightPortal.size / 2 + user.size / 2 && (state = "room4B")) {
+  }
+
+  // Layout: B (Room3 rightPortal)
+  else if (rd < rightPortal.size / 2 + user.size / 2 && (state = "room4B")) {
     state = "room5B";
     user.y = exitRightY
     user.x = exitRightX
   }
 
-  //Exit Portal: Layout A
+  //Exit Portal: Layout C
   let ed = dist(user.x, user.y, exitPortal.x, exitPortal.y);
-  if (ed < exitPortal.size / 2 + user.size / 2 && (state = "room4A")) {
+  if (ed < exitPortal.size / 2 + user.size / 2 && (state = "room4C")) {
     state = "clear";
   }
 
@@ -505,7 +519,7 @@ function room6() {
     user.x = exitBottomX
   }
 
-  // Room 6: Bottom Portal -> Room 3
+  // Room 6: Top Portal -> Room 3
   // Layouts: A B C
 
   // Layout: A (Room6 topPortal)
@@ -531,6 +545,7 @@ function room6() {
   }
 
 }
+
 
 function room7() {
   room7Display();
@@ -563,12 +578,6 @@ function room7() {
     state = "room8C";
     user.y = exitRightY
     user.x = exitRightX
-  }
-
-  //Exit Portal: Layout A
-  let ed = dist(user.x, user.y, exitPortal.x, exitPortal.y);
-  if (ed < exitPortal.size / 2 + user.size / 2 && (state = "room7A")) {
-    state = "clear";
   }
 
 }
@@ -619,9 +628,9 @@ function room8() {
     user.x = exitRightX
   }
 
-  //Exit Portal: Layout B
+  //Exit Portal: Layout A
   let ed = dist(user.x, user.y, exitPortal.x, exitPortal.y);
-  if (ed < exitPortal.size / 2 + user.size / 2 && (state = "room8C")) {
+  if (ed < exitPortal.size / 2 + user.size / 2 && (state === "room8A")) {
     state = "clear";
   }
 }
@@ -634,7 +643,7 @@ function room9() {
   // Room 9: Top Portal -> Room 6
   // Layouts: A B C
 
-  // Layout: A (Room8 topPortal)
+  // Layout: A (Room9 topPortal)
   let td = dist(user.x, user.y, topPortal.x, topPortal.y);
   if (td < topPortal.size / 2 + user.size / 2 && (state = "room9A")) {
     state = "room6A";
@@ -642,14 +651,14 @@ function room9() {
     user.x = exitTopX
   }
 
-  // Layout: B (Room8 topPortal)
+  // Layout: B (Room9 topPortal)
   else if (td < topPortal.size / 2 + user.size / 2 && (state = "room9B")) {
     state = "room6B";
     user.y = exitTopY
     user.x = exitTopX
   }
 
-  // Layout: C (Room8 topPortal)
+  // Layout: C (Room9 topPortal)
   else if (td < topPortal.size / 2 + user.size / 2 && (state = "room9C")) {
     state = "room6C";
     user.y = exitTopY
@@ -668,10 +677,34 @@ function room9() {
     user.x = exitLeftX
   }
 
-  //Exit: Layout B
+  //Exit Portal: Layout B
   let ed = dist(user.x, user.y, exitPortal.x, exitPortal.y);
-  if (ed < exitPortal.size / 2 + user.size / 2 && (state = "room9C")) {
+  if (ed < exitPortal.size / 2 + user.size / 2 && (state = "room9B")) {
     state = "clear";
+  }
+}
+
+function entranceRoom9() {
+  room9Display();
+  simulation();
+
+  let td = dist(user.x, user.y, topPortal.x, topPortal.y);
+  if (td < topPortal.size / 2 + user.size / 2 && (state = "room9C")) {
+    state = "room6C";
+    user.y = exitTopY
+    user.x = exitTopX
+  }
+}
+
+function exitRoom9() {
+  room9Display();
+  simulation();
+
+  let td = dist(user.x, user.y, topPortal.x, topPortal.y);
+  if (td < topPortal.size / 2 + user.size / 2 && (state = "room9C")) {
+    state = "room6C";
+    user.y = exitTopY
+    user.x = exitTopX
   }
 }
 
