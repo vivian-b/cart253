@@ -1,17 +1,16 @@
 class Ball {
 
-  constructor(x, y, note) {
+  constructor(x, y) {
     this.x = x;
     this.y = y;
-    this.size = random(50, 70),
-      this.fill = {
-        r: random(180, 255),
-        g: random(180, 255),
-        b: random(180, 255),
-      };
-    this.speed = 3;
-    this.vx = random(-this.speed, this.speed);
-    this.vy = random(-this.speed, this.speed);
+    this.size = random(45, 110),
+    this.speed = 6;
+    this.vx = random(0, this.speed);
+    this.vy = random(0, this.speed);
+    this.ay = 0;
+    this.maxSpeed = 10;
+
+
 
     // this.oscillator = new p5.Oscillator();
     // this.nearFreq = 220;
@@ -19,13 +18,20 @@ class Ball {
     // this.oscillator.amp(0.015);
     // this.oscillator.start();
 
-    this.note = note;
     this.synth = new p5.PolySynth();
   }
 
+  gravity(force) {
+    this.ay = this.ay + force;
+  }
+
   move() {
-    this.x += this.vx;
+    // this.x += this.vx;
     this.y += this.vy;
+    this.vy = this.vy + this.ay;
+    this.vy = constrain(this.vy, -this.maxSpeed, this.maxSpeed);
+
+
 
 
     // //frequency change
@@ -37,26 +43,32 @@ class Ball {
   }
 
   bounce() {
-    if (this.x - this.size / 2 < 0 || this.x + this.size / 2 > width) {
-      this.vx = -this.vx;
-      this.playNote();
-    }
 
     if (this.y - this.size / 2 < 0 || this.y + this.size / 2 > height) {
       this.vy = -this.vy;
-      this.playNote();
+      this.squeakSFX();
     }
   }
 
-  playNote() {
-    this.synth.play(this.note, 0.2, 0, 0.1)
-  }
+ squeakSFX(){
+
+    squeakSFX.rate(noise[currentNote]);
+    squeakSFX.play();
+
+    currentNote ++;
+  if(currentNote === noise.length){
+    currentNote = 0;
+
+  }}
+
 
   display() {
     push();
     noStroke();
-    fill(this.fill.r, this.fill.g, this.fill.b);
+    noFill();
     ellipse(this.x, this.y, this.size)
+    image(bunnyImg, this.x, this.y,this.size, this.size+20);
+
     pop();
   }
 }
