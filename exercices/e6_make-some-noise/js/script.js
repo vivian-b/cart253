@@ -20,6 +20,8 @@ let gravityForce = 0.0025;
 let squeakSFX;
 let eatSFX;
 
+//text
+let intro = `Tap Anywhere`
 
 // Images and sound
 function setup() {
@@ -32,6 +34,7 @@ function setup() {
 
   oscillator = new p5.Oscillator(440, `sine`)
 
+
 }
 
 // draw()
@@ -41,6 +44,10 @@ function draw() {
   background(207, 234, 255);
 
   imageMode(CENTER);
+
+  textAlign(CENTER);
+
+  text(intro, width / 2, 20);
 
   for (let i = 0; i < bunnies.length; i++) {
     let bunny= bunnies[i];
@@ -70,3 +77,11 @@ function createBunny(x, y) {
   bunnies.push(bunny);
 
 }
+
+// function textDisplay(){
+//   textSize(40);
+// textAlign(CENTER);
+//
+// fill(0);
+// text(intro, width / 2, height / 2);
+// }
