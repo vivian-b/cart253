@@ -1,6 +1,6 @@
 class Ball {
 
-  constructor (x,y){
+  constructor (x,y,note){
     this.x = x;
     this.y = y;
     this.size = random(50, 70),
@@ -16,13 +16,17 @@ class Ball {
   this.oscillator = new p5.Oscillator();
   this.nearFreq = 220;
   this.farFreq = 440;
-  this.oscillator.amp(0.1);
+  this.oscillator.amp(0.015);
   this.oscillator.start();
+
+  this.note = note;
+  this.synth = new p5.PolySynth();
   }
 
   move(){
     this.x += this.vx;
     this.y += this.vy;
+
 
     //frequency change
 let d= dist(this.x,this.y,width/2,height/2);
@@ -35,11 +39,17 @@ this.oscillator.freq(newFreq);
   bounce(){
     if (this.x - this.size/2 < 0|| this.x + this.size/2 > width){
       this.vx = -this.vx;
+      this.playNote();
     }
 
     if (this.y  - this.size/2 < 0 || this.y + this.size/2 > height){
       this.vy = -this.vy;
+      this.playNote();
     }
+  }
+
+  playNote(){
+    this.synth.play(this.note,0.2,0,0.1)
   }
 
   display(){

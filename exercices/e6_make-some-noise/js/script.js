@@ -8,6 +8,9 @@ Vivian Bui
 //balls
 let balls = [];
 
+//
+let notes = [`F3`,`G3`,`Ab4`,`Bb4`,`C4`,`Db4`,`Eb4`,`F4`];
+
 // setup()
 //
 
@@ -39,8 +42,8 @@ function mousePressed(){
 }
 
 function createBall(x,y){
-
-  let ball = new Ball(x,y);
+let note = random(notes);
+  let ball = new Ball(x,y,note);
   balls.push(ball);
 
 }
