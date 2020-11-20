@@ -73,18 +73,12 @@ function draw() {
 
   if (state === `title`) {
     mazeSelection();
-}
-
-else if (state ===`mazeLayoutA`){
-room7();
-}
-
-else if (state ===`mazeLayoutB`){
-room8();
-}
-
-else if (state ===`mazeLayoutC`){
-room9();
+  } else if (state === `mazeLayoutA`) {
+    room7();
+  } else if (state === `mazeLayoutB`) {
+    room8();
+  } else if (state === `mazeLayoutC`) {
+    room9();
 
 
     // Layout A: States
@@ -101,9 +95,9 @@ room9();
   } else if (state === `room6A`) {
     room6();
   } else if (state === `room7A`) {
-  room7();
+    room7();
   } else if (state === `room8A`) {
-  room8();
+    room8();
   } else if (state === `room9A`) {
     room9();
   }
@@ -157,18 +151,14 @@ room9();
 
 }
 
-function mazeSelection(){
-if (keyIsDown(49)){
-  state = "mazeLayoutA"
-}
-
-else if (keyIsDown(50)){
-  state = "mazeLayoutB"
-}
-
-else if (keyIsDown(51)) {
-  state = "mazeLayoutC"
-}
+function mazeSelection() {
+  if (keyIsDown(49)) {
+    state = "mazeLayoutA"
+  } else if (keyIsDown(50)) {
+    state = "mazeLayoutB"
+  } else if (keyIsDown(51)) {
+    state = "mazeLayoutC"
+  }
 
 }
 

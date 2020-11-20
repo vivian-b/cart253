@@ -7,31 +7,59 @@ Simulation of a maze with mini-game rooms.
 
 
 "use strict";
-//
-//
-// //temporary Room Markers
-// let roomN1 = 'A'
-// let roomN2 = 'B'
-// let roomN3 = 'C'
-// let roomN4 = 'D'
-// let roomN5 = 'E'
-// let roomN6 = 'F'
-// let roomN7 = 'G'
-// let roomN8 = 'H'
-// let roomN9 = 'I'
 
+let user;
+
+//Portals
+let topPortal;
+let rightPortal;
+let bottomPortal;
+let leftPortal;
+let exitPortal;
+
+//Value
+let exitTopX = 500 / 2;
+let exitRightX = 38;
+let exitLeftX = 500 - 38;
+let exitBottomX = 500 / 2;
+
+let exitTopY = 500 - 38;
+let exitRightY = 500 / 2;
+let exitLeftY = 500 / 2;
+let exitBottomY = 38;
+
+//temporary Room Markers
+let roomN1 = 'A'
+let roomN2 = 'B'
+let roomN3 = 'C'
+let roomN4 = 'D'
+let roomN5 = 'E'
+let roomN6 = 'F'
+let roomN7 = 'G'
+let roomN8 = 'H'
+let roomN9 = 'I'
+
+//text
+let cleared = 'YAY!'
+let tempLayout = 'press 1, 2 or 3 for different layouts'
+//Maze Layouts
 let mazeL1;
-//states
-let state = 'title'
+let mazeL2;
+let mazeL3;
+
+
+let state = 'title';
+
 
 // setup()
 //Adding User & Portals class
 function setup() {
   createCanvas(500, 500);
 
- mazeL1 = new MazeA();
- // mazeL2 = new maze2OOp(room1,room2,room3,room4,room5,room6,room7,room8,room9)
- // mazeL3 = new maze3OOp(room1,room2,room3,room4,room5,room6,room7,room8,room9)
+  mazeL1 = new MazeA();
+  mazeL2 = new MazeB();
+  mazeL3 = new MazeC();
+
   user = new Player(width / 2, height / 2);
 
   topPortal = new Portal(width / 2, 0);
@@ -45,61 +73,95 @@ function setup() {
 // draw()
 function draw() {
 
+  //First Layout [A]
   if (state === `title`) {
     mazeSelection();
-}
+  } else if (state === `room1A`) {
+    mazeL1.room1();
+  } else if (state === `room2A`) {
+    mazeL1.room2();
+  } else if (state === `room3A`) {
+    mazeL1.room3();
+  } else if (state === `room4A`) {
+    mazeL1.room4();
+  } else if (state === `room5A`) {
+    mazeL1.room5();
+  } else if (state === `room6A`) {
+    mazeL1.room6();
+  } else if (state === `room7A`) {
+    mazeL1.room7();
+  } else if (state === `room8A`) {
+    mazeL1.room8();
+  } else if (state === `room9A`) {
+    mazeL1.room9();
+  }
 
-else if (state ===`mazeLayoutA`){
-playMaze1();
-}
+  //Second Layout[B]
+  else if (state === `room1B`) {
+    mazeL2.room1();
+  } else if (state === `room2B`) {
+    mazeL2.room2();
+  } else if (state === `room3B`) {
+    mazeL2.room3();
+  } else if (state === `room4B`) {
+    mazeL2.room4();
+  } else if (state === `room5B`) {
+    mazeL2.room5();
+  } else if (state === `room6B`) {
+    mazeL2.room6();
+  } else if (state === `room7B`) {
+    mazeL2.room7();
+  } else if (state === `room8B`) {
+    mazeL2.room8();
+  } else if (state === `room9B`) {
+    mazeL2.room9();
+  }
 
-//
-// else if (state ===`mazeLayoutB`){
-// playMaze2();
-// }
-//
-// else if (state ===`mazeLayoutC`){
-// playMaze3();
+  //Third Layout [C]
+  else if (state === `room1C`) {
+    mazeL3.room1();
+  } else if (state === `room2C`) {
+    mazeL3.room2();
+  } else if (state === `room3C`) {
+    mazeL3.room3();
+  } else if (state === `room4C`) {
+    mazeL3.room4();
+  } else if (state === `room5C`) {
+    mazeL3.room5();
+  } else if (state === `room6C`) {
+    mazeL3.room6();
+  } else if (state === `room7C`) {
+    mazeL3.room7();
+  } else if (state === `room8C`) {
+    mazeL3.room8();
+  } else if (state === `room9C`) {
+    mazeL3.room9();
+  }
 
-  //gameclear
+  //Gameclear
   else if (state === `clear`) {
     gameclear();
   }
-
 }
 
-function mazeSelection(){
-if (keyIsDown(49)){
-  state = "mazeLayoutA"
-}
+function mazeSelection() {
+  //temporary text
+  fill(200);
+  text(tempLayout, width / 2, height / 2);
 
-else if (keyIsDown(50)){
-  state = "mazeLayoutB"
+  if (keyIsDown(49)) {
+    state = "room7A"
+  } else if (keyIsDown(50)) {
+    state = "room8B"
+  } else if (keyIsDown(51)) {
+    state = "room9C"
+  }
 }
-
-else if (keyIsDown(51)) {
-  state = "mazeLayoutC"
-}
-
-}
-
-function playMaze1(){
-  // mazeL1.room1();
-  // mazeL1.room2();
-  // mazeL1.room3();
-  // mazeL1.room4();
-  // mazeL1.room5();
-  // mazeL1.room6();
-  mazeL1.room7();
-  mazeL1.room8();
-  // mazeL1.room9();
-}
-
 
 function gameclear() {
- background(200, 200, 200);
- textSize(40);
- textAlign(CENTER);
- fill(10);
- text(cleared, width / 2, height / 2);
+  background(200, 200, 200);
+  textSize(40);
+  textAlign(CENTER);
+  fill(10);
+  text(cleared, width / 2, height / 2);
 }
