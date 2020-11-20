@@ -1,8 +1,7 @@
-//Player
-
+//layout [B]
 
 class MazeB {
-  constructor(room1, room2, room3, room4, room5, room6, room7, room8, room9) {
+  constructor() {
 
 
     user = new Player(width / 2, height / 2);
@@ -154,6 +153,15 @@ class MazeB {
       state = "room4B";
       user.y = exitLeftY
       user.x = exitLeftX
+    }
+
+    // Room 5: Bottom Portal -> Room 8
+    // Layout: B (Room5 bottomPortal)
+    let bd = dist(user.x, user.y, bottomPortal.x, bottomPortal.y);
+    if (bd < bottomPortal.size / 2 + user.size / 2 && (state = "room5B")) {
+      state = "room8B";
+      user.y = exitBottomY
+      user.x = exitBottomX
     }
 
   }

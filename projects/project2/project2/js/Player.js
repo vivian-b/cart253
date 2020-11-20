@@ -1,12 +1,12 @@
 class Player {
 
-  constructor(x,y) {
+  constructor(x, y) {
     this.size = 40;
 
     this.x = x;
     this.y = y;
     this.vx = 0;
-    this.vy = 2;
+    this.vy = 0;
     this.speed = 5;
   }
 
@@ -25,17 +25,17 @@ class Player {
     this.x = this.x + this.vx;
     this.y = this.y + this.vy;
 
-  this.x = constrain(this.x, 0, width);
-this.y = constrain(this.y, 0 , height);
+    this.x = constrain(this.x, 0, width);
+    this.y = constrain(this.y, 0, height);
 
   }
 
   handleInput() {
 
     if (keyIsDown(LEFT_ARROW)) {
-      this.vx = -this.speed * 2;
+      this.vx = -this.speed * 1.5;
     } else if (keyIsDown(RIGHT_ARROW)) {
-      this.vx = this.speed * 2;
+      this.vx = this.speed * 1.5;
 
     } else {
       this.vx = 0;
@@ -43,17 +43,13 @@ this.y = constrain(this.y, 0 , height);
     }
 
     if (keyIsDown(UP_ARROW)) {
-          this.vy = -this.speed;
-          }
+      this.vy = -this.speed * 1.5;
+    } else if (keyIsDown(DOWN_ARROW)) {
+      this.vy = this.speed * 1.5;
+    } else {
+      this.vy = 0;
+    }
 
-        else if (keyIsDown(DOWN_ARROW)){
-          this.vy = this.speed;
-          }
-
-        else {
-          this.vy = 0;
-          }
-
-}
+  }
 
 }

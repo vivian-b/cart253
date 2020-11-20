@@ -1,6 +1,7 @@
-class MazeC {
-  constructor(room1, room2, room3, room4, room5, room6, room7, room8, room9) {
+//layout [C]
 
+class MazeC {
+  constructor() {
 
     user = new Player(width / 2, height / 2);
 

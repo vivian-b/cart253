@@ -42,6 +42,7 @@ let roomN9 = 'I'
 //text
 let cleared = 'YAY!'
 let tempLayout = 'press 1, 2 or 3 for different layouts'
+let tempRestart = 'press spacebar to restart'
 
 //Maze Layouts
 let mazeL1;
@@ -162,9 +163,19 @@ function mazeSelection() {
 }
 
 function gameclear() {
+  push();
   background(200, 200, 200);
   textSize(40);
   textAlign(CENTER);
   fill(10);
   text(cleared, width / 2, height / 2);
+  textSize(20);
+  text(tempRestart, width / 2, height / 4 * 3);
+pop();
+  if (keyIsDown(32)) {
+    textSize(20);
+    background(0);
+    state = "title";
+
+  }
 }
