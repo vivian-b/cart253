@@ -1,13 +1,3 @@
-/**************************************************
-Project 02: Amaze
-Vivian Bui
-
-Simulation of a maze with mini-game rooms.
-**************************************************/
-
-
-"use strict";
-
 //Player
 let user;
 
@@ -43,138 +33,23 @@ let roomN9 = 'I'
 //text
 let cleared = 'YAY!'
 
-//states
-let state = 'title'
-
-//randomize
-var mazeStart = [
-  "room7A",
-  "room8B",
-  "room9C"
-];
-
-// setup()
-//Adding User & Portals class
-function setup() {
-  createCanvas(500, 500);
-
-  user = new Player(width / 2, height / 2);
-
-  topPortal = new Portal(width / 2, 0);
-  leftPortal = new Portal(0, height / 2);
-  rightPortal = new Portal(width, height / 2);
-  bottomPortal = new Portal(width / 2, height);
-  exitPortal = new Portal(width / 2, height / 2)
-
-}
-
-// draw()
-function draw() {
-
-  if (state === `title`) {
-    mazeSelection();
-}
-
-else if (state ===`mazeLayoutA`){
-room7();
-}
-
-else if (state ===`mazeLayoutB`){
-room8();
-}
-
-else if (state ===`mazeLayoutC`){
-room9();
+class MazeA{
+  constructor(room1,room2,room3,room4,room5,room6,room7,room8,room9){
 
 
-    // Layout A: States
-  } else if (state === `room1A`) {
-    room1();
-  } else if (state === `room2A`) {
-    room2();
-  } else if (state === `room3A`) {
-    room3();
-  } else if (state === `room4A`) {
-    room4();
-  } else if (state === `room5A`) {
-    room5();
-  } else if (state === `room6A`) {
-    room6();
-  } else if (state === `room7A`) {
-  room7();
-  } else if (state === `room8A`) {
-  room8();
-  } else if (state === `room9A`) {
-    room9();
+      user = new Player(width / 2, height / 2);
+
+      topPortal = new Portal(width / 2, 0);
+      leftPortal = new Portal(0, height / 2);
+      rightPortal = new Portal(width, height / 2);
+      bottomPortal = new Portal(width / 2, height);
+      exitPortal = new Portal(width / 2, height / 2)
   }
 
-  // Layout B: States
-  else if (state === `room1B`) {
-    room1();
-  } else if (state === `room2B`) {
-    room2();
-  } else if (state === `room3B`) {
-    room3();
-  } else if (state === `room4B`) {
-    room4();
-  } else if (state === `room5B`) {
-    room5();
-  } else if (state === `room6B`) {
-    room6();
-  } else if (state === `room7B`) {
-    room7();
-  } else if (state === `room8B`) {
-    room8();
-  } else if (state === `room9B`) {
-    exitRoom9();
-  }
 
-  // Layout C: States
-  else if (state === `room1C`) {
-    room1();
-  } else if (state === `room2C`) {
-    room2();
-  } else if (state === `room3C`) {
-    room3();
-  } else if (state === `room4C`) {
-    exitRoom4();
-  } else if (state === `room5C`) {
-    room5();
-  } else if (state === `room6C`) {
-    room6();
-  } else if (state === `room7C`) {
-    room7();
-  } else if (state === `room8C`) {
-    room8();
-  } else if (state === `room9C`) {
-    room9();
-  }
-
-  //gameclear
-  else if (state === `clear`) {
-    gameclear();
-  }
-
-}
-
-function mazeSelection(){
-if (keyIsDown(49)){
-  state = "mazeLayoutA"
-}
-
-else if (keyIsDown(50)){
-  state = "mazeLayoutB"
-}
-
-else if (keyIsDown(51)) {
-  state = "mazeLayoutC"
-}
-
-}
-
-function room1() {
-  room1Display();
-  simulation();
+ room1() {
+  this.room1Display();
+  this.simulation();
 
   // Room 1: Bottom Portal -> Room 4
   // Layouts: B C
@@ -223,9 +98,9 @@ function room1() {
 }
 
 
-function room2() {
-  room2Display();
-  simulation();
+ room2() {
+  this.room2Display();
+  this.simulation();
 
   // Room 2: Bottom Portal -> Room 5
   // Layouts: A B C
@@ -304,9 +179,9 @@ function room2() {
 
 }
 
-function room3() {
-  room3Display();
-  simulation();
+ room3() {
+  this.room3Display();
+  this.simulation();
 
   // Room 3: Bottom Portal to Room 6
   // Layouts: A B C
@@ -360,10 +235,10 @@ function room3() {
 
 }
 
-function room4() {
+ room4() {
 
-  room4Display();
-  simulation();
+  this.room4Display();
+  this.simulation();
 
 
   // Room 4: Top Portal to Room 1
@@ -428,9 +303,9 @@ function room4() {
 
 }
 
-function room5() {
-  room5Display();
-  simulation();
+ room5() {
+  this.room5Display();
+  this.simulation();
 
   // Room 5: Top Portal -> Room 2
   // Layouts: A B C
@@ -496,9 +371,9 @@ function room5() {
 
 }
 
-function room6() {
-  room6Display();
-  simulation();
+ room6() {
+  this.room6Display();
+  this.simulation();
 
 
   // Room 6: Left Portal -> Room 5
@@ -574,9 +449,9 @@ function room6() {
 }
 
 
-function room7() {
-  room7Display();
-  simulation();
+ room7() {
+  this.room7Display();
+  this.simulation();
 
   // Room 7: Top Portal -> Room 4
   // Layouts: A B
@@ -609,9 +484,9 @@ function room7() {
 
 }
 
-function room8() {
-  room8Display();
-  simulation();
+ room8() {
+  this.room8Display();
+  this.simulation();
 
   // Room 8: Top Portal -> Room 5
   // Layouts: C
@@ -662,9 +537,9 @@ function room8() {
   }
 }
 
-function room9() {
-  room9Display();
-  simulation();
+ room9() {
+  this.room9Display();
+  this.simulation();
 
 
   // Room 9: Top Portal -> Room 6
@@ -711,7 +586,7 @@ function room9() {
   }
 }
 
-function exitRoom9() {
+ exitRoom9() {
   room9Display();
   simulation();
 
@@ -723,13 +598,13 @@ function exitRoom9() {
   }
 }
 
-function simulation() {
+ simulation() {
   user.move();
   user.handleInput();
   user.display();
 }
 
-function room1Display() {
+ room1Display() {
   background(130, 130, 130);
   textSize(40);
   textAlign(CENTER);
@@ -739,7 +614,7 @@ function room1Display() {
   rightPortal.display();
 }
 
-function room2Display() {
+ room2Display() {
   background(130, 130, 130);
   textSize(40);
   textAlign(CENTER);
@@ -750,7 +625,7 @@ function room2Display() {
   rightPortal.display();
 }
 
-function room3Display() {
+ room3Display() {
   background(130, 130, 130);
   textSize(40);
   textAlign(CENTER);
@@ -760,7 +635,7 @@ function room3Display() {
   bottomPortal.display();
 }
 
-function room4Display() {
+ room4Display() {
   background(87, 87, 87);
   textSize(40);
   textAlign(CENTER);
@@ -771,7 +646,7 @@ function room4Display() {
   rightPortal.display();
 }
 
-function room5Display() {
+ room5Display() {
   background(87, 87, 87);
   textSize(40);
   textAlign(CENTER);
@@ -785,7 +660,7 @@ function room5Display() {
 
 }
 
-function room6Display() {
+ room6Display() {
   background(87, 87, 87);
   textSize(40);
   textAlign(CENTER);
@@ -796,7 +671,7 @@ function room6Display() {
   bottomPortal.display();
 }
 
-function room7Display() {
+ room7Display() {
   background(69, 69, 69);
   textSize(40);
   textAlign(CENTER);
@@ -806,7 +681,7 @@ function room7Display() {
   // rightPortal.display();
 }
 
-function room8Display() {
+ room8Display() {
   background(69, 69, 69);
   exitPortal.display();
 
@@ -820,7 +695,7 @@ function room8Display() {
   rightPortal.display();
 }
 
-function room9Display() {
+ room9Display() {
   background(69, 69, 69);
   textSize(40);
   textAlign(CENTER);
@@ -831,10 +706,5 @@ function room9Display() {
   leftPortal.display();
 }
 
-function gameclear() {
-  background(200, 200, 200);
-  textSize(40);
-  textAlign(CENTER);
-  fill(10);
-  text(cleared, width / 2, height / 2);
+ 
 }
