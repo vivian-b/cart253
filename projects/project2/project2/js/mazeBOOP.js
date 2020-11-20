@@ -20,6 +20,9 @@ class MazeB {
     this.room1Display();
     this.simulation();
 
+    // Room 1: Bottom Portal -> Room 4
+    // Layout: B (Room1 bottomPortal)
+
     let bd = dist(user.x, user.y, bottomPortal.x, bottomPortal.y);
     if (bd < bottomPortal.size / 2 + user.size / 2 && (state = "room1B")) {
       state = "room4B";
@@ -27,7 +30,9 @@ class MazeB {
       user.x = exitBottomX
     }
 
+    // Room 1: Right Portal -> Room 2
     // Layout: B (Room1 rightPortal)
+
     let rd = dist(user.x, user.y, rightPortal.x, rightPortal.y);
     if (rd < rightPortal.size / 2 + user.size / 2 && (state = "room1B")) {
       state = "room2B";
@@ -42,7 +47,9 @@ class MazeB {
     this.room2Display();
     this.simulation();
 
+    // Room 2: Bottom Portal -> Room 5
     // Layout: B (Room2 leftPortal)
+
     let ld = dist(user.x, user.y, leftPortal.x, leftPortal.y);
     if (ld < leftPortal.size / 2 + user.size / 2 && (state = "room2B")) {
       state = "room1B";
@@ -50,7 +57,9 @@ class MazeB {
       user.x = exitLeftX
     }
 
+    // Room 2: Left Portal -> Room 1
     // Layout: B (Room2 rightPortal)
+
     let rd = dist(user.x, user.y, rightPortal.x, rightPortal.y);
     if (rd < rightPortal.size / 2 + user.size / 2 && (state = "room2B")) {
       state = "room3B";
@@ -65,9 +74,8 @@ class MazeB {
     this.simulation();
 
     // Room 3: Bottom Portal to Room 6
-    // Layouts: A B C
+    // Layout: B (Room3 bottomPortal)
 
-    // Layout: A (Room3 bottomPortal)
     let bd = dist(user.x, user.y, bottomPortal.x, bottomPortal.y);
     if (bd < bottomPortal.size / 2 + user.size / 2 && (state = "room3B")) {
       state = "room6B";
@@ -75,14 +83,9 @@ class MazeB {
       user.x = exitBottomX
     }
 
-    // Layout: B (Room3 bottomPortal)
-    else if (bd < bottomPortal.size / 2 + user.size / 2 && (state = "room3B")) {
-      state = "room6B";
-      user.y = exitBottomY
-      user.x = exitBottomX
-    }
-
+    // Room 3: Left Portal to Room 2
     // Layout: B (Room3 leftPortal)
+
     let ld = dist(user.x, user.y, leftPortal.x, leftPortal.y);
     if (ld < leftPortal.size / 2 + user.size / 2 && (state = "room3B")) {
       state = "room2B";
@@ -97,8 +100,9 @@ class MazeB {
     this.room4Display();
     this.simulation();
 
-
+    // Room 4: Top Portal to Room 1
     // Layout: B (Room4 topPortal)
+
     let td = dist(user.x, user.y, topPortal.x, topPortal.y);
     if (td < topPortal.size / 2 + user.size / 2 && (state = "room4B")) {
       state = "room1B";
@@ -106,7 +110,9 @@ class MazeB {
       user.x = exitTopX
     }
 
-    // Layout: A (Room3 bottomPortal)
+    // Room 4: Bottom Portal to Room 7
+    // Layout: B (Room3 bottomPortal)
+
     let bd = dist(user.x, user.y, bottomPortal.x, bottomPortal.y);
     if (bd < bottomPortal.size / 2 + user.size / 2 && (state = "room4B")) {
       state = "room7B";
@@ -116,9 +122,8 @@ class MazeB {
 
 
     // Room 4: Right Portal to Room 5
-    // Layouts: A B
+    // Layout: B (Room3 rightPortal)
 
-    // Layout: A (Room3 rightPortal)
     let rd = dist(user.x, user.y, rightPortal.x, rightPortal.y);
     if (rd < rightPortal.size / 2 + user.size / 2 && (state = "room4B")) {
       state = "room5B";
@@ -133,9 +138,8 @@ class MazeB {
     this.simulation();
 
     // Room 5: Top Portal -> Room 2
-    // Layouts: A B C
+    // Layout: B (Room5 topPortal)
 
-    // Layout: A (Room5 rightPortal)
     let td = dist(user.x, user.y, topPortal.x, topPortal.y);
     if (td < topPortal.size / 2 + user.size / 2 && (state = "room5B")) {
       state = "room2B";
@@ -143,20 +147,7 @@ class MazeB {
       user.x = exitTopX
     }
 
-    // Layout: B (Room5 rightPortal)
-    else if (td < topPortal.size / 2 + user.size / 2 && (state = "room5B")) {
-      state = "room2B";
-      user.y = exitTopY
-      user.x = exitTopX
-    }
-
-    // Layout: C (Room5 rightPortal)
-    else if (td < topPortal.size / 2 + user.size / 2 && (state = "room5B")) {
-      state = "room2B";
-      user.y = exitTopY
-      user.x = exitTopX
-    }
-
+    // Room 5: Left Portal -> Room 4
     // Layout: B (Room5 leftPortal)
     let ld = dist(user.x, user.y, leftPortal.x, leftPortal.y);
     if (ld < leftPortal.size / 2 + user.size / 2 && (state = "room5B")) {
@@ -197,9 +188,8 @@ class MazeB {
     this.simulation();
 
     // Room 7: Top Portal -> Room 4
-    // Layouts: A B
-
     // Layout: B (Room7 topPortal)
+
     let td = dist(user.x, user.y, topPortal.x, topPortal.y);
     if (td < topPortal.size / 2 + user.size / 2 && (state = "room7B")) {
       state = "room4B";
@@ -214,6 +204,7 @@ class MazeB {
     this.simulation();
 
     // Room 8: Top Portal -> Room 5
+    // Layout: B (Room8 topPortal)
 
     let td = dist(user.x, user.y, topPortal.x, topPortal.y);
     if (td < topPortal.size / 2 + user.size / 2 && (state = "room8B")) {
@@ -230,14 +221,23 @@ class MazeB {
 
 
     // Room 9: Top Portal -> Room 6
-    // Layouts: A B C
-
     // Layout: A (Room9 topPortal)
+
     let td = dist(user.x, user.y, topPortal.x, topPortal.y);
     if (td < topPortal.size / 2 + user.size / 2 && (state = "room9B")) {
       state = "room6B";
       user.y = exitTopY
       user.x = exitTopX
+    }
+
+    // Room 9: Left Portal -> Room 8
+    // Layout: A (Room8 leftPortal)
+
+    let ld = dist(user.x, user.y, leftPortal.x, leftPortal.y);
+    if (ld < leftPortal.size / 2 + user.size / 2 && (state = "room9B")) {
+      state = "room8B";
+      user.y = exitLeftY
+      user.x = exitLeftX
     }
 
     //Exit Portal: Layout B
@@ -246,20 +246,7 @@ class MazeB {
       state = "clear";
     }
 
-    // Room 9: Left Portal -> Room 8
-    // Layouts: A
-
-    // Layout: A (Room8 leftPortal)
-    let ld = dist(user.x, user.y, leftPortal.x, leftPortal.y);
-    if (ld < leftPortal.size / 2 + user.size / 2 && (state = "room9B")) {
-      state = "room8B";
-      user.y = exitLeftY
-      user.x = exitLeftX
-    }
   }
-
-
-
 
   simulation() {
     user.move();
@@ -349,8 +336,6 @@ class MazeB {
 
   room8Display() {
     background(69, 69, 69);
-    exitPortal.display();
-
     textSize(40);
     textAlign(CENTER);
     fill(252);

@@ -18,17 +18,17 @@ class MazeC {
     this.simulation();
 
     // Room 1: Bottom Portal -> Room 4
-    // Layouts: B C
-
+    // Layout: C (Room1 bottomPortal)
 
     let bd = dist(user.x, user.y, bottomPortal.x, bottomPortal.y);
-
-    // Layout: C (Room1 bottomPortal)
     if (bd < bottomPortal.size / 2 + user.size / 2 && (state = "room1C")) {
       state = "room4C";
       user.y = exitBottomY
       user.x = exitBottomX
     }
+
+    // Room 1: Right Portal -> Room 2
+    // Layout: C (Room1 rightPortal)
 
     let rd = dist(user.x, user.y, rightPortal.x, rightPortal.y);
     if (rd < rightPortal.size / 2 + user.size / 2 && (state = "room1C")) {
@@ -45,9 +45,9 @@ class MazeC {
     this.room2Display();
     this.simulation();
 
-
-
+    // Room 2: Bottom Portal -> Room 5
     // Layout: A (Room2 bottomPortal)
+
     let bd = dist(user.x, user.y, bottomPortal.x, bottomPortal.y);
     if (bd < bottomPortal.size / 2 + user.size / 2 && (state = "room2C")) {
       state = "room5C";
@@ -55,7 +55,9 @@ class MazeC {
       user.x = exitBottomX
     }
 
+    // Room 2: Left Portal -> Room 1
     // Layout: C (Room2 leftPortal)
+
     let ld = dist(user.x, user.y, leftPortal.x, leftPortal.y);
     if (ld < leftPortal.size / 2 + user.size / 2 && (state = "room2C")) {
       state = "room1C";
@@ -63,7 +65,9 @@ class MazeC {
       user.x = exitLeftX
     }
 
+    // Room 2: Right Portal to Room 3
     // Layout: C (Room2 rightPortal)
+
     let rd = dist(user.x, user.y, rightPortal.x, rightPortal.y);
     if (rd < rightPortal.size / 2 + user.size / 2 && (state = "room2C")) {
       state = "room3C";
@@ -78,10 +82,8 @@ class MazeC {
     this.simulation();
 
     // Room 3: Bottom Portal to Room 6
-    // Layouts: A B C
-
-
     // Layout: C (Room3 bottomPortal)
+
     let bd = dist(user.x, user.y, bottomPortal.x, bottomPortal.y);
     if (bd < bottomPortal.size / 2 + user.size / 2 && (state = "room3C")) {
       state = "room6C";
@@ -89,10 +91,9 @@ class MazeC {
       user.x = exitBottomX
     }
 
-    // Room 3: Bottom Portal to Room 2
-    // Layouts: A B C
-
+    // Room 3: Left Portal to Room 2
     // Layout: C (Room3 leftPortal)
+
     let ld = dist(user.x, user.y, leftPortal.x, leftPortal.y);
     if (ld < leftPortal.size / 2 + user.size / 2 && (state = "room3C")) {
       state = "room2C";
@@ -109,10 +110,8 @@ class MazeC {
 
 
     // Room 4: Top Portal to Room 1
-    // Layouts: B C
-
-
     // Layout: C (Room4 topPortal)
+
     let td = dist(user.x, user.y, topPortal.x, topPortal.y);
     if (td < topPortal.size / 2 + user.size / 2 && (state = "room4C")) {
       state = "room1C";
@@ -120,9 +119,9 @@ class MazeC {
       user.x = exitTopX
     }
 
-    //Exit Portal: Layout B
+    //Exit Portal: Layout C
     let ed = dist(user.x, user.y, exitPortal.x, exitPortal.y);
-    if (ed < exitPortal.size / 2 + user.size / 2 && (state = "room9B")) {
+    if (ed < exitPortal.size / 2 + user.size / 2 && (state = "room9C")) {
       state = "clear";
     }
 
@@ -132,16 +131,19 @@ class MazeC {
     this.room5Display();
     this.simulation();
 
-
+    // Room 5: Top Portal -> Room 2
     // Layout: C (Room5 rightPortal)
+
     let td = dist(user.x, user.y, topPortal.x, topPortal.y);
-    if (td < topPortal.size / 2 + user.size / 2 && (state = "room5B")) {
+    if (td < topPortal.size / 2 + user.size / 2 && (state = "room5C")) {
       state = "room2C";
       user.y = exitTopY
       user.x = exitTopX
     }
 
-    // Layout: A (Room5 rightPortal)
+    // Room 5: Right Portal -> Room 6
+    // Layout: C (Room5 rightPortal)
+
     let rd = dist(user.x, user.y, rightPortal.x, rightPortal.y);
     if (rd < rightPortal.size / 2 + user.size / 2 && (state = "room5C")) {
       state = "room6C";
@@ -149,11 +151,14 @@ class MazeC {
       user.x = exitRightX
     }
 
+    // Room 5: Bottom Portal -> Room 8
+    // Layout: C (Room5 bottomPortal)
+
     let bd = dist(user.x, user.y, bottomPortal.x, bottomPortal.y);
-    if (bd < rightPortal.size / 2 + user.size / 2 && (state = "room5C")) {
+    if (bd < bottomPortal.size / 2 + user.size / 2 && (state = "room5C")) {
       state = "room8C";
-      user.y = exitRightY
-      user.x = exitRightX
+      user.y = exitBottomY
+      user.x = exitBottomX
     }
 
   }
@@ -162,12 +167,9 @@ class MazeC {
     this.room6Display();
     this.simulation();
 
-
     // Room 6: Left Portal -> Room 5
-    // Layouts: A C
-
-
     // Layout: C (Room5 rightPortal)
+
     let ld = dist(user.x, user.y, leftPortal.x, leftPortal.y);
     if (ld < leftPortal.size / 2 + user.size / 2 && (state = "room6C")) {
       state = "room5C";
@@ -177,9 +179,8 @@ class MazeC {
     }
 
     // Room 6: Bottom Portal -> Room 9
-    // Layouts: A B C
-
     // Layout: C (Room6 bottomPortal)
+
     let bd = dist(user.x, user.y, bottomPortal.x, bottomPortal.y);
     if (bd < bottomPortal.size / 2 + user.size / 2 && (state = "room6C")) {
       state = "room9C";
@@ -188,9 +189,8 @@ class MazeC {
     }
 
     // Room 6: Top Portal -> Room 3
-    // Layouts: A B C
-
     // Layout: C (Room6 topPortal)
+
     let td = dist(user.x, user.y, topPortal.x, topPortal.y);
     if (td < topPortal.size / 2 + user.size / 2 && (state = "room6C")) {
       state = "room3C";
@@ -205,16 +205,12 @@ class MazeC {
     this.room7Display();
     this.simulation();
 
-    // Room 7: Top Portal -> Room 4
-    // Layouts: A B
-
 
     // Room 7: Right Portal -> Room 8
-    // Layouts: C
-
     // Layout: C (Room7 rightPortal)
+
     let rd = dist(user.x, user.y, rightPortal.x, rightPortal.y);
-    if (rd < rightPortal.size / 2 + user.size / 2 && (state = "room7B")) {
+    if (rd < rightPortal.size / 2 + user.size / 2 && (state = "room7C")) {
       state = "room8C";
       user.y = exitRightY
       user.x = exitRightX
@@ -227,9 +223,8 @@ class MazeC {
     this.simulation();
 
     // Room 8: Top Portal -> Room 5
-    // Layouts: C
+    // Layout: C (Room8 topPortal)
 
-    // Layout: B (Room8 topPortal)
     let td = dist(user.x, user.y, topPortal.x, topPortal.y);
     if (td < topPortal.size / 2 + user.size / 2 && (state = "room8C")) {
       state = "room5C";
@@ -239,32 +234,13 @@ class MazeC {
 
 
     // Room 8: Left Portal -> Room 7
-    // Layouts: A C
+    // Layout: C (Room8 leftPortal)
 
-    // Layout: A (Room8 leftPortal)
     let ld = dist(user.x, user.y, leftPortal.x, leftPortal.y);
     if (ld < leftPortal.size / 2 + user.size / 2 && (state = "room8C")) {
       state = "room7C";
       user.y = exitLeftY
       user.x = exitLeftX
-    }
-
-
-    // Room 8: Right Portal -> Room 9
-    // Layouts: A
-
-    // Layout: A (Room8 rightPortal)
-    let rd = dist(user.x, user.y, rightPortal.x, rightPortal.y);
-    if (rd < rightPortal.size / 2 + user.size / 2 && (state = "room8C")) {
-      state = "room9A";
-      user.y = exitRightY
-      user.x = exitRightX
-    }
-
-    //Exit Portal: Layout A
-    let ed = dist(user.x, user.y, exitPortal.x, exitPortal.y);
-    if (ed < exitPortal.size / 2 + user.size / 2 && (state === "room8A")) {
-      state = "clear";
     }
   }
 
@@ -274,9 +250,8 @@ class MazeC {
 
 
     // Room 9: Top Portal -> Room 6
-    // Layouts: A B C
-
     // Layout: C (Room9 topPortal)
+
     let td = dist(user.x, user.y, topPortal.x, topPortal.y);
     if (td < topPortal.size / 2 + user.size / 2 && (state = "room9C")) {
       state = "room6C";
@@ -284,20 +259,7 @@ class MazeC {
       user.x = exitTopX
     }
 
-
-    // Room 9: Left Portal -> Room 8
-    // Layouts: A
-
-    // Layout: A (Room8 leftPortal)
-    let ld = dist(user.x, user.y, leftPortal.x, leftPortal.y);
-    if (ld < leftPortal.size / 2 + user.size / 2 && (state = "room9A")) {
-      state = "room8A";
-      user.y = exitLeftY
-      user.x = exitLeftX
-    }
-
   }
-
 
   simulation() {
     user.move();
@@ -391,8 +353,6 @@ class MazeC {
 
   room8Display() {
     background(69, 69, 69);
-    exitPortal.display();
-
     textSize(40);
     textAlign(CENTER);
     fill(252);
