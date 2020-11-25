@@ -3,19 +3,9 @@
 class MazeA {
   constructor() {
 
-
-    user = new Player(width / 2, height / 2);
-
-    topPortal = new Portal(width / 2, 0);
-    leftPortal = new Portal(0, height / 2);
-    rightPortal = new Portal(width, height / 2);
-    bottomPortal = new Portal(width / 2, height);
-    exitPortal = new Portal(width / 2, height / 2);
   }
 
-
   room1() {
-    rooms.room1();
     this.room1Display();
     this.simulation();
 
@@ -29,7 +19,6 @@ class MazeA {
       user.x = exitRightX
     }
   }
-
 
   room2() {
     this.room2Display();
@@ -54,7 +43,6 @@ class MazeA {
       user.y = exitLeftY
       user.x = exitLeftX
     }
-
 
     // Room 2: Right Portal to Room 3
     // Layout: A (Room2 rightPortal)
@@ -95,10 +83,9 @@ class MazeA {
   }
 
   room4() {
-    rooms.room4();
+    this.room4Display();
     games.catch();
     games.noLives();
-    this.room4Display();
     this.simulation();
 
     // Room 4: Bottom Portal to Room 7
@@ -270,11 +257,12 @@ class MazeA {
   }
 
   room1Display() {
-
+    rooms.room1();
     rightPortal.display();
   }
 
   room2Display() {
+    rooms.room2();
 
     bottomPortal.display();
     leftPortal.display();
@@ -282,18 +270,21 @@ class MazeA {
   }
 
   room3Display() {
+    rooms.room3();
 
     leftPortal.display();
     bottomPortal.display();
   }
 
   room4Display() {
+    rooms.room4();
 
     bottomPortal.display();
     rightPortal.display();
   }
 
   room5Display() {
+    rooms.room5();
 
     topPortal.display();
     leftPortal.display();
@@ -302,6 +293,7 @@ class MazeA {
   }
 
   room6Display() {
+    rooms.room6();
 
     leftPortal.display();
     topPortal.display();
@@ -309,18 +301,19 @@ class MazeA {
   }
 
   room7Display() {
-
+rooms.roomEntrance();
     topPortal.display();
   }
 
   room8Display() {
-
+    rooms.roomExit();
     rightPortal.display();
     exitPortal.display();
 
   }
 
   room9Display() {
+    rooms.room9();
 
     topPortal.display();
     leftPortal.display();

@@ -10,6 +10,8 @@ Simulation of a maze with mini-game rooms.
 
 var score = 3;
 
+let inGame = false;
+
 let user;
 
 //Portals
@@ -67,9 +69,9 @@ function setup() {
   mazeL2 = new MazeB();
   mazeL3 = new MazeC();
 
-rooms = new Rooms();
+  rooms = new Rooms();
 
-games = new Games();
+  games = new Games();
 
 
   user = new Player(width / 2, height / 2);
@@ -161,12 +163,10 @@ function draw() {
     gameDefeat();
   }
 
-
-
   fill(55, 163, 41)
   textSize(22);
 
-  text ("score = "+score,20,height-30);
+  text("score = " + score, 20, height - 30);
 
 }
 
@@ -193,7 +193,7 @@ function gameClear() {
   text(cleared, width / 2, height / 2);
   textSize(20);
   text(tempRestart, width / 2, height / 4 * 3);
-pop();
+  pop();
 
   if (keyIsDown(32)) {
     textSize(20);
@@ -214,7 +214,7 @@ function gameDefeat() {
 
   textSize(20);
   text(tempRestart, width / 2, height / 4 * 3);
-pop();
+  pop();
 
   if (keyIsDown(32)) {
     textSize(20);

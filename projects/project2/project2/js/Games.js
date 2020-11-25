@@ -2,8 +2,9 @@
 class Games {
   constructor() {
 
-    this.x=250;
-    this.y=250;
+//G1: catch
+    this.x=50;
+    this.y=50;
        this.size= 100;
        this.vx= 0;
        this.vy= 0;
@@ -17,8 +18,8 @@ catch() {
   let d = dist(user.x, user.y, this.x,this.y);
      if (d < this.size/2 + user.size/2) {
        score -= 1;
-       user.x -= 50;
-       user.y += 50;
+       user.x = 250;
+       user.y = 250;
 
 }
 
