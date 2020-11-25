@@ -8,6 +8,8 @@ Simulation of a maze with mini-game rooms.
 
 "use strict";
 
+var score = 3;
+
 let user;
 
 //Portals
@@ -29,18 +31,21 @@ let exitLeftY = 500 / 2;
 let exitBottomY = 38;
 
 //temporary Room Markers
-let roomN1;
-let roomN2;
-let roomN3;
-let roomN4;
-let roomN5;
-let roomN6;
-let roomN7;
-let roomN8;
-let roomN9;
+let rooms;
+let games;
+
+// let roomN2;
+// let roomN3;
+// let roomN4;
+// let roomN5;
+// let roomN6;
+// let roomN7;
+// let roomN8;
+// let roomN9;
 
 //text
 let cleared = 'YAY!'
+let defeated = 'Oh No!'
 let tempLayout = 'press 1, 2 or 3 for different layouts'
 let tempRestart = 'press spacebar to restart'
 
@@ -62,7 +67,10 @@ function setup() {
   mazeL2 = new MazeB();
   mazeL3 = new MazeC();
 
-roomN1 = new Rooms();
+rooms = new Rooms();
+
+games = new Games();
+
 
   user = new Player(width / 2, height / 2);
 
@@ -147,6 +155,19 @@ function draw() {
   else if (state === `clear`) {
     gameClear();
   }
+
+  //gameDefeat
+  else if (state === `defeat`) {
+    gameDefeat();
+  }
+
+
+
+  fill(55, 163, 41)
+  textSize(22);
+
+  text ("score = "+score,20,height-30);
+
 }
 
 function mazeSelection() {
@@ -173,10 +194,32 @@ function gameClear() {
   textSize(20);
   text(tempRestart, width / 2, height / 4 * 3);
 pop();
+
   if (keyIsDown(32)) {
     textSize(20);
     background(0);
     state = "title";
+    score = 3;
 
+  }
+}
+
+function gameDefeat() {
+  push();
+  background(200, 200, 200);
+  textSize(40);
+  textAlign(CENTER);
+  fill(10);
+  text(defeated, width / 2, height / 2);
+
+  textSize(20);
+  text(tempRestart, width / 2, height / 4 * 3);
+pop();
+
+  if (keyIsDown(32)) {
+    textSize(20);
+    background(0);
+    state = "title";
+    score = 3;
   }
 }

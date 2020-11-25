@@ -273,7 +273,6 @@ class MazeC {
     textSize(40);
     textAlign(CENTER);
     fill(252);
-    text(roomN1, width / 2, height / 2);
 
 
     bottomPortal.display();
@@ -286,7 +285,6 @@ class MazeC {
     textSize(40);
     textAlign(CENTER);
     fill(252);
-    text(roomN2, width / 2, height / 2);
 
     bottomPortal.display();
     leftPortal.display();
@@ -298,7 +296,6 @@ class MazeC {
     textSize(40);
     textAlign(CENTER);
     fill(252);
-    text(roomN3, width / 2, height / 2);
 
     bottomPortal.display();
     leftPortal.display();
@@ -309,7 +306,6 @@ class MazeC {
     textSize(40);
     textAlign(CENTER);
     fill(252);
-    text(roomN4, width / 2, height / 2);
 
     topPortal.display();
     exitPortal.display();
@@ -321,7 +317,6 @@ class MazeC {
     textSize(40);
     textAlign(CENTER);
     fill(252);
-    text(roomN5, width / 2, height / 2);
 
     topPortal.display();
     bottomPortal.display();
@@ -334,7 +329,6 @@ class MazeC {
     textSize(40);
     textAlign(CENTER);
     fill(252);
-    text(roomN6, width / 2, height / 2);
 
     topPortal.display();
     bottomPortal.display();
@@ -346,7 +340,6 @@ class MazeC {
     textSize(40);
     textAlign(CENTER);
     fill(252);
-    text(roomN7, width / 2, height / 2);
 
     rightPortal.display();
 
@@ -357,7 +350,6 @@ class MazeC {
     textSize(40);
     textAlign(CENTER);
     fill(252);
-    text(roomN8, width / 2, height / 2);
 
     topPortal.display();
     leftPortal.display();
@@ -368,7 +360,6 @@ class MazeC {
     textSize(40);
     textAlign(CENTER);
     fill(252);
-    text(roomN9, width / 2, height / 2);
 
     topPortal.display();
   }

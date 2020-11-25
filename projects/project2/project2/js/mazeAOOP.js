@@ -15,7 +15,7 @@ class MazeA {
 
 
   room1() {
-    roomN1.room1();
+    rooms.room1();
     this.room1Display();
     this.simulation();
 
@@ -95,7 +95,9 @@ class MazeA {
   }
 
   room4() {
-
+    rooms.room4();
+    games.catch();
+    games.noLives();
     this.room4Display();
     this.simulation();
 
@@ -268,89 +270,50 @@ class MazeA {
   }
 
   room1Display() {
-    textSize(40);
-    textAlign(CENTER);
-    fill(252);
-    text(roomN1, width / 2, height / 2);
-    // bottomPortal.display();
+
     rightPortal.display();
   }
 
   room2Display() {
-    background(130, 130, 130);
-    textSize(40);
-    textAlign(CENTER);
-    fill(252);
-    text(roomN2, width / 2, height / 2);
+
     bottomPortal.display();
     leftPortal.display();
     rightPortal.display();
   }
 
   room3Display() {
-    background(130, 130, 130);
-    textSize(40);
-    textAlign(CENTER);
-    fill(252);
-    text(roomN3, width / 2, height / 2);
+
     leftPortal.display();
     bottomPortal.display();
   }
 
   room4Display() {
-    background(87, 87, 87);
-    textSize(40);
-    textAlign(CENTER);
-    fill(252);
-    text(roomN4, width / 2, height / 2);
-    // topPortal.display();
+
     bottomPortal.display();
     rightPortal.display();
   }
 
   room5Display() {
-    background(87, 87, 87);
-    textSize(40);
-    textAlign(CENTER);
-    fill(252);
-    text(roomN5, width / 2, height / 2);
 
     topPortal.display();
     leftPortal.display();
     rightPortal.display();
-    // bottomPortal.display();
 
   }
 
   room6Display() {
-    background(87, 87, 87);
-    textSize(40);
-    textAlign(CENTER);
-    fill(252);
-    text(roomN6, width / 2, height / 2);
+
     leftPortal.display();
     topPortal.display();
     bottomPortal.display();
   }
 
   room7Display() {
-    background(69, 69, 69);
-    textSize(40);
-    textAlign(CENTER);
-    fill(252);
-    text(roomN7, width / 2, height / 2);
+
     topPortal.display();
-    // rightPortal.display();
   }
 
   room8Display() {
-    background(69, 69, 69);
-
-    textSize(40);
-    textAlign(CENTER);
-    fill(252);
-    text(roomN8, width / 2, height / 2);
-
 
     rightPortal.display();
     exitPortal.display();
@@ -358,11 +321,6 @@ class MazeA {
   }
 
   room9Display() {
-    background(69, 69, 69);
-    textSize(40);
-    textAlign(CENTER);
-    fill(252);
-    text(roomN9, width / 2, height / 2);
 
     topPortal.display();
     leftPortal.display();
