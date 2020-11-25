@@ -29,15 +29,15 @@ let exitLeftY = 500 / 2;
 let exitBottomY = 38;
 
 //temporary Room Markers
-let roomN1 = 'A'
-let roomN2 = 'B'
-let roomN3 = 'C'
-let roomN4 = 'D'
-let roomN5 = 'E'
-let roomN6 = 'F'
-let roomN7 = 'G'
-let roomN8 = 'H'
-let roomN9 = 'I'
+let roomN1;
+let roomN2;
+let roomN3;
+let roomN4;
+let roomN5;
+let roomN6;
+let roomN7;
+let roomN8;
+let roomN9;
 
 //text
 let cleared = 'YAY!'
@@ -48,7 +48,6 @@ let tempRestart = 'press spacebar to restart'
 let mazeL1;
 let mazeL2;
 let mazeL3;
-
 
 let state = 'title';
 
@@ -62,6 +61,8 @@ function setup() {
   mazeL1 = new MazeA();
   mazeL2 = new MazeB();
   mazeL3 = new MazeC();
+
+roomN1 = new Rooms();
 
   user = new Player(width / 2, height / 2);
 
@@ -142,9 +143,9 @@ function draw() {
     mazeL3.room9();
   }
 
-  //Gameclear
+  //gameClear
   else if (state === `clear`) {
-    gameclear();
+    gameClear();
   }
 }
 
@@ -162,7 +163,7 @@ function mazeSelection() {
   }
 }
 
-function gameclear() {
+function gameClear() {
   push();
   background(200, 200, 200);
   textSize(40);

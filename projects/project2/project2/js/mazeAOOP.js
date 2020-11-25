@@ -15,6 +15,7 @@ class MazeA {
 
 
   room1() {
+    roomN1.room1();
     this.room1Display();
     this.simulation();
 
@@ -267,7 +268,6 @@ class MazeA {
   }
 
   room1Display() {
-    background(130, 130, 130);
     textSize(40);
     textAlign(CENTER);
     fill(252);
