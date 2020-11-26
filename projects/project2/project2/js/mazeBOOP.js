@@ -3,15 +3,6 @@
 class MazeB {
   constructor() {
 
-
-    user = new Player(width / 2, height / 2);
-
-    topPortal = new Portal(width / 2, 0);
-    leftPortal = new Portal(0, height / 2);
-    rightPortal = new Portal(width, height / 2);
-    bottomPortal = new Portal(width / 2, height);
-    exitPortal = new Portal(width / 2, height / 2);
-
   }
 
 
@@ -22,8 +13,9 @@ class MazeB {
     // Room 1: Bottom Portal -> Room 4
     // Layout: B (Room1 bottomPortal)
 
-    let bd = dist(user.x, user.y, bottomPortal.x, bottomPortal.y);
-    if (bd < bottomPortal.size / 2 + user.size / 2 && (state = "room1B")) {
+    if ((bottomCollision) && (state = "room1B")) {
+      bottomCollision = false;
+
       state = "room4B";
       user.y = exitBottomY
       user.x = exitBottomX
@@ -32,8 +24,9 @@ class MazeB {
     // Room 1: Right Portal -> Room 2
     // Layout: B (Room1 rightPortal)
 
-    let rd = dist(user.x, user.y, rightPortal.x, rightPortal.y);
-    if (rd < rightPortal.size / 2 + user.size / 2 && (state = "room1B")) {
+    if ((rightCollision) && (state = "room1B")) {
+      rightCollision = false;
+
       state = "room2B";
       user.y = exitRightY
       user.x = exitRightX
@@ -49,8 +42,9 @@ class MazeB {
     // Room 2: Bottom Portal -> Room 5
     // Layout: B (Room2 leftPortal)
 
-    let ld = dist(user.x, user.y, leftPortal.x, leftPortal.y);
-    if (ld < leftPortal.size / 2 + user.size / 2 && (state = "room2B")) {
+    if ((leftCollision) && (state = "room2B")) {
+      leftCollision = false;
+
       state = "room1B";
       user.y = exitLeftY
       user.x = exitLeftX
@@ -59,8 +53,9 @@ class MazeB {
     // Room 2: Left Portal -> Room 1
     // Layout: B (Room2 rightPortal)
 
-    let rd = dist(user.x, user.y, rightPortal.x, rightPortal.y);
-    if (rd < rightPortal.size / 2 + user.size / 2 && (state = "room2B")) {
+    if ((rightCollision) && (state = "room2B")) {
+      rightCollision = false;
+
       state = "room3B";
       user.y = exitRightY
       user.x = exitRightX
@@ -75,8 +70,9 @@ class MazeB {
     // Room 3: Bottom Portal to Room 6
     // Layout: B (Room3 bottomPortal)
 
-    let bd = dist(user.x, user.y, bottomPortal.x, bottomPortal.y);
-    if (bd < bottomPortal.size / 2 + user.size / 2 && (state = "room3B")) {
+    if ((bottomCollision) && (state = "room3B")) {
+      bottomCollision = false;
+
       state = "room6B";
       user.y = exitBottomY
       user.x = exitBottomX
@@ -85,8 +81,9 @@ class MazeB {
     // Room 3: Left Portal to Room 2
     // Layout: B (Room3 leftPortal)
 
-    let ld = dist(user.x, user.y, leftPortal.x, leftPortal.y);
-    if (ld < leftPortal.size / 2 + user.size / 2 && (state = "room3B")) {
+    if ((leftCollision) && (state = "room3B")) {
+      leftCollision = false;
+
       state = "room2B";
       user.y = exitLeftY
       user.x = exitLeftX
@@ -102,8 +99,7 @@ class MazeB {
     // Room 4: Top Portal to Room 1
     // Layout: B (Room4 topPortal)
 
-    let td = dist(user.x, user.y, topPortal.x, topPortal.y);
-    if (td < topPortal.size / 2 + user.size / 2 && (state = "room4B")) {
+    if ((topCollision) && (state = "room4B")) {
       state = "room1B";
       user.y = exitTopY
       user.x = exitTopX
@@ -112,8 +108,9 @@ class MazeB {
     // Room 4: Bottom Portal to Room 7
     // Layout: B (Room3 bottomPortal)
 
-    let bd = dist(user.x, user.y, bottomPortal.x, bottomPortal.y);
-    if (bd < bottomPortal.size / 2 + user.size / 2 && (state = "room4B")) {
+    if ((bottomCollision) && (state = "room4B")) {
+      bottomCollision = false;
+
       state = "room7B";
       user.y = exitBottomY
       user.x = exitBottomX
@@ -123,8 +120,9 @@ class MazeB {
     // Room 4: Right Portal to Room 5
     // Layout: B (Room3 rightPortal)
 
-    let rd = dist(user.x, user.y, rightPortal.x, rightPortal.y);
-    if (rd < rightPortal.size / 2 + user.size / 2 && (state = "room4B")) {
+    if ((rightCollision) && (state = "room4B")) {
+      rightCollision = false;
+
       state = "room5B";
       user.y = exitRightY
       user.x = exitRightX
@@ -139,8 +137,7 @@ class MazeB {
     // Room 5: Top Portal -> Room 2
     // Layout: B (Room5 topPortal)
 
-    let td = dist(user.x, user.y, topPortal.x, topPortal.y);
-    if (td < topPortal.size / 2 + user.size / 2 && (state = "room5B")) {
+    if ((topCollision) && (state = "room5B")) {
       state = "room2B";
       user.y = exitTopY
       user.x = exitTopX
@@ -148,8 +145,9 @@ class MazeB {
 
     // Room 5: Left Portal -> Room 4
     // Layout: B (Room5 leftPortal)
-    let ld = dist(user.x, user.y, leftPortal.x, leftPortal.y);
-    if (ld < leftPortal.size / 2 + user.size / 2 && (state = "room5B")) {
+    if ((leftCollision) && (state = "room5B")) {
+      leftCollision = false;
+
       state = "room4B";
       user.y = exitLeftY
       user.x = exitLeftX
@@ -157,8 +155,9 @@ class MazeB {
 
     // Room 5: Bottom Portal -> Room 8
     // Layout: B (Room5 bottomPortal)
-    let bd = dist(user.x, user.y, bottomPortal.x, bottomPortal.y);
-    if (bd < bottomPortal.size / 2 + user.size / 2 && (state = "room5B")) {
+    if ((bottomCollision) && (state = "room5B")) {
+      bottomCollision = false;
+
       state = "room8B";
       user.y = exitBottomY
       user.x = exitBottomX
@@ -173,16 +172,16 @@ class MazeB {
     // Room 6: Left Portal -> Room 5
 
     // Layout: B (Room6 bottomPortal)
-    let bd = dist(user.x, user.y, bottomPortal.x, bottomPortal.y);
-    if (bd < bottomPortal.size / 2 + user.size / 2 && (state = "room6B")) {
+    if ((bottomCollision) && (state = "room6B")) {
+      bottomCollision = false;
+
       state = "room9B";
       user.y = exitBottomY
       user.x = exitBottomX
     }
 
     // Layout: B (Room6 topPortal)
-    let td = dist(user.x, user.y, topPortal.x, topPortal.y);
-    if (td < topPortal.size / 2 + user.size / 2 && (state = "room6B")) {
+    if ((topCollision) && (state = "room6B")) {
       state = "room3B";
       user.y = exitTopY
       user.x = exitTopX
@@ -198,8 +197,7 @@ class MazeB {
     // Room 7: Top Portal -> Room 4
     // Layout: B (Room7 topPortal)
 
-    let td = dist(user.x, user.y, topPortal.x, topPortal.y);
-    if (td < topPortal.size / 2 + user.size / 2 && (state = "room7B")) {
+    if ((topCollision) && (state = "room7B")) {
       state = "room4B";
       user.y = exitTopY
       user.x = exitTopX
@@ -214,8 +212,7 @@ class MazeB {
     // Room 8: Top Portal -> Room 5
     // Layout: B (Room8 topPortal)
 
-    let td = dist(user.x, user.y, topPortal.x, topPortal.y);
-    if (td < topPortal.size / 2 + user.size / 2 && (state = "room8B")) {
+    if ((topCollision) && (state = "room8B")) {
       state = "room5B";
       user.y = exitTopY
       user.x = exitTopX
@@ -231,8 +228,7 @@ class MazeB {
     // Room 9: Top Portal -> Room 6
     // Layout: A (Room9 topPortal)
 
-    let td = dist(user.x, user.y, topPortal.x, topPortal.y);
-    if (td < topPortal.size / 2 + user.size / 2 && (state = "room9B")) {
+    if ((topCollision) && (state = "room9B")) {
       state = "room6B";
       user.y = exitTopY
       user.x = exitTopX
@@ -241,8 +237,9 @@ class MazeB {
     // Room 9: Left Portal -> Room 8
     // Layout: A (Room8 leftPortal)
 
-    let ld = dist(user.x, user.y, leftPortal.x, leftPortal.y);
-    if (ld < leftPortal.size / 2 + user.size / 2 && (state = "room9B")) {
+    if ((leftCollision) && (state = "room9B")) {
+      leftCollision = false;
+
       state = "room8B";
       user.y = exitLeftY
       user.x = exitLeftX

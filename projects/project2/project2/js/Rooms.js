@@ -3,7 +3,6 @@
 class Rooms {
   constructor() {
 
-
   }
 
   room1() {
