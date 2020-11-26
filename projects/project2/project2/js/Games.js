@@ -30,7 +30,21 @@ if (this.y > height+this.size/2) {
 
 fill(100,100,0);
    ellipse(this.x,this.y,this.size);
+}
 
+catch2(){
+
+  fill(0,100,100);
+     ellipse(500,500,this.size);
+
+   let da = dist(user.x, user.y, 500, 500);
+      if (da < this.size/2 + user.size/2) {
+        open = true;
+        user.x = 250;
+        user.y = 250;
+
+
+}
 }
 
 noLives(){

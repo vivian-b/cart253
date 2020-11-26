@@ -85,6 +85,7 @@ class MazeA {
   room4() {
     this.room4Display();
     games.catch();
+    games.catch2();
     games.noLives();
     this.simulation();
 
@@ -94,15 +95,15 @@ class MazeA {
     let bd = dist(user.x, user.y, bottomPortal.x, bottomPortal.y);
     if (bd < bottomPortal.size / 2 + user.size / 2 && (state = "room4A")) {
       state = "room7A";
-      user.y = exitBottomY
-      user.x = exitBottomX
+      user.y = exitBottomY;
+      user.x = exitBottomX;
     }
 
     // Room 4: Right Portal to Room 5
     // Layout: A (Room3 rightPortal)
 
     let rd = dist(user.x, user.y, rightPortal.x, rightPortal.y);
-    if (rd < rightPortal.size / 2 + user.size / 2 && (state = "room4A")) {
+    if (rd < rightPortal.size / 2 + user.size / 2 && (state = "room4A") && (open)) {
       state = "room5A";
       user.y = exitRightY
       user.x = exitRightX

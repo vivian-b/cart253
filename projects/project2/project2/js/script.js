@@ -10,7 +10,7 @@ Simulation of a maze with mini-game rooms.
 
 var score = 3;
 
-let inGame = false;
+let open = false;
 
 let user;
 
