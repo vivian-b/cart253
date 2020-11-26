@@ -92,6 +92,8 @@ class MazeC {
     // Layout: C (Room3 leftPortal)
 
     if ((leftCollision) && (state = "room3C")) {
+      leftCollision = false;
+
       state = "room2C";
       user.y = exitLeftY
       user.x = exitLeftX
@@ -171,6 +173,8 @@ class MazeC {
     // Layout: C (Room5 rightPortal)
 
     if ((leftCollision) && (state = "room6C")) {
+      leftCollision = false;
+
       state = "room5C";
       user.y = exitLeftY
       user.x = exitLeftX
@@ -240,6 +244,8 @@ class MazeC {
     // Layout: C (Room8 leftPortal)
 
     if ((leftCollision) && (state = "room8C")) {
+      leftCollision = false;
+
       state = "room7C";
       user.y = exitLeftY
       user.x = exitLeftX
@@ -271,10 +277,7 @@ class MazeC {
   }
 
   room1Display() {
-    background(130, 130, 130);
-    textSize(40);
-    textAlign(CENTER);
-    fill(252);
+    rooms.room1();
 
 
     bottomPortal.display();
@@ -283,10 +286,7 @@ class MazeC {
   }
 
   room2Display() {
-    background(130, 130, 130);
-    textSize(40);
-    textAlign(CENTER);
-    fill(252);
+    rooms.room2();
 
     bottomPortal.display();
     leftPortal.display();
@@ -294,20 +294,16 @@ class MazeC {
   }
 
   room3Display() {
-    background(130, 130, 130);
-    textSize(40);
-    textAlign(CENTER);
-    fill(252);
+    rooms.room3();
+
 
     bottomPortal.display();
     leftPortal.display();
   }
 
   room4Display() {
-    background(87, 87, 87);
-    textSize(40);
-    textAlign(CENTER);
-    fill(252);
+    rooms.room4();
+
 
     topPortal.display();
     exitPortal.display();
@@ -315,10 +311,8 @@ class MazeC {
   }
 
   room5Display() {
-    background(87, 87, 87);
-    textSize(40);
-    textAlign(CENTER);
-    fill(252);
+    rooms.room5();
+
 
     topPortal.display();
     bottomPortal.display();
@@ -327,10 +321,8 @@ class MazeC {
   }
 
   room6Display() {
-    background(87, 87, 87);
-    textSize(40);
-    textAlign(CENTER);
-    fill(252);
+    rooms.room6();
+
 
     topPortal.display();
     bottomPortal.display();
@@ -338,30 +330,24 @@ class MazeC {
   }
 
   room7Display() {
-    background(69, 69, 69);
-    textSize(40);
-    textAlign(CENTER);
-    fill(252);
+    rooms.room7();
+
 
     rightPortal.display();
 
   }
 
   room8Display() {
-    background(69, 69, 69);
-    textSize(40);
-    textAlign(CENTER);
-    fill(252);
+    rooms.room8();
+
 
     topPortal.display();
     leftPortal.display();
   }
 
   room9Display() {
-    background(69, 69, 69);
-    textSize(40);
-    textAlign(CENTER);
-    fill(252);
+    rooms.room9();
+
 
     topPortal.display();
   }

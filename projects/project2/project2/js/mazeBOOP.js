@@ -100,6 +100,8 @@ class MazeB {
     // Layout: B (Room4 topPortal)
 
     if ((topCollision) && (state = "room4B")) {
+      topCollision = false;
+
       state = "room1B";
       user.y = exitTopY
       user.x = exitTopX
@@ -138,6 +140,8 @@ class MazeB {
     // Layout: B (Room5 topPortal)
 
     if ((topCollision) && (state = "room5B")) {
+      topCollision = false;
+
       state = "room2B";
       user.y = exitTopY
       user.x = exitTopX
@@ -182,6 +186,8 @@ class MazeB {
 
     // Layout: B (Room6 topPortal)
     if ((topCollision) && (state = "room6B")) {
+      topCollision = false;
+
       state = "room3B";
       user.y = exitTopY
       user.x = exitTopX
@@ -198,6 +204,8 @@ class MazeB {
     // Layout: B (Room7 topPortal)
 
     if ((topCollision) && (state = "room7B")) {
+      topCollision = false;
+
       state = "room4B";
       user.y = exitTopY
       user.x = exitTopX
@@ -213,6 +221,8 @@ class MazeB {
     // Layout: B (Room8 topPortal)
 
     if ((topCollision) && (state = "room8B")) {
+      topCollision = false;
+
       state = "room5B";
       user.y = exitTopY
       user.x = exitTopX
@@ -229,6 +239,8 @@ class MazeB {
     // Layout: A (Room9 topPortal)
 
     if ((topCollision) && (state = "room9B")) {
+      topCollision = false;
+
       state = "room6B";
       user.y = exitTopY
       user.x = exitTopX
@@ -260,20 +272,14 @@ class MazeB {
   }
 
   room1Display() {
-    background(130, 130, 130);
-    textSize(40);
-    textAlign(CENTER);
-    fill(252);
+    rooms.room1();
 
     bottomPortal.display();
     rightPortal.display();
   }
 
   room2Display() {
-    background(130, 130, 130);
-    textSize(40);
-    textAlign(CENTER);
-    fill(252);
+    rooms.room2();
 
     bottomPortal.display();
     leftPortal.display();
@@ -281,30 +287,21 @@ class MazeB {
   }
 
   room3Display() {
-    background(130, 130, 130);
-    textSize(40);
-    textAlign(CENTER);
-    fill(252);
+    rooms.room3();
 
     leftPortal.display();
     bottomPortal.display();
   }
 
   room4Display() {
-    background(87, 87, 87);
-    textSize(40);
-    textAlign(CENTER);
-    fill(252);
+    rooms.room4();
     topPortal.display();
     bottomPortal.display();
     rightPortal.display();
   }
 
   room5Display() {
-    background(87, 87, 87);
-    textSize(40);
-    textAlign(CENTER);
-    fill(252);
+    rooms.room5();
 
     topPortal.display();
     bottomPortal.display();
@@ -313,39 +310,27 @@ class MazeB {
   }
 
   room6Display() {
-    background(87, 87, 87);
-    textSize(40);
-    textAlign(CENTER);
-    fill(252);
+    rooms.room6();
 
     topPortal.display();
     bottomPortal.display();
   }
 
   room7Display() {
-    background(69, 69, 69);
-    textSize(40);
-    textAlign(CENTER);
-    fill(252);
+    rooms.room7();
 
     topPortal.display();
   }
 
   room8Display() {
-    background(69, 69, 69);
-    textSize(40);
-    textAlign(CENTER);
-    fill(252);
+    rooms.room8();
 
     topPortal.display();
 
   }
 
   room9Display() {
-    background(69, 69, 69);
-    textSize(40);
-    textAlign(CENTER);
-    fill(252);
+    rooms.room9();
 
     topPortal.display();
     exitPortal.display();
