@@ -40,8 +40,6 @@ catch2(){
    let da = dist(user.x, user.y, 500, 500);
       if (da < this.size/2 + user.size/2) {
         open = true;
-        user.x = 250;
-        user.y = 250;
 
 
 }

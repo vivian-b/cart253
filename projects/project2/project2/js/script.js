@@ -12,6 +12,12 @@ var score = 3;
 
 let open = false;
 
+let topCollision = false;
+let bottomCollision = false;
+let leftCollision = false;
+let rightCollision = false;
+
+
 let user;
 
 //Portals
