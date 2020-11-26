@@ -41,6 +41,7 @@ let exitBottomY = 38;
 //temporary Room Markers
 let rooms;
 let games;
+let game1;
 
 // let roomN2;
 // let roomN3;
@@ -77,7 +78,8 @@ function setup() {
 
   rooms = new Rooms();
 
-  games = new Games();
+games = new Games();
+  game1 = new Game1();
 
 
   user = new Player(width / 2, height / 2);

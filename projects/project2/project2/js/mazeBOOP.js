@@ -61,6 +61,17 @@ class MazeB {
       user.x = exitRightX
     }
 
+    // Room 2: Bottom Portal -> Room 5
+    // Layout: B (Room2 bottomPortal)
+
+    if ((bottomCollision) && (state = "room2B")) {
+      bottomCollision = false;
+
+      state = "room5B";
+      user.y = exitBottomY
+      user.x = exitBottomX
+    }
+
   }
 
   room3() {
@@ -134,6 +145,7 @@ class MazeB {
 
   room5() {
     this.room5Display();
+    games.gameN1();
     this.simulation();
 
     // Room 5: Top Portal -> Room 2

@@ -55,6 +55,8 @@ class MazeC {
     // Layout: C (Room2 leftPortal)
 
     if ((leftCollision) && (state = "room2C")) {
+      leftCollision = false;
+
       state = "room1C";
       user.y = exitLeftY
       user.x = exitLeftX
@@ -167,12 +169,13 @@ class MazeC {
 
   room6() {
     this.room6Display();
+    games.gameN1();
     this.simulation();
 
     // Room 6: Left Portal -> Room 5
     // Layout: C (Room5 rightPortal)
 
-    if ((leftCollision) && (state = "room6C")) {
+    if ((leftCollision) && (state = "room6C") && (open)) {
       leftCollision = false;
 
       state = "room5C";
@@ -184,7 +187,7 @@ class MazeC {
     // Room 6: Bottom Portal -> Room 9
     // Layout: C (Room6 bottomPortal)
 
-    if ((bottomCollision) && (state = "room6C")) {
+    if ((bottomCollision) && (state = "room6C") && (open)) {
       bottomCollision = false;
 
       state = "room9C";
@@ -195,7 +198,7 @@ class MazeC {
     // Room 6: Top Portal -> Room 3
     // Layout: C (Room6 topPortal)
 
-    if ((topCollision) && (state = "room6C")) {
+    if ((topCollision) && (state = "room6C") && (open)) {
       topCollision = false;
 
       state = "room3C";

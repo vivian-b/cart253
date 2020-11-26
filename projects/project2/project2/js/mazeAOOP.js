@@ -90,9 +90,7 @@ class MazeA {
 
   room4() {
     this.room4Display();
-    games.catch();
-    games.catch2();
-    games.noLives();
+    games.gameN1();
     this.simulation();
 
     // Room 4: Bottom Portal to Room 7
@@ -100,7 +98,6 @@ class MazeA {
 
 
     if ((bottomCollision) && (state = "room4A")) {
-
       bottomCollision = false;
 
       user.y = exitBottomY;
