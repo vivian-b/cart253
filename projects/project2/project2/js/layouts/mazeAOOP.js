@@ -9,11 +9,12 @@ class MazeA {
     this.room1Display();
     this.simulation();
 
+rightActive = true;
     // Room 1: Right Portal -> Room 2
     // Layout: A (Room1 rightPortal)
 
     if ((rightCollision) && (state = "room1A")) {
-      rightCollision = false;
+      returnFalse();
 
       state = "room2A";
       user.y = exitRightY
@@ -25,17 +26,21 @@ class MazeA {
     this.room2Display();
     this.simulation();
 
-    //MiniGame #1:
+bottomActive = true;
 
+    //MiniGame #1:
     if (activatedG1) {
       games.gameN1();
+    }
+    else if(!activatedG3){
+      returnTrue();
     }
 
     // Room 2: Bottom Portal -> Room 5
     // Layout: A (Room2 bottomPortal)
 
     if ((bottomCollision) && (state = "room2A")) {
-      bottomCollision = false;
+      returnFalse();
 
       state = "room5A";
       user.y = exitBottomY
@@ -45,8 +50,8 @@ class MazeA {
     // Room 2: Left Portal -> Room 1
     // Layout: A (Room2 leftPortal)
 
-    if ((leftCollision) && (state = "room2A")) {
-      leftCollision = false;
+    if ((leftCollision) && (state = "room2A") &&(leftActive)) {
+      returnFalse();
 
       state = "room1A";
       user.y = exitLeftY
@@ -56,8 +61,8 @@ class MazeA {
     // Room 2: Right Portal to Room 3
     // Layout: A (Room2 rightPortal)
 
-    if ((rightCollision) && (state = "room2A")) {
-      rightCollision = false;
+    if ((rightCollision) && (state = "room2A") && (rightActive)) {
+      returnFalse();
 
       state = "room3A";
       user.y = exitRightY
@@ -70,17 +75,25 @@ class MazeA {
     this.room3Display();
     this.simulation();
 
+leftActive = true;
     //MiniGame #2:
-
     if (activatedG2) {
       games.gameN2();
     }
+    else if(!activatedG2){
+      returnTrue();
+    }
+
+    // Entry from  Room6 + Game5 = clear
+      if(!activatedG5){
+        bottomActive = true;
+      }
 
     // Room 3: Left Portal to Room 2
     // Layout: A (Room3 leftPortal)
 
     if ((leftCollision) && (state = "room3A")) {
-      leftCollision = false;
+      returnFalse();
 
       state = "room2A";
       user.y = exitLeftY
@@ -91,7 +104,7 @@ class MazeA {
     // Layout: A (Room3 bottomPortal)
 
     if ((bottomCollision) && (state = "room3A")) {
-      bottomCollision = false;
+      returnFalse();
 
       state = "room6A";
       user.y = exitBottomY
@@ -104,11 +117,14 @@ class MazeA {
     this.room4Display();
     this.simulation();
 
+    bottomActive = true;
 
     //MiniGame #3:
-
     if (activatedG3) {
       games.gameN3();
+    }
+    else if(!activatedG3){
+      returnTrue();
     }
 
     // Room 4: Bottom Portal to Room 7
@@ -116,7 +132,7 @@ class MazeA {
 
 
     if ((bottomCollision) && (state = "room4A")) {
-      bottomCollision = false;
+      returnFalse();
 
       user.y = exitBottomY;
       user.x = exitBottomX;
@@ -127,8 +143,8 @@ class MazeA {
     // Room 4: Right Portal to Room 5
     // Layout: A (Room3 rightPortal)
 
-    if ((rightCollision) && (state = "room4A")) {
-      rightCollision = false;
+    if ((rightCollision) && (state = "room4A") &&(rightActive)) {
+      returnFalse();
 
       user.y = exitRightY;
       user.x = exitRightX;
@@ -140,17 +156,21 @@ class MazeA {
     this.room5Display();
     this.simulation();
 
-    //MiniGame #4:
+leftActive = true;
 
-    if (activatedG4) {
-      games.gameN4();
-    }
+//MiniGame #4:
+if (activatedG4) {
+  games.gameN4();
+}
+else if(!activatedG4){
+  returnTrue();
+}
 
     // Room 5: Top Portal -> Room 2
     // Layout: A (Room5 rightPortal)
 
-    if ((topCollision) && (state = "room5A")) {
-      topCollision = false;
+    if ((topCollision) && (state = "room5A")&&(topActive)) {
+      returnFalse();
       user.y = exitTopY
       user.x = exitTopX
       state = "room2A";
@@ -160,8 +180,8 @@ class MazeA {
     // Room 5: Left Portal -> Room 4
     // Layout: A (Room5 leftPortal)
 
-    if ((leftCollision) && (state = "room5A")) {
-      leftCollision = false;
+    if ((leftCollision) && (state = "room5A")&&(leftActive)) {
+      returnFalse();
       user.y = exitLeftY
       user.x = exitLeftX
       state = "room4A";
@@ -171,8 +191,8 @@ class MazeA {
     // Room 5: Right Portal -> Room 6
     // Layout: A (Room5 rightPortal)
 
-    if ((rightCollision) && (state = "room5A")) {
-      rightCollision = false;
+    if ((rightCollision) && (state = "room5A")&&(rightActive)) {
+      returnFalse();
 
       state = "room6A";
       user.y = exitRightY
@@ -187,15 +207,28 @@ class MazeA {
     this.simulation();
 
     //MiniGame #5:
-
     if (activatedG5) {
       games.gameN5();
     }
+    else if(!activatedG5){
+      returnTrue();
+    }
+
+  // Entry from  Room3 + Game2 = clear
+    if(!activatedG2){
+      topActive = true;
+    }
+
+  // Entry from  Room5 + Game4 = clear
+    if(!activatedG4){
+      leftActive = true;
+    }
+
     // Room 6: Left Portal -> Room 5
     // Layout: A (Room5 rightPortal)
 
     if ((leftCollision) && (state = "room6A")) {
-      leftCollision = false;
+      returnFalse();
 
       state = "room5A";
       user.y = exitLeftY
@@ -206,7 +239,7 @@ class MazeA {
     // Layout: A (Room6 bottomPortal)
 
     if ((bottomCollision) && (state = "room6A")) {
-      bottomCollision = false;
+      returnFalse();
 
       state = "room9A";
       user.y = exitBottomY
@@ -218,7 +251,7 @@ class MazeA {
     // Layout: A (Room6 topPortal)
 
     if ((topCollision) && (state = "room6A")) {
-      topCollision = false;
+      returnFalse();
 
       state = "room3A";
       user.y = exitTopY
@@ -234,11 +267,12 @@ class MazeA {
     this.room7Display();
     this.simulation();
 
+topActive = true;
     // Room 7: Top Portal -> Room 4
     // Layout: A (Room7 topPortal)
 
     if ((topCollision) && (state = "room7A")) {
-      topCollision = false;
+      returnFalse();
       state = "room4A";
       user.y = exitTopY
       user.x = exitTopX
@@ -250,11 +284,12 @@ class MazeA {
     this.room8Display();
     this.simulation();
 
+rightActive = true;
     // Room 8: Right Portal -> Room 9
     // Layout: A (Room8 rightPortal)
 
     if ((rightCollision) && (state = "room8C")) {
-      rightCollision = false;
+      returnFalse();
 
       state = "room9A";
       user.y = exitRightY
@@ -273,16 +308,23 @@ class MazeA {
     this.simulation();
 
     //MiniGame #6:
-
     if (activatedG6) {
       games.gameN6();
     }
+    else if(!activatedG6){
+      returnTrue();
+    }
+
+    // Entry from  Room6 + Game5 = clear
+      if(!activatedG5){
+        topActive = true;
+      }
 
     // Room 9: Top Portal -> Room 6
     // Layout: A (Room9 topPortal)
 
     if ((topCollision) && (state = "room9A")) {
-      topCollision = false;
+      returnFalse();
 
       state = "room6A";
       user.y = exitTopY
@@ -294,7 +336,7 @@ class MazeA {
     // Layout: A (Room8 leftPortal)
 
     if ((leftCollision) && (state = "room9A")) {
-      leftCollision = false;
+      returnFalse();
 
       state = "room8A";
       user.y = exitLeftY
@@ -374,6 +416,7 @@ class MazeA {
     topPortal.display();
     leftPortal.display();
   }
+
 
 
 }

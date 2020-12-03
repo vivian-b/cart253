@@ -10,13 +10,13 @@ class Game4 {
     this.trapSpeed = 10;
 
     this.keySize = 20;
-    this.key_x = 480;
-    this.key_y = 480;
+    this.key_x = 250;
+    this.key_y = 250;
 
   }
 
   trapMove() {
-    this.trap_x += this.trapSpeed;
+    // this.trap_x += this.trapSpeed;
 
     if (this.trap_x > width + this.trapSize / 2) {
       this.trap_x = 0;

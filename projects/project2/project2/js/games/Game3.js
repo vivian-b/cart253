@@ -10,8 +10,8 @@ class Game3 {
     this.trapSpeed = 10;
 
     this.keySize = 20;
-    this.key_x = 30;
-    this.key_y = 30;
+    this.key_x = 250;
+    this.key_y = 250;
 
   }
 
@@ -48,7 +48,6 @@ class Game3 {
 
     let d = dist(user.x, user.y, this.key_x, this.key_y);
     if (d < this.keySize / 2 + user.size / 2) {
-
             activatedG3 = false;
     }
 

@@ -19,10 +19,10 @@ let activatedG6 = true;
 
 let miniGameClear = false;
 
-// let topActive = false;
-// let bottomActive = false;
-// let leftActive = false;
-// let rightActive = false;
+let topActive = false;
+let bottomActive = false;
+let leftActive = false;
+let rightActive = false;
 
 let topCollision = false;
 let bottomCollision = false;
@@ -273,4 +273,24 @@ function gameDefeat() {
     activatedG5 = true;
     activatedG6 = true;
   }
+}
+
+function returnFalse(){
+  rightActive = false;
+  leftActive = false;
+  topActive = false;
+  bottomActive = false;
+
+  leftCollision = false;
+  topCollision = false;
+  rightCollision = false;
+  bottomCollision = false;
+
+}
+
+function returnTrue(){
+  rightActive = true;
+  leftActive = true;
+  topActive = true;
+  bottomActive = true;
 }
