@@ -11,16 +11,18 @@ class MazeC {
     this.simulation();
 
     //MiniGame #1:
-
     if (activatedG1) {
       games.gameN1();
+    }
+    else if(!activatedG1){
+      returnTrue();
     }
 
     // Room 1: Bottom Portal -> Room 4
     // Layout: C (Room1 bottomPortal)
 
     if ((bottomCollision) && (state = "room1C")) {
-      bottomCollision = false;
+      returnFalse();
 
       state = "room4C";
       user.y = exitBottomY
@@ -31,7 +33,7 @@ class MazeC {
     // Layout: C (Room1 rightPortal)
 
     if ((rightCollision) && (state = "room1C")) {
-      rightCollision = false;
+      returnFalse();
 
       state = "room2C";
       user.y = exitRightY
@@ -47,16 +49,29 @@ class MazeC {
     this.simulation();
 
     //MiniGame #2:
-
     if (activatedG2) {
       games.gameN2();
     }
+    else if(!activatedG2){
+      returnTrue();
+    }
+
+    // Entry from  Room3 + Game3 = clear
+      if(!activatedG3){
+        rightActive = true;
+      }
+
+      // Entry from  Room5 + Game4 = clear
+        if(!activatedG4){
+          bottomActive = true;
+        }
+
 
     // Room 2: Bottom Portal -> Room 5
     // Layout: A (Room2 bottomPortal)
 
     if ((bottomCollision) && (state = "room2C")) {
-      bottomCollision = false;
+      returnFalse();
 
       state = "room5C";
       user.y = exitBottomY
@@ -67,7 +82,7 @@ class MazeC {
     // Layout: C (Room2 leftPortal)
 
     if ((leftCollision) && (state = "room2C")) {
-      leftCollision = false;
+      returnFalse();
 
       state = "room1C";
       user.y = exitLeftY
@@ -78,7 +93,7 @@ class MazeC {
     // Layout: C (Room2 rightPortal)
 
     if ((rightCollision) && (state = "room2C")) {
-      rightCollision = false;
+      returnFalse();
 
       state = "room3C";
       user.y = exitRightY
@@ -92,16 +107,29 @@ class MazeC {
     this.simulation();
 
     //MiniGame #3:
-
     if (activatedG3) {
       games.gameN3();
     }
+    else if(!activatedG3){
+      returnTrue();
+    }
+
+    // Entry from  Room3 + Game3 = clear
+      if(!activatedG2){
+        leftActive = true;
+      }
+
+      // Entry from  Room6 + Game4 = clear
+        if(!activatedG4){
+          bottomActive = true;
+        }
+
 
     // Room 3: Bottom Portal to Room 6
     // Layout: C (Room3 bottomPortal)
 
     if ((bottomCollision) && (state = "room3C")) {
-      bottomCollision = false;
+      returnFalse();
 
       state = "room6C";
       user.y = exitBottomY
@@ -112,7 +140,7 @@ class MazeC {
     // Layout: C (Room3 leftPortal)
 
     if ((leftCollision) && (state = "room3C")) {
-      leftCollision = false;
+      returnFalse();
 
       state = "room2C";
       user.y = exitLeftY
@@ -131,7 +159,7 @@ class MazeC {
     // Layout: C (Room4 topPortal)
 
     if ((topCollision) && (state = "room4C")) {
-      topCollision = false;
+      returnFalse();
 
       state = "room1C";
       user.y = exitTopY
@@ -151,16 +179,28 @@ class MazeC {
     this.simulation();
 
     //MiniGame #4:
-
     if (activatedG4) {
       games.gameN4();
     }
+    else if(!activatedG4){
+      returnTrue();
+    }
+
+    // Entry from  Room2 + Game2 = clear
+      if(!activatedG2){
+        rightActive = true;
+      }
+
+    // Entry from  Room3 + Game3 = clear
+      if(!activatedG6){
+        rightActive = true;
+      }
 
     // Room 5: Top Portal -> Room 2
     // Layout: C (Room5 rightPortal)
 
     if ((topCollision) && (state = "room5C")) {
-      topCollision = false;
+      returnFalse();
 
       state = "room2C";
       user.y = exitTopY
@@ -171,7 +211,7 @@ class MazeC {
     // Layout: C (Room5 rightPortal)
 
     if ((rightCollision) && (state = "room5C")) {
-      rightCollision = false;
+      returnFalse();
 
       state = "room6C";
       user.y = exitRightY
@@ -182,7 +222,7 @@ class MazeC {
     // Layout: C (Room5 bottomPortal)
 
     if ((bottomCollision) && (state = "room5C")) {
-      bottomCollision = false;
+      returnFalse();
 
       state = "room8C";
       user.y = exitBottomY
@@ -196,16 +236,19 @@ class MazeC {
     this.simulation();
 
     //MiniGame #5:
-
     if (activatedG5) {
       games.gameN5();
     }
+    else if(!activatedG5){
+      returnTrue();
+    }
+
 
     // Room 6: Left Portal -> Room 5
     // Layout: C (Room5 rightPortal)
 
     if ((leftCollision) && (state = "room6C") && (open)) {
-      leftCollision = false;
+      returnFalse();
 
       state = "room5C";
       user.y = exitLeftY
@@ -217,7 +260,7 @@ class MazeC {
     // Layout: C (Room6 bottomPortal)
 
     if ((bottomCollision) && (state = "room6C") && (open)) {
-      bottomCollision = false;
+      returnFalse();
 
       state = "room9C";
       user.y = exitBottomY
@@ -228,7 +271,7 @@ class MazeC {
     // Layout: C (Room6 topPortal)
 
     if ((topCollision) && (state = "room6C") && (open)) {
-      topCollision = false;
+      returnFalse();
 
       state = "room3C";
       user.y = exitTopY
@@ -242,17 +285,12 @@ class MazeC {
     this.room7Display();
     this.simulation();
 
-    //MiniGame #6:
-
-    if (activatedG6) {
-      games.gameN6();
-    }
-
+rightActive = true;
     // Room 7: Right Portal -> Room 8
     // Layout: C (Room7 rightPortal)
 
     if ((rightCollision) && (state = "room7C")) {
-      rightCollision = false;
+      returnFalse();
 
       state = "room8C";
       user.y = exitRightY
@@ -265,11 +303,19 @@ class MazeC {
     this.room8Display();
     this.simulation();
 
+    //MiniGame #6:
+    if (activatedG6) {
+      games.gameN6();
+    }
+    else if(!activatedG6){
+      returnTrue();
+    }
+
     // Room 8: Top Portal -> Room 5
     // Layout: C (Room8 topPortal)
 
     if ((topCollision) && (state = "room8C")) {
-      topCollision = false;
+      returnFalse();
 
       state = "room5C";
       user.y = exitTopY
@@ -281,7 +327,7 @@ class MazeC {
     // Layout: C (Room8 leftPortal)
 
     if ((leftCollision) && (state = "room8C")) {
-      leftCollision = false;
+      returnFalse();
 
       state = "room7C";
       user.y = exitLeftY
@@ -293,12 +339,12 @@ class MazeC {
     this.room9Display();
     this.simulation();
 
-
+topActive = true;
     // Room 9: Top Portal -> Room 6
     // Layout: C (Room9 topPortal)
 
     if ((topCollision) && (state = "room9C")) {
-      topCollision = false;
+      returnFalse();
 
       state = "room6C";
       user.y = exitTopY

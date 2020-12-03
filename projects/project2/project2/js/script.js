@@ -276,11 +276,14 @@ function gameDefeat() {
 }
 
 function returnFalse(){
+
+  // relocking portals when entering the next room
   rightActive = false;
   leftActive = false;
   topActive = false;
   bottomActive = false;
 
+  // reseting user entering a portal
   leftCollision = false;
   topCollision = false;
   rightCollision = false;
@@ -289,6 +292,8 @@ function returnFalse(){
 }
 
 function returnTrue(){
+
+  //opening portals
   rightActive = true;
   leftActive = true;
   topActive = true;
