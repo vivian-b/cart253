@@ -236,6 +236,15 @@ function gameClear() {
     state = "title";
     score = 3;
 
+    state = "title";
+    score = 3;
+
+     activatedG1 = true;
+     activatedG2 = true;
+     activatedG3 = true;
+     activatedG4 = true;
+     activatedG5 = true;
+     activatedG6 = true;
   }
 }
 

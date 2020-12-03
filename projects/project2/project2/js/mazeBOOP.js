@@ -10,6 +10,12 @@ class MazeB {
     this.room1Display();
     this.simulation();
 
+    //MiniGame #1:
+
+        if(activatedG1){
+          games.gameN1();
+        }
+
     // Room 1: Bottom Portal -> Room 4
     // Layout: B (Room1 bottomPortal)
 
@@ -38,6 +44,12 @@ class MazeB {
   room2() {
     this.room2Display();
     this.simulation();
+
+    //MiniGame #2:
+
+        if(activatedG2){
+          games.gameN2();
+        }
 
     // Room 2: Bottom Portal -> Room 5
     // Layout: B (Room2 leftPortal)
@@ -78,6 +90,12 @@ class MazeB {
     this.room3Display();
     this.simulation();
 
+    //MiniGame #3:
+
+        if(activatedG3){
+          games.gameN3();
+        }
+
     // Room 3: Bottom Portal to Room 6
     // Layout: B (Room3 bottomPortal)
 
@@ -106,6 +124,12 @@ class MazeB {
 
     this.room4Display();
     this.simulation();
+
+    //MiniGame #4:
+
+        if(activatedG4){
+          games.gameN4();
+        }
 
     // Room 4: Top Portal to Room 1
     // Layout: B (Room4 topPortal)
@@ -145,8 +169,13 @@ class MazeB {
 
   room5() {
     this.room5Display();
-    games.gameN1();
     this.simulation();
+
+    //MiniGame #5:
+
+        if(activatedG5){
+          games.gameN5();
+        }
 
     // Room 5: Top Portal -> Room 2
     // Layout: B (Room5 topPortal)
@@ -184,6 +213,12 @@ class MazeB {
   room6() {
     this.room6Display();
     this.simulation();
+
+    //MiniGame 61:
+
+        if(activatedG6){
+          games.gameN6();
+        }
 
     // Room 6: Left Portal -> Room 5
 
@@ -228,6 +263,7 @@ class MazeB {
   room8() {
     this.room8Display();
     this.simulation();
+
 
     // Room 8: Top Portal -> Room 5
     // Layout: B (Room8 topPortal)
@@ -338,6 +374,7 @@ class MazeB {
     rooms.room8();
 
     topPortal.display();
+    topActive = true;
 
   }
 
