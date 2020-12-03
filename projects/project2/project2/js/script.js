@@ -11,6 +11,12 @@ Simulation of a maze with mini-game rooms.
 var score = 3;
 
 let open = false;
+let miniClear = false;
+
+let topActive = false;
+let bottomActive = false;
+let leftActive = false;
+let rightActive = false;
 
 let topCollision = false;
 let bottomCollision = false;
@@ -40,8 +46,11 @@ let exitBottomY = 38;
 
 //temporary Room Markers
 let rooms;
+
 let games;
 let game1;
+let game2;
+
 
 // let roomN2;
 // let roomN3;
@@ -78,8 +87,10 @@ function setup() {
 
   rooms = new Rooms();
 
-games = new Games();
+  games = new Games();
   game1 = new Game1();
+  game2 = new Game2();
+
 
 
   user = new Player(width / 2, height / 2);

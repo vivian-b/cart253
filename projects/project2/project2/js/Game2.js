@@ -1,11 +1,11 @@
 //game description:
 // Reach the switch to open the door and avoid the objects
 
-class Game1 {
+class Game2 {
   constructor() {
 
-    this.trap_x = 50;
-    this.trap_y = 50;
+    this.trap_x = 500;
+    this.trap_y = 500;
     this.trapSize = 100;
     this.trapSpeed = 10;
 
@@ -16,19 +16,10 @@ class Game1 {
   }
 
   trapMove() {
-    this.trap_x += this.trapSpeed;
-
-    if (this.trap_x > width + this.trapSize / 2 && (open === false)) {
-      this.trap_x = 0;
-      this.trap_y = random(5, 350);
-      this.trapSize = random(100, 200);
-    }
-    else if (open){
-      this.trap_x = -100;
-      this.trap_y = -100;
+    this.trap_x = this.trap_x;
+    this.trap_y =   this.trap_y
     }
 
-  }
 
   trapCheck() {
 
@@ -46,7 +37,7 @@ class Game1 {
 
 
 
-  key() {
+  sesame() {
 
     fill(0, 100, 100);
     ellipse(20, 20, this.keySize);
@@ -67,6 +58,7 @@ class Game1 {
       this.trap_y =   550;
     }
   }
+
 
   noLives() {
     if (score <= 0) {
