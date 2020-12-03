@@ -207,9 +207,11 @@ function draw() {
 
 function mazeSelection() {
   //temporary intro text
+  background(10, 10, 10);
+
   push();
   fill(200);
-  text(tempLayout, width / 3, height / 2);
+  text(tempLayout, width / 5, height / 2);
 pop();
 
   if (keyIsDown(49)) {
