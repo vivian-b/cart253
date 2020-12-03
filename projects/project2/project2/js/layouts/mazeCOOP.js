@@ -10,6 +10,8 @@ class MazeC {
     this.room1Display();
     this.simulation();
 
+bottomActive = true;
+
     //MiniGame #1:
     if (activatedG1) {
       games.gameN1();
@@ -114,13 +116,13 @@ class MazeC {
       returnTrue();
     }
 
-    // Entry from  Room3 + Game3 = clear
+    // Entry from  Room2 + Game2 = clear
       if(!activatedG2){
         leftActive = true;
       }
 
-      // Entry from  Room6 + Game4 = clear
-        if(!activatedG4){
+      // Entry from  Room6 + Game5 = clear
+        if(!activatedG5){
           bottomActive = true;
         }
 
@@ -188,11 +190,11 @@ class MazeC {
 
     // Entry from  Room2 + Game2 = clear
       if(!activatedG2){
-        rightActive = true;
+        topActive = true;
       }
 
-    // Entry from  Room3 + Game3 = clear
-      if(!activatedG6){
+    // Entry from  Room6 + Game5 = clear
+      if(!activatedG5){
         rightActive = true;
       }
 
@@ -310,6 +312,12 @@ rightActive = true;
     else if(!activatedG6){
       returnTrue();
     }
+
+    // Entry from  Room5 + Game4 = clear
+      if(!activatedG4){
+        topActive = true;
+      }
+
 
     // Room 8: Top Portal -> Room 5
     // Layout: C (Room8 topPortal)

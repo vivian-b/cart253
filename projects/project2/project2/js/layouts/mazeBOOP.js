@@ -256,6 +256,8 @@ leftActive = true;
     this.room6Display();
     this.simulation();
 
+topActive = true;
+
     //MiniGame #6:
     if (activatedG6) {
       games.gameN6();
@@ -263,11 +265,6 @@ leftActive = true;
     else if(!activatedG6){
       returnTrue();
     }
-
-    // Entry from  Room3 + Game3 = clear
-      if(!activatedG3){
-        topActive = true;
-      }
 
     // Room 6: Left Portal -> Room 5
 

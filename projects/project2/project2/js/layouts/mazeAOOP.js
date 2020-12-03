@@ -26,7 +26,7 @@ rightActive = true;
     this.room2Display();
     this.simulation();
 
-bottomActive = true;
+leftActive = true;
 
     //MiniGame #1:
     if (activatedG1) {
@@ -35,6 +35,17 @@ bottomActive = true;
     else if(!activatedG1){
       returnTrue();
     }
+
+    // Entry from  Room3 + Game2 = clear
+      if(!activatedG2){
+        rightActive = true;
+      }
+
+    // Entry from  Room5 + Game4 = clear
+      if(!activatedG4){
+        bottomActive = true;
+
+      }
 
     // Room 2: Bottom Portal -> Room 5
     // Layout: A (Room2 bottomPortal)
@@ -75,7 +86,6 @@ bottomActive = true;
     this.room3Display();
     this.simulation();
 
-leftActive = true;
     //MiniGame #2:
     if (activatedG2) {
       games.gameN2();
@@ -84,10 +94,17 @@ leftActive = true;
       returnTrue();
     }
 
+    // Entry from  Room2 + Game1 = clear
+      if(!activatedG1){
+        leftActive = true;
+      }
+
     // Entry from  Room6 + Game5 = clear
       if(!activatedG5){
         bottomActive = true;
       }
+
+
 
     // Room 3: Left Portal to Room 2
     // Layout: A (Room3 leftPortal)
@@ -307,6 +324,7 @@ rightActive = true;
     this.room9Display();
     this.simulation();
 
+topActive = true;
     //MiniGame #6:
     if (activatedG6) {
       games.gameN6();
@@ -314,11 +332,6 @@ rightActive = true;
     else if(!activatedG6){
       returnTrue();
     }
-
-    // Entry from  Room6 + Game5 = clear
-      if(!activatedG5){
-        topActive = true;
-      }
 
     // Room 9: Top Portal -> Room 6
     // Layout: A (Room9 topPortal)
