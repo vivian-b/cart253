@@ -58,6 +58,10 @@ let rooms;
 let games;
 let game1;
 let game2;
+let game3;
+let game4;
+let game5;
+let game6;
 
 
 // let roomN2;
@@ -98,6 +102,10 @@ function setup() {
   games = new Games();
   game1 = new Game1();
   game2 = new Game2();
+  game3 = new Game3();
+  game4 = new Game4();
+  game5 = new Game5();
+  game6 = new Game6();
 
 
 

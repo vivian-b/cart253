@@ -25,6 +25,12 @@ class MazeA {
     this.room2Display();
     this.simulation();
 
+    //MiniGame #1:
+
+        if(activatedG1){
+          games.gameN1();
+        }
+
     // Room 2: Bottom Portal -> Room 5
     // Layout: A (Room2 bottomPortal)
 
@@ -64,6 +70,12 @@ class MazeA {
     this.room3Display();
     this.simulation();
 
+    //MiniGame #2:
+
+        if(activatedG2){
+          games.gameN2();
+        }
+
     // Room 3: Left Portal to Room 2
     // Layout: A (Room3 leftPortal)
 
@@ -93,9 +105,11 @@ class MazeA {
     this.simulation();
 
 
-    if(activatedG1){
-      games.gameN1();
-    }
+    //MiniGame #3:
+
+        if(activatedG3){
+          games.gameN3();
+        }
 
     // Room 4: Bottom Portal to Room 7
     // Layout: A (Room3 bottomPortal)
@@ -126,9 +140,11 @@ class MazeA {
     this.room5Display();
     this.simulation();
 
-    if(activatedG2){
-      games.gameN2();
-    }
+    //MiniGame #4:
+
+        if(activatedG4){
+          games.gameN4();
+        }
 
     // Room 5: Top Portal -> Room 2
     // Layout: A (Room5 rightPortal)
@@ -170,7 +186,11 @@ class MazeA {
     this.room6Display();
     this.simulation();
 
+    //MiniGame #5:
 
+        if(activatedG5){
+          games.gameN5();
+        }
     // Room 6: Left Portal -> Room 5
     // Layout: A (Room5 rightPortal)
 
@@ -252,6 +272,12 @@ class MazeA {
     this.room9Display();
     this.simulation();
 
+    //MiniGame #6:
+
+        if(activatedG6){
+          games.gameN6();
+        }
+    
     // Room 9: Top Portal -> Room 6
     // Layout: A (Room9 topPortal)
 
