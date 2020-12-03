@@ -10,8 +10,16 @@ Simulation of a maze with mini-game rooms.
 
 var score = 3;
 
-let open = false;
-let miniClear = false;
+let activatedG1 = true;
+let activatedG2 = true;
+let activatedG3 = true;
+let activatedG4 = true;
+let activatedG5 = true;
+let activatedG6 = true;
+
+
+
+let miniGameClear = false;
 
 let topActive = false;
 let bottomActive = false;
@@ -35,14 +43,14 @@ let exitPortal;
 
 //Value
 let exitTopX = 500 / 2;
-let exitRightX = 38;
-let exitLeftX = 500 - 38;
+let exitRightX = 40;
+let exitLeftX = 440;
 let exitBottomX = 500 / 2;
 
-let exitTopY = 500 - 38;
+let exitTopY = 440;
 let exitRightY = 500 / 2;
 let exitLeftY = 500 / 2;
-let exitBottomY = 38;
+let exitBottomY = 40;
 
 //temporary Room Markers
 let rooms;
@@ -238,7 +246,15 @@ function gameDefeat() {
   if (keyIsDown(32)) {
     textSize(20);
     background(0);
+
     state = "title";
     score = 3;
+
+     activatedG1 = true;
+     activatedG2 = true;
+     activatedG3 = true;
+     activatedG4 = true;
+     activatedG5 = true;
+     activatedG6 = true;
   }
 }

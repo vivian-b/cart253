@@ -4,22 +4,26 @@
 class Game2 {
   constructor() {
 
-    this.trap_x = 500;
-    this.trap_y = 500;
+    this.trap_x = 50;
+    this.trap_y = 50;
     this.trapSize = 100;
     this.trapSpeed = 10;
 
     this.keySize = 20;
-    this.key_x = 20;
-    this.key_y = 20;
+    this.key_x = 480;
+    this.key_y = 480;
 
   }
 
   trapMove() {
-    this.trap_x = this.trap_x;
-    this.trap_y =   this.trap_y
-    }
+    this.trap_y += this.trapSpeed;
 
+    if (this.trap_y > height + this.trapSize / 2) {
+      this.trap_y = 0;
+      this.trap_x = random(5, 350);
+      this.trapSize = random(100, 200);
+    }
+  }
 
   trapCheck() {
 
@@ -37,28 +41,18 @@ class Game2 {
 
 
 
-  sesame() {
+  key() {
 
     fill(0, 100, 100);
-    ellipse(20, 20, this.keySize);
+    ellipse(this.key_x, this.key_y, this.keySize);
 
     let d = dist(user.x, user.y, this.key_x, this.key_y);
     if (d < this.keySize / 2 + user.size / 2) {
-      open = true;
       rightActive = true;
-      miniClear = true;
-
+      activatedG2 = false;
     }
 
   }
-
-  miniGameCleared(){
-    if (miniClear){
-      this.trap_x = 550;
-      this.trap_y =   550;
-    }
-  }
-
 
   noLives() {
     if (score <= 0) {

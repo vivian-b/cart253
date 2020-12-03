@@ -90,8 +90,12 @@ class MazeA {
 
   room4() {
     this.room4Display();
-    games.gameN1();
     this.simulation();
+
+
+    if(activatedG1){
+      games.gameN1();
+    }
 
     // Room 4: Bottom Portal to Room 7
     // Layout: A (Room3 bottomPortal)
@@ -109,25 +113,27 @@ class MazeA {
     // Room 4: Right Portal to Room 5
     // Layout: A (Room3 rightPortal)
 
-    if ((rightCollision) && (state = "room4A") && (open)) {
+    if ((rightCollision) && (state = "room4A")) {
       rightCollision = false;
-      topCollision = false;
+
       user.y = exitRightY;
       user.x = exitRightX;
       state = "room5A";
-      open = false;
     }
-  }
+}
 
   room5() {
     this.room5Display();
-    games.gameN2();
     this.simulation();
+
+    if(activatedG2){
+      games.gameN2();
+    }
 
     // Room 5: Top Portal -> Room 2
     // Layout: A (Room5 rightPortal)
 
-    if ((topCollision) && (state = "room5B")) {
+    if ((topCollision) && (state = "room5A")) {
       topCollision = false;
       user.y = exitTopY
       user.x = exitTopX
@@ -140,10 +146,10 @@ class MazeA {
 
     if ((leftCollision) && (state = "room5A")) {
       leftCollision = false;
-
-      state = "room4A";
       user.y = exitLeftY
       user.x = exitLeftX
+      state = "room4A";
+
     }
 
     // Room 5: Right Portal -> Room 6
@@ -303,6 +309,8 @@ class MazeA {
     bottomPortal.display();
     rightPortal.display();
 
+    bottomActive = true;
+
   }
 
   room5Display() {
@@ -313,7 +321,6 @@ class MazeA {
     rightPortal.display();
 
     leftActive = true;
-
 
   }
 

@@ -10,24 +10,19 @@ class Game1 {
     this.trapSpeed = 10;
 
     this.keySize = 20;
-    this.key_x = 20;
-    this.key_y = 20;
+    this.key_x = 480;
+    this.key_y = 480;
 
   }
 
   trapMove() {
     this.trap_x += this.trapSpeed;
 
-    if (this.trap_x > width + this.trapSize / 2 && (open === false)) {
+    if (this.trap_x > width + this.trapSize / 2) {
       this.trap_x = 0;
       this.trap_y = random(5, 350);
       this.trapSize = random(100, 200);
     }
-    else if (open){
-      this.trap_x = -100;
-      this.trap_y = -100;
-    }
-
   }
 
   trapCheck() {
@@ -49,23 +44,14 @@ class Game1 {
   key() {
 
     fill(0, 100, 100);
-    ellipse(20, 20, this.keySize);
+    ellipse(this.key_x, this.key_y, this.keySize);
 
     let d = dist(user.x, user.y, this.key_x, this.key_y);
     if (d < this.keySize / 2 + user.size / 2) {
-      open = true;
       rightActive = true;
-      miniClear = true;
-
+      activatedG1 = false;
     }
 
-  }
-
-  miniGameCleared(){
-    if (miniClear){
-      this.trap_x = 550;
-      this.trap_y =   550;
-    }
   }
 
   noLives() {
