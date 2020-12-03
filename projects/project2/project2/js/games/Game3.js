@@ -10,8 +10,8 @@ class Game3 {
     this.trapSpeed = 10;
 
     this.keySize = 20;
-    this.key_x = 480;
-    this.key_y = 480;
+    this.key_x = 30;
+    this.key_y = 30;
 
   }
 

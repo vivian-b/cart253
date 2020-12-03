@@ -12,9 +12,9 @@ class MazeC {
 
     //MiniGame #1:
 
-        if(activatedG1){
-          games.gameN1();
-        }
+    if (activatedG1) {
+      games.gameN1();
+    }
 
     // Room 1: Bottom Portal -> Room 4
     // Layout: C (Room1 bottomPortal)
@@ -48,9 +48,9 @@ class MazeC {
 
     //MiniGame #2:
 
-        if(activatedG2){
-          games.gameN2();
-        }
+    if (activatedG2) {
+      games.gameN2();
+    }
 
     // Room 2: Bottom Portal -> Room 5
     // Layout: A (Room2 bottomPortal)
@@ -93,9 +93,9 @@ class MazeC {
 
     //MiniGame #3:
 
-        if(activatedG3){
-          games.gameN3();
-        }
+    if (activatedG3) {
+      games.gameN3();
+    }
 
     // Room 3: Bottom Portal to Room 6
     // Layout: C (Room3 bottomPortal)
@@ -152,9 +152,9 @@ class MazeC {
 
     //MiniGame #4:
 
-        if(activatedG4){
-          games.gameN4();
-        }
+    if (activatedG4) {
+      games.gameN4();
+    }
 
     // Room 5: Top Portal -> Room 2
     // Layout: C (Room5 rightPortal)
@@ -197,9 +197,9 @@ class MazeC {
 
     //MiniGame #5:
 
-        if(activatedG5){
-          games.gameN5();
-        }
+    if (activatedG5) {
+      games.gameN5();
+    }
 
     // Room 6: Left Portal -> Room 5
     // Layout: C (Room5 rightPortal)
@@ -244,9 +244,9 @@ class MazeC {
 
     //MiniGame #6:
 
-        if(activatedG6){
-          games.gameN6();
-        }
+    if (activatedG6) {
+      games.gameN6();
+    }
 
     // Room 7: Right Portal -> Room 8
     // Layout: C (Room7 rightPortal)

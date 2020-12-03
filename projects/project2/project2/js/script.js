@@ -8,7 +8,7 @@ Simulation of a maze with mini-game rooms.
 
 "use strict";
 
-var score = 3;
+var score = 5;
 
 let activatedG1 = true;
 let activatedG2 = true;
@@ -16,8 +16,6 @@ let activatedG3 = true;
 let activatedG4 = true;
 let activatedG5 = true;
 let activatedG6 = true;
-
-
 
 let miniGameClear = false;
 
@@ -30,7 +28,6 @@ let topCollision = false;
 let bottomCollision = false;
 let leftCollision = false;
 let rightCollision = false;
-
 
 let user;
 
@@ -212,7 +209,7 @@ function mazeSelection() {
   push();
   fill(200);
   text(tempLayout, width / 5, height / 2);
-pop();
+  pop();
 
   if (keyIsDown(49)) {
     state = "room7A"
@@ -238,15 +235,15 @@ function gameClear() {
     textSize(20);
     background(0);
     state = "title";
-    score = 3;
+    score = 5;
 
 
-     activatedG1 = true;
-     activatedG2 = true;
-     activatedG3 = true;
-     activatedG4 = true;
-     activatedG5 = true;
-     activatedG6 = true;
+    activatedG1 = true;
+    activatedG2 = true;
+    activatedG3 = true;
+    activatedG4 = true;
+    activatedG5 = true;
+    activatedG6 = true;
   }
 }
 
@@ -267,13 +264,13 @@ function gameDefeat() {
     background(0);
 
     state = "title";
-    score = 3;
+    score = 5;
 
-     activatedG1 = true;
-     activatedG2 = true;
-     activatedG3 = true;
-     activatedG4 = true;
-     activatedG5 = true;
-     activatedG6 = true;
+    activatedG1 = true;
+    activatedG2 = true;
+    activatedG3 = true;
+    activatedG4 = true;
+    activatedG5 = true;
+    activatedG6 = true;
   }
 }
