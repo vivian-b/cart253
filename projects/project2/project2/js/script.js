@@ -21,10 +21,10 @@ let activatedG6 = true;
 
 let miniGameClear = false;
 
-let topActive = false;
-let bottomActive = false;
-let leftActive = false;
-let rightActive = false;
+// let topActive = false;
+// let bottomActive = false;
+// let leftActive = false;
+// let rightActive = false;
 
 let topCollision = false;
 let bottomCollision = false;

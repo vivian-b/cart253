@@ -48,10 +48,6 @@ class Game4 {
 
     let d = dist(user.x, user.y, this.key_x, this.key_y);
     if (d < this.keySize / 2 + user.size / 2) {
-      leftActive = true;
-      bottomActive = true;
-      topActive = true;
-      rightActive = true;
       activatedG4 = false;
     }
 
