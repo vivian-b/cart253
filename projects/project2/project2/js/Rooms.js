@@ -76,16 +76,16 @@ class Rooms {
     let ld = dist(user.x, user.y, leftPortal.x, leftPortal.y);
     let rd = dist(user.x, user.y, rightPortal.x, rightPortal.y);
 
-    if ((bd < bottomPortal.size / 2 + user.size / 2) && (bottomActive)) {
+    if (bd < bottomPortal.size / 2 + user.size / 2 ) {
       bottomCollision = true;
     }
-     if ((td < topPortal.size / 2 + user.size / 2)&& (topActive)) {
+     if (td < topPortal.size / 2 + user.size / 2) {
       topCollision = true;
     }
-     if ((ld < leftPortal.size / 2 + user.size / 2)&& (leftActive)) {
+     if (ld < leftPortal.size / 2 + user.size / 2) {
       leftCollision = true;
     }
-     if ((rd < rightPortal.size / 2 + user.size) / 2 && (rightActive)) {
+     if (rd < rightPortal.size / 2 + user.size / 2) {
       rightCollision = true;
     }
   }

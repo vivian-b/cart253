@@ -207,8 +207,10 @@ function draw() {
 
 function mazeSelection() {
   //temporary intro text
+  push();
   fill(200);
   text(tempLayout, width / 3, height / 2);
+pop();
 
   if (keyIsDown(49)) {
     state = "room7A"
@@ -236,8 +238,6 @@ function gameClear() {
     state = "title";
     score = 3;
 
-    state = "title";
-    score = 3;
 
      activatedG1 = true;
      activatedG2 = true;

@@ -374,7 +374,6 @@ class MazeB {
     rooms.room8();
 
     topPortal.display();
-    topActive = true;
 
   }
 

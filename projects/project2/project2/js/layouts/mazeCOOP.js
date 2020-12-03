@@ -387,7 +387,6 @@ class MazeC {
 
 
     topPortal.display();
-    topActive = true;
 
   }
 }

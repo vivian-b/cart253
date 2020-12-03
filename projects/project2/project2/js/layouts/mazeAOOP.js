@@ -277,7 +277,7 @@ class MazeA {
         if(activatedG6){
           games.gameN6();
         }
-    
+
     // Room 9: Top Portal -> Room 6
     // Layout: A (Room9 topPortal)
 
@@ -335,8 +335,6 @@ class MazeA {
     bottomPortal.display();
     rightPortal.display();
 
-    bottomActive = true;
-
   }
 
   room5Display() {
@@ -346,7 +344,6 @@ class MazeA {
     leftPortal.display();
     rightPortal.display();
 
-    leftActive = true;
 
   }
 
@@ -361,7 +358,6 @@ class MazeA {
   room7Display() {
     rooms.roomEntrance();
     topPortal.display();
-    topActive = true;
 
   }
 
