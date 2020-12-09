@@ -39,14 +39,14 @@ let leftPortal;
 let exitPortal;
 
 //Value
-let exitTopX = 500 / 2;
+let exitTopX = 750 / 2;
 let exitRightX = 40;
-let exitLeftX = 440;
-let exitBottomX = 500 / 2;
+let exitLeftX = 710;
+let exitBottomX = 750 / 2;
 
-let exitTopY = 440;
-let exitRightY = 500 / 2;
-let exitLeftY = 500 / 2;
+let exitTopY = 710;
+let exitRightY = 750 / 2;
+let exitLeftY = 750 / 2;
 let exitBottomY = 40;
 
 //temporary Room Markers
@@ -88,7 +88,7 @@ let state = 'title';
 //Adding User & Portals class
 //Three Maze Layouts
 function setup() {
-  createCanvas(500, 500);
+  createCanvas(750, 750);
 
   mazeL1 = new MazeA();
   mazeL2 = new MazeB();
