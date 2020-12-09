@@ -60,16 +60,6 @@ let game4;
 let game5;
 let game6;
 
-
-// let roomN2;
-// let roomN3;
-// let roomN4;
-// let roomN5;
-// let roomN6;
-// let roomN7;
-// let roomN8;
-// let roomN9;
-
 //text
 let cleared = 'YAY!'
 let defeated = 'Oh No!'
@@ -256,7 +246,7 @@ function gameDefeat() {
   text(defeated, width / 2, height / 2);
 
   textSize(20);
-  text(tempRestart, width / 2, height / 4 * 3);
+  text(tempRestart, width / 2, height / 5 * 3);
   pop();
 
   if (keyIsDown(32)) {
