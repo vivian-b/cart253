@@ -25,8 +25,12 @@ class Games {
   }
 
   gameN4() {
-    game4.poisonMove();
+    // game4.poisonGrow();
+    game4.poisonSpawn();
     game4.poisonCheck();
+    game4.poisonSetUp();
+    // game4.poisonDisplay();
+
     game4.bugs();
     game4.noLives();
   }

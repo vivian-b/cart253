@@ -408,7 +408,6 @@ topActive = true;
     leftPortal.display();
     rightPortal.display();
 
-
   }
 
   room6Display() {

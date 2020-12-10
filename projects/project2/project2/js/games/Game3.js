@@ -27,7 +27,9 @@ this.flowerSize += 3;
   }
 
 flowerClear(){
-  if (this.flowerSize > 500){
+  // if (this.flowerSize > 500){
+  if (this.flowerSize > 110){
+
     activatedG3 = false;
 }
 }

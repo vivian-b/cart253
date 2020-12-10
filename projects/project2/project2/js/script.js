@@ -40,19 +40,20 @@ let exitPortal;
 
 //Value
 let exitTopX = 750 / 2;
-let exitRightX = 60;
-let exitLeftX = 680;
+let exitRightX = 70;
+let exitLeftX = 670;
 let exitBottomX = 750 / 2;
 
-let exitTopY = 680;
+let exitTopY = 670;
 let exitRightY = 750 / 2;
 let exitLeftY = 750 / 2;
-let exitBottomY = 60;
+let exitBottomY = 70;
 
 //temporary Room Markers
 let rooms;
 let roomsC;
 
+let poisonOOP;
 
 let games;
 let game1;
@@ -107,7 +108,7 @@ function setup() {
   game5 = new Game5();
   game6 = new Game6();
 
-
+poisonOOP = new Poison();
 
   user = new Player(width / 2, height / 2);
 
