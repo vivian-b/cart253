@@ -53,7 +53,7 @@ let exitBottomY = 70;
 let rooms;
 let roomsC;
 
-let poisonOOP;
+let bugOOP;
 
 let games;
 let game1;
@@ -108,7 +108,7 @@ function setup() {
   game5 = new Game5();
   game6 = new Game6();
 
-poisonOOP = new Poison();
+bugOOP = new Bug();
 
   user = new Player(width / 2, height / 2);
 

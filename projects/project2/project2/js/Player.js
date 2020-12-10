@@ -8,7 +8,7 @@ let player_moveDown;
 class Player {
 
   constructor(x, y) {
-    this.size = 55;
+    this.size = 50;
 
     this.x = x;
     this.y = y;
@@ -19,9 +19,10 @@ class Player {
 
 
   display() {
-    noFill();
+    // noFill();
+    fill(100,100,100);
     noStroke();
-    ellipse(this.x, this.y, this.size);
+    ellipse(this.x, this.y+15, this.size);
   }
 
   move() {
