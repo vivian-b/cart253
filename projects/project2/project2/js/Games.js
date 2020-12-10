@@ -19,10 +19,8 @@ class Games {
   }
 
   gameN3() {
-    game3.trapMove();
-    game3.trapCheck();
-    game3.key();
-    game3.noLives();
+    game3.lightMove();
+    game3.lightCheck();
   }
 
   gameN4() {

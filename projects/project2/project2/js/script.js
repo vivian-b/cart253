@@ -40,14 +40,14 @@ let exitPortal;
 
 //Value
 let exitTopX = 750 / 2;
-let exitRightX = 40;
-let exitLeftX = 710;
+let exitRightX = 60;
+let exitLeftX = 680;
 let exitBottomX = 750 / 2;
 
-let exitTopY = 710;
+let exitTopY = 680;
 let exitRightY = 750 / 2;
 let exitLeftY = 750 / 2;
-let exitBottomY = 40;
+let exitBottomY = 60;
 
 //temporary Room Markers
 let rooms;
@@ -73,12 +73,22 @@ let mazeL3;
 
 let state = 'title';
 
+let img_idle;
 
+//assets
+function preload(){
+  player_still = loadImage("assets/images/blobl.png")
+  player_moveRight = loadImage("assets/images/blobllll.png")
+  player_moveLeft = loadImage("assets/images/bloblll.png")
+  player_moveUp = loadImage("assets/images/blobll.png")
+
+  }
 // setup()
 //Adding User & Portals class
 //Three Maze Layouts
 function setup() {
   createCanvas(750, 750);
+  imageMode(CENTER);
 
   mazeL1 = new MazeA();
   mazeL2 = new MazeB();

@@ -364,6 +364,7 @@ topActive = true;
   simulation() {
     user.move();
     user.handleInput();
+    user.handleDisplay();
     user.display();
   }
 

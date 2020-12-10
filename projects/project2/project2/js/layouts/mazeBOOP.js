@@ -211,6 +211,7 @@ leftActive = true;
     this.room5Display();
     this.simulation();
 
+bottomActive = true;
     //MiniGame #5:
     if (activatedG5) {
       games.gameN5();
@@ -364,6 +365,7 @@ topActive = true;
   simulation() {
     user.move();
     user.handleInput();
+    user.handleDisplay();
     user.display();
   }
 

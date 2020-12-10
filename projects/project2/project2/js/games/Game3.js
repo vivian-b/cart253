@@ -4,59 +4,34 @@
 class Game3 {
   constructor() {
 
-    this.trap_x = 50;
-    this.trap_y = 50;
-    this.trapSize = 100;
-    this.trapSpeed = 10;
-
-    this.keySize = 20;
-    this.key_x = 250;
-    this.key_y = 250;
+    this.light_x = 50;
+    this.light_y = 50;
+    this.lightSize = 100;
+    this.lightSpeed = 10;
 
   }
 
-  trapMove() {
-    this.trap_x += this.trapSpeed;
+  lightMove() {
+    this.light_x += this.lightSpeed;
 
-    if (this.trap_x > width + this.trapSize / 2) {
-      this.trap_x = 0;
-      this.trap_y = random(5, 350);
-      this.trapSize = random(100, 200);
+    if (this.light_x > width + this.lightSize / 2) {
+      this.light_x = 0;
+      this.light_y = random(5, 350);
+      this.lightSize = random(100, 200);
     }
   }
 
-  trapCheck() {
+  lightCheck() {
 
-    let d = dist(user.x, user.y, this.trap_x, this.trap_y);
-    if (d < this.trapSize / 2 + user.size / 2) {
-      score -= 1;
-      user.x = exitTopX;
-      user.y = exitTopY;
+    let d = dist(user.x, user.y, this.light_x, this.light_y);
+    if (d < this.lightSize / 2 + user.size / 2) {
+lightSize += 1;
     }
 
 
     fill(100, 100, 0);
-    ellipse(this.trap_x, this.trap_y, this.trapSize);
+    ellipse(this.light_x, this.light_y, this.lightSize);
   }
 
-
-
-  key() {
-
-    fill(0, 100, 100);
-    ellipse(this.key_x, this.key_y, this.keySize);
-
-    let d = dist(user.x, user.y, this.key_x, this.key_y);
-    if (d < this.keySize / 2 + user.size / 2) {
-            activatedG3 = false;
-    }
-
-  }
-
-  noLives() {
-    if (score <= 0) {
-      state = "defeat";
-    }
-  }
 
 }
