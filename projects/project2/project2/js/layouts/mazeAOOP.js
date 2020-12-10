@@ -132,7 +132,6 @@ leftActive = true;
 
   room4() {
     this.room4Display();
-    this.simulation();
 
     bottomActive = true;
 
@@ -143,6 +142,10 @@ leftActive = true;
     else if(!activatedG3){
       returnTrue();
     }
+
+    this.simulation();
+
+
 
     // Room 4: Bottom Portal to Room 7
     // Layout: A (Room3 bottomPortal)
@@ -388,8 +391,13 @@ topActive = true;
   room4Display() {
     rooms.room4();
 
+    if(!activatedG3){
+       roomsC.room4A();
+     }
+
     bottomPortal.display();
     rightPortal.display();
+
 
   }
 

@@ -19,14 +19,15 @@ class Games {
   }
 
   gameN3() {
-    game3.lightMove();
-    game3.lightCheck();
+    game3.flowerPosition();
+    game3.flowerCheck();
+    game3.flowerClear();
   }
 
   gameN4() {
-    game4.trapMove();
-    game4.trapCheck();
-    game4.key();
+    game4.poisonMove();
+    game4.poisonCheck();
+    game4.bugs();
     game4.noLives();
   }
 

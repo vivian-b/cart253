@@ -51,6 +51,8 @@ let exitBottomY = 60;
 
 //temporary Room Markers
 let rooms;
+let roomsC;
+
 
 let games;
 let game1;
@@ -95,6 +97,7 @@ function setup() {
   mazeL3 = new MazeC();
 
   rooms = new Rooms();
+  roomsC = new RoomsClear();
 
   games = new Games();
   game1 = new Game1();
