@@ -26,8 +26,6 @@ rightActive = true;
     this.room2Display();
     this.simulation();
 
-leftActive = true;
-
     //MiniGame #1:
     if (activatedG1) {
       games.gameN1();

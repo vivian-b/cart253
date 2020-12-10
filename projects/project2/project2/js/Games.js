@@ -34,9 +34,10 @@ class Games {
   }
 
   gameN5() {
-    game5.trapMove();
-    game5.trapCheck();
-    game5.key();
+    game5.flowerSpawn();
+    game5.flowerCheck();
+    game5.flowerSetUp();
+
     game5.noLives();
   }
 

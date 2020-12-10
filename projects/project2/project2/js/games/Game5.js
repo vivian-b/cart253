@@ -1,58 +1,57 @@
 //game description:
 // Reach the switch to open the door and avoid the objects
+let garden = [];
+let numFlowers = 5;
+
 
 class Game5 {
   constructor() {
 
-    this.trap_x = 50;
-    this.trap_y = 50;
-    this.trapSize = 100;
-    this.trapSpeed = 10;
-
-    this.keySize = 20;
-    this.key_x = 480;
-    this.key_y = 480;
+    this.flower_x = 600;
+    this.flower_y = 600;
+    this.flowerSize = 20;
 
   }
 
-  trapMove() {
-    this.trap_y += this.trapSpeed;
+    flowerSpawn(){
+      for (let j = 0; j < numFlowers; j++) {
+garden[j] = this.createFlowers(random(0, width), random(0, height));
+      garden.push(flowerOOP)
 
-    if (this.trap_y > height + this.trapSize / 2) {
-      this.trap_y = 0;
-      this.trap_x = random(5, 350);
-      this.trapSize = random(100, 200);
-    }
-  }
-
-  trapCheck() {
-
-    let d = dist(user.x, user.y, this.trap_x, this.trap_y);
-    if (d < this.trapSize / 2 + user.size / 2) {
-      score -= 1;
-      user.x = exitTopX;
-      user.y = exitTopY;
+      }
     }
 
+ createFlowers(x, y) {
+  let flower = {
+    x: x,
+    y: y,
+    size: 50,
+  };
+  return flower;
+}
 
-    fill(100, 100, 0);
-    ellipse(this.trap_x, this.trap_y, this.trapSize);
-  }
 
+    flowerSetUp(){
+      for (let i = 0; i < garden.length; i++) {
+        flowerOOP.display(garden[i]);
 
-
-  key() {
-
-    fill(0, 100, 100);
-    ellipse(this.key_x, this.key_y, this.keySize);
-
-    let d = dist(user.x, user.y, this.key_x, this.key_y);
-    if (d < this.keySize / 2 + user.size / 2) {
-  
-      activatedG5 = false;
+    }
     }
 
-  }
+    flowerCheck() {
+
+
+        for(let i = 0; i < garden.length ; i++){
+          let currHerd = numFlowers[i];
+          let d = dist(currHerd.x, currHerd.y, user.x, user.y);
+           if (d < currHerd.size / 6 + user.size / 4) {
+             score -= 1;
+             user.x = exitTopX
+             user.y = exitTopY
+         }
+      }
+    }
+
 
   noLives() {
     if (score <= 0) {

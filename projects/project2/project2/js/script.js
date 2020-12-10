@@ -53,7 +53,9 @@ let exitBottomY = 70;
 let rooms;
 let roomsC;
 
+//minigame objects
 let bugOOP;
+let flowerOOP;
 
 let games;
 let game1;
@@ -109,6 +111,7 @@ function setup() {
   game6 = new Game6();
 
 bugOOP = new Bug();
+flowerOOP = new Flowers();
 
   user = new Player(width / 2, height / 2);
 
