@@ -56,6 +56,7 @@ let roomsC;
 //minigame objects
 let bugOOP;
 let flowerOOP;
+let petalsOOP;
 
 let games;
 let game1;
@@ -112,6 +113,7 @@ function setup() {
 
 bugOOP = new Bug();
 flowerOOP = new Flowers();
+petalsOOP = new Petals();
 
   user = new Player(width / 2, height / 2);
 

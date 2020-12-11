@@ -1,80 +1,90 @@
 //game description:
 // Reach the switch to open the door and avoid the objects
 
-let aphids = [];
-
-let numAphids = 20;
-let counter;
-let eaten = true;
+let petals = [];
+let petal  ;
+let numPetals = 20;
+let counter = 20;
+let eaten = false;
 class Game5 {
   constructor() {
 
 
-  this.aphid_x = 600;
-  this.aphid_y = 600;
-  this.aphid_size = 20;
-
+  this.petal_x = 50;
+  this.petal_y = 50;
+  this.petal_vx = 2;
+  this.petal_vy = 2;
+  this.petal_speed = 2;
+  this.petal_size = 20;
+this.petal_eaten = false;
   }
 
-  createAphids(x, y) {
-    for (let i = 0; i < numAphids; i++) {
-    herd.numBug = 5;
+  createPetals(x, y) {
+    for (let i = 0; i < numPetals; i++) {
+    numPetals = 20;
 
   }
 }
-  checkAphids(aphid) {
-    if (!eaten) {
-      let d = dist(user.x, user.y, this.aphid.x, this.aphid.y);
-      if (d < user.size / 2 + this.aphid.size /2) {
-        this.aphid.eaten = true;
+
+  checkPetals(petal) {
+    if (!this.petal_eaten){
+      let d = dist(user.x, user.y, this.petal_x, this.petal_y);
+      if (d < user.size / 2 + this.petal_size /2) {
+        this.petal_eaten = true;
         counter += -1;
-      }
-    }
+        this.createPetals();
+        console.log(counter);
+    }}
   }
 
  all() {
 
-    for (let i = 0; i < aphids.length; i++) {
-        push();
-          this.checkAphids(aphids[i]);
-          this.displayAphids(aphids[i]);
-        pop();
+    for (let i = 0; i < petals.length; i++) {
+          this.checkPetals(petals[i]);
+          this.displayPetals(petals[i]);
+          this.movePetals(petals[i]);
+          this.checkCounter();
+
       }
 
-
-    //console.log(counter);
-
-    this.checkCounter();
   }
 
 gameSetup(){
-  counter = numAphids;
-  for (let i = 0; i < numAphids; i++) {
-      aphids[i] = this.createAphids(random(0, width), random(0, height));
+  for (let i = 0; i < numPetals; i++) {
+      petals[i] = this.createPetals(random(0, 50), random(0, 50));
     }
   }
 
+   movePetals(petal) {
+     let change = random(0, 4);
+     if (change < .05) {
+       this.petal_vx = random(-this.petal_speed, this.petal_speed);
+       this.petal_vy = random(-this.petal_speed, this.petal_speed);
+     }
+  this.petal_x = this.petal_x + this.petal_vx;
+  this.petal_y = this.petal_y + this.petal_vy;
 
-   displayAphids(aphid) {
-    if (!eaten) {
+  this.petal_x = constrain(this.petal_x, 0, width);
+  this.petal_y = constrain(this.petal_y, 0, height);
+}
+
+
+   displayPetals(petal) {
+    if (!this.petal_eaten) {
       push();
       fill(0, 255, 0);
       noStroke();
-      ellipse(this.aphid.x, this.aphid.y, random(13, 15), random(15, 18));
+      ellipse(this.petal_x, this.petal_y, this.petal_size);
       pop();
     }
   }
 
-aphidSpawn() {
-  let aphid = this.createAphids(random(0, width), random(0, height));
-  aphids.push(aphid);
-  counter += 1;
-}
-
  checkCounter() {
-  if (counter <= 0) {
-    state = `greenthumb`;
+  if (counter <= 19) {
+    activatedG5 = false;
   }
 }
+
+
 
 }

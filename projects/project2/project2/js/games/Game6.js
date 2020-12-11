@@ -1,63 +1,49 @@
 //game description:
-// Reach the switch to open the door and avoid the objects
+// Catch the fly
+
+let fly;
 
 class Game6 {
   constructor() {
 
-    this.trap_x = 50;
-    this.trap_y = 50;
-    this.trapSize = 100;
-    this.trapSpeed = 10;
-
-    this.keySize = 20;
-    this.key_x = 480;
-    this.key_y = 480;
-
+  this.fly_x = 50;
+  this.fly_y = 50;
+  this.fly_vx = 50;
+  this.fly_vy = 50;
+  this.fly_speed = 50;
+  this.fly_size = 20;
   }
 
-  trapMove() {
-    this.trap_y += this.trapSpeed;
-
-    if (this.trap_y > height + this.trapSize / 2) {
-      this.trap_y = 0;
-      this.trap_x = random(5, 350);
-      this.trapSize = random(100, 200);
+  checkFly() {
+      let d = dist(user.x, user.y, this.fly_x, this.fly_x);
+      if (d < user.size / 2 + this.fly_size /2) {
+        activatedG6 = false;
     }
   }
 
-  trapCheck() {
+   moveFly() {
+     let change = random(0, 2.5);
+     if (change < .05) {
+       this.fly_vx = random(-this.fly_speed, this.fly_speed);
+       this.fly_vy = random(-this.fly_speed, this.fly_speed);
+     }
+  this.fly_x = this.fly_x + this.fly_vx;
+  this.fly_y = this.fly_y + this.fly_vy;
 
-    let d = dist(user.x, user.y, this.trap_x, this.trap_y);
-    if (d < this.trapSize / 2 + user.size / 2) {
-      score -= 1;
-      user.x = exitTopX;
-      user.y = exitTopY;
-    }
-
-
-    fill(100, 100, 0);
-    ellipse(this.trap_x, this.trap_y, this.trapSize);
-  }
-
+  this.fly_x = constrain(this.fly_x, 0, width);
+  this.fly_y = constrain(this.fly_y, 0, height);
+}
 
 
-  key() {
-
-    fill(0, 100, 100);
-    ellipse(this.key_x, this.key_y, this.keySize);
-
-    let d = dist(user.x, user.y, this.key_x, this.key_y);
-    if (d < this.keySize / 2 + user.size / 2) {
-    
-            activatedG6 = false;
-    }
+   displayFly() {
+      push();
+      fill(0, 255, 0);
+      noStroke();
+      ellipse(this.fly_x, this.fly_y, this.fly_size);
+      pop();
 
   }
 
-  noLives() {
-    if (score <= 0) {
-      state = "defeat";
-    }
-  }
+
 
 }
