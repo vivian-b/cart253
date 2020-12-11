@@ -8,7 +8,7 @@ Simulation of a maze with mini-game rooms.
 
 "use strict";
 
-var score = 5;
+var score = 1;
 
 let activatedG1 = true;
 let activatedG2 = true;
@@ -106,14 +106,15 @@ function setup() {
   rooms = new Rooms();
   roomsC = new RoomsClear();
 
+resetGames();
   games = new Games();
 
-  game1 = new Game1();
-  game2 = new Game2();
-  game3 = new Game3();
-  game4 = new Game4();
-  game5 = new Game5();
-  game6 = new Game6();
+  // game1 = new Game1();
+  // game2 = new Game2();
+  // game3 = new Game3();
+  // game4 = new Game4();
+  // game5 = new Game5();
+  // game6 = new Game6();
 
 bugOOP = new Bug();
 flowerOOP = new Flowers();
@@ -137,6 +138,7 @@ function draw() {
   //First Layout [A]
   if (state === `title`) {
     mazeSelection();
+
   } else if (state === `room1A`) {
     mazeL1.room1();
   } else if (state === `room2A`) {
@@ -253,7 +255,7 @@ function gameClear() {
     textSize(20);
     background(0);
     state = "title";
-    score = 5;
+    score = 1;
   }
 }
 
@@ -276,7 +278,7 @@ function gameDefeat() {
     background(0);
 
     state = "title";
-    score = 5;
+    score = 1;
   }
 }
 
@@ -306,10 +308,18 @@ function portalTrue(){
 }
 
 function resetGames(){
-  let activatedG1 = false;
-  let activatedG2 = false;
-  let activatedG3 = false;
-  let activatedG4 = false;
-  let activatedG5 = false;
-  let activatedG6 = false;
+
+  game1 = new Game1();
+  game2 = new Game2();
+  game3 = new Game3();
+  game4 = new Game4();
+  game5 = new Game5();
+  game6 = new Game6();
+
+   activatedG1 = true;
+   activatedG2 = true;
+   activatedG3 = true;
+   activatedG4 = true;
+   activatedG5 = true;
+   activatedG6 = true;
 }

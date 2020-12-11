@@ -14,7 +14,9 @@ class Game3 {
   flowerPosition() {
     this.flower_x =   this.flower_x
     this.flower_y =   this.flower_y
-
+    
+    fill(100, 100, 0);
+    ellipse(this.flower_x, this.flower_y, this.flowerSize);
   }
 
   flowerCheck() {
@@ -22,8 +24,6 @@ class Game3 {
     if (d < this.flowerSize / 2 + user.size / 2) {
 this.flowerSize += 3;
     }
-    fill(100, 100, 0);
-    ellipse(this.flower_x, this.flower_y, this.flowerSize);
   }
 
 flowerClear(){
