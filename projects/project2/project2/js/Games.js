@@ -34,12 +34,15 @@ class Games {
   }
 
   gameN5() {
-    game5.flowerSpawn();
-    game5.flowerCheck();
-    game5.flowerSetUp();
+    game5.checkAphids();
+ game5.all();
+ game5.gameSetup();
+ game5.createAphids();
+ game5.displayAphids();
+ game5.aphidSpawn();
+ game5.checkCounter();
 
-    game5.noLives();
-  }
+    }
 
   gameN6() {
     game6.trapMove();

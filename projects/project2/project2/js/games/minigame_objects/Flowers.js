@@ -4,7 +4,7 @@ class Flowers {
   constructor(x, y, size){
 
     //createclown
-          this.x = x;
+          this.x = 20;
           this.y = y;
           this.size = size;
           this.vx = 0;
@@ -27,5 +27,5 @@ class Flowers {
       pop();
     }
 
-    
+
 }

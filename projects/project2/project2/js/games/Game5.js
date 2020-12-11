@@ -1,62 +1,80 @@
 //game description:
 // Reach the switch to open the door and avoid the objects
-let garden = [];
-let numFlowers = 5;
 
+let aphids = [];
 
+let numAphids = 20;
+let counter;
+let eaten = true;
 class Game5 {
   constructor() {
 
-    this.flower_x = 600;
-    this.flower_y = 600;
-    this.flowerSize = 20;
+
+  this.aphid_x = 600;
+  this.aphid_y = 600;
+  this.aphid_size = 20;
 
   }
 
-    flowerSpawn(){
-      for (let j = 0; j < numFlowers; j++) {
-garden[j] = this.createFlowers(random(0, width), random(0, height));
-      garden.push(flowerOOP)
+  createAphids(x, y) {
+    for (let i = 0; i < numAphids; i++) {
+    herd.numBug = 5;
 
+  }
+}
+  checkAphids(aphid) {
+    if (!eaten) {
+      let d = dist(user.x, user.y, this.aphid.x, this.aphid.y);
+      if (d < user.size / 2 + this.aphid.size /2) {
+        this.aphid.eaten = true;
+        counter += -1;
       }
     }
+  }
 
- createFlowers(x, y) {
-  let flower = {
-    x: x,
-    y: y,
-    size: 50,
-  };
-  return flower;
+ all() {
+
+    for (let i = 0; i < aphids.length; i++) {
+        push();
+          this.checkAphids(aphids[i]);
+          this.displayAphids(aphids[i]);
+        pop();
+      }
+
+
+    //console.log(counter);
+
+    this.checkCounter();
+  }
+
+gameSetup(){
+  counter = numAphids;
+  for (let i = 0; i < numAphids; i++) {
+      aphids[i] = this.createAphids(random(0, width), random(0, height));
+    }
+  }
+
+
+   displayAphids(aphid) {
+    if (!eaten) {
+      push();
+      fill(0, 255, 0);
+      noStroke();
+      ellipse(this.aphid.x, this.aphid.y, random(13, 15), random(15, 18));
+      pop();
+    }
+  }
+
+aphidSpawn() {
+  let aphid = this.createAphids(random(0, width), random(0, height));
+  aphids.push(aphid);
+  counter += 1;
 }
 
-
-    flowerSetUp(){
-      for (let i = 0; i < garden.length; i++) {
-        flowerOOP.display(garden[i]);
-
-    }
-    }
-
-    flowerCheck() {
-
-
-        for(let i = 0; i < garden.length ; i++){
-          let currHerd = numFlowers[i];
-          let d = dist(currHerd.x, currHerd.y, user.x, user.y);
-           if (d < currHerd.size / 6 + user.size / 4) {
-             score -= 1;
-             user.x = exitTopX
-             user.y = exitTopY
-         }
-      }
-    }
-
-
-  noLives() {
-    if (score <= 0) {
-      state = "defeat";
-    }
+ checkCounter() {
+  if (counter <= 0) {
+    state = `greenthumb`;
   }
+}
 
 }

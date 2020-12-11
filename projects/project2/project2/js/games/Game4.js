@@ -31,7 +31,6 @@ class Game4 {
     herd.bug.push(bugOOP)
 
     }
-
   }
 
 
@@ -54,7 +53,7 @@ class Game4 {
       for(i = 0; i < herd.bug.length ; i++){
          let currHerd = herd.bug[i];
         let d = dist(currHerd.x, currHerd.y, user.x, user.y);
-         if (d < currHerd.size / 6 + user.size / 4) {
+         if (d < currHerd.size/2 + user.size / 10) {
            score -= 1;
            user.x = exitTopX
            user.y = exitTopY
