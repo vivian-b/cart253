@@ -57,7 +57,7 @@ let roomsC;
 let bugOOP;
 let flowerOOP;
 let petalsOOP;
-let flyOOP;
+let beeOOP;
 
 
 let games;
@@ -116,7 +116,7 @@ function setup() {
 bugOOP = new Bug();
 flowerOOP = new Flowers();
 petalsOOP = new Petals();
-flyOOP = new Flies();
+beeOOP = new Bees();
 
   user = new Player(width / 2, height / 2);
 
@@ -228,8 +228,7 @@ function mazeSelection() {
   } else if (keyIsDown(50)) {
     state = "room8B"
   } else if (keyIsDown(51)) {
-    // state = "room9C"
-    state = "room8C"
+    state = "room9C"
 
   }
 }
@@ -251,13 +250,7 @@ function gameClear() {
     state = "title";
     score = 5;
 
-
-    activatedG1 = true;
-    activatedG2 = true;
-    activatedG3 = true;
-    activatedG4 = true;
-    activatedG5 = true;
-    activatedG6 = true;
+resetGames();
   }
 }
 
@@ -279,13 +272,8 @@ function gameDefeat() {
 
     state = "title";
     score = 5;
+resetGames();
 
-    activatedG1 = true;
-    activatedG2 = true;
-    activatedG3 = true;
-    activatedG4 = true;
-    activatedG5 = true;
-    activatedG6 = true;
   }
 }
 
@@ -312,4 +300,13 @@ function returnTrue(){
   leftActive = true;
   topActive = true;
   bottomActive = true;
+}
+
+function resetGames(){
+  activatedG1 = true;
+  activatedG2 = true;
+  activatedG3 = true;
+  activatedG4 = true;
+  activatedG5 = true;
+  activatedG6 = true;
 }

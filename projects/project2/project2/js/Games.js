@@ -45,12 +45,13 @@ class Games {
     }
 
   gameN6() {
-    game6.setup();
+    game6.beeSpawn();
+    game6.beeCheck();
+    game6.beeSetUp();
 
- game6.draw();
- game6.checkFlies();
- game6.displayFlies();
- game6.checkAmount();
+    game6.honey();
+
+    game6.noLives();
   }
 
 

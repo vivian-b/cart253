@@ -1,94 +1,86 @@
+//game description:
+// Reach the switch to open the door and avoid the objects
 
-let buzz = {
-   flies: [],
-   numFlies :10,
-}
+let swarm = {
+  bee: [],
+  numbee: 10,
+  caught: false,
+};
 
-let  caught= false;
-
-
-let  amount;  //determines the state
 
 class Game6 {
-  constructor() {}
+  constructor() {
 
- setup() {
-
-   amount = buzz.numFlies;
-
-
-  for (let i = 0; i < buzz.numFlies; i++) {
-    // buzz.flies[i] = flyOOP.createFlies(random(0, width), random(0, height));
-    buzz.numFlies = 5;
-    let x =   random(200, 250);
-    let y =   random(200, 250);
-    let size = flyOOP.size;
-
-    let fliesOOP = new Flies(29,29);
-
-    buzz.flies.push(flyOOP)
-
+    this.honeySize = 50;
+    this.honey_x = 375;
+    this.honey_y = 375;
   }
-}
 
+  beeSpawn(){
 
-  draw() {
+    for (let j = 0; j < swarm.numbee; j++) {
+    swarm.numbee = 20;
+    let x =   0;
+    let y =   0;
+    let size = this.beeSize;
 
-  for (let i = 0; i < buzz.flies.length; i++) {
+    let beeOOP = new Bees(x,y,size);
 
-    if (buzz.flies.length = 5){
-      buzz.flies.length = 5
-    }
-      push();
-      this.checkFlies(buzz.flies[i]);
-      flyOOP.moveFlies(buzz.flies[i]);
-      this.displayFlies(buzz.flies[i]);
-      pop();
-    }
-
-    this.checkAmount(); //to see if too many flies or if no flies
-}
-
-
-//flower animation for greenthumb state
-// code adapted from https://editor.p5js.org/hosken/sketches/yFz4VpSPr
-
-
-  checkFlies(fly) {
-  if (!caught) {
-    for(let i = 0; i < buzz.flies.length ; i++){
-       let currBuzz = buzz.flies[i];
-    let d = dist(user.x, user.y, currBuzz.x, currBuzz.y);
-    if (d < user.size / 2 + currBuzz.size/2) {
-      caught = true;
-       amount += -1;
-
-       console.log(amount);
+    swarm.bee.push(beeOOP)
 
     }
   }
+
+  beeSetUp(){
+
+    for (let j = 0; j < swarm.bee.length; j++) {
+    let beeOOP = swarm.bee[j];
+  //
+  if (swarm.bee.length = swarm.numbee){
+    swarm.bee.length = swarm.numbee;
+
+  push();
+      beeOOP.moveBees(swarm[j]);
+      this.beeCheck(swarm[j])
+      beeOOP.display(swarm[j]);
+
+  pop();
 }
-}
+  }
+  }
 
+  beeCheck() {
 
-  displayFlies(fly) {
+    let i;
+      for(i = 0; i < swarm.bee.length ; i++){
+         let currHerd = swarm.bee[i];
+        let d = dist(currHerd.x, currHerd.y, user.x, user.y);
+         if (d < currHerd.size/2 + user.size / 2) {
+      score -= 1;
+user.x = user.x-60
+user.y = user.y-60
 
-  if (!caught) {
+  }
 
-    for(let i = 0; i < buzz.flies.length ; i++){
-       let currBuzz = buzz.flies[i];
-    push();
-    fill(0, 255, 0);
-    noStroke();
-    ellipse(currBuzz.x, currBuzz.y, random(13, 15), random(15, 18));
-    pop();
-  }}
-}
+}}
 
+honey() {
 
-  checkAmount() {
-  if ( amount <= 0) {
+  fill(0, 100, 100);
+  ellipse(this.honey_x, this.honey_y, this.honeySize);
+
+  let d = dist(user.x, user.y, this.honey_x, this.honey_y);
+  if (d < this.honeySize/2  + user.size/2 ) {
+    score += 1;
     activatedG6 = false;
   }
+
 }
+
+  noLives() {
+    if (score <= 0) {
+      state = "defeat";
+    }
+  }
+
 }
