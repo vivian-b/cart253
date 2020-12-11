@@ -32,8 +32,7 @@ this.petal_eaten = false;
       if (d < user.size / 2 + this.petal_size /2) {
         this.petal_eaten = true;
         counter += -1;
-        this.createPetals();
-        console.log(counter);
+        // console.log(counter);
     }}
   }
 
@@ -43,8 +42,6 @@ this.petal_eaten = false;
           this.checkPetals(petals[i]);
           this.displayPetals(petals[i]);
           this.movePetals(petals[i]);
-          this.checkCounter();
-
       }
 
   }

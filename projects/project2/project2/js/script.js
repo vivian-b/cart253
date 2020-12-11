@@ -57,6 +57,8 @@ let roomsC;
 let bugOOP;
 let flowerOOP;
 let petalsOOP;
+let flyOOP;
+
 
 let games;
 let game1;
@@ -114,6 +116,7 @@ function setup() {
 bugOOP = new Bug();
 flowerOOP = new Flowers();
 petalsOOP = new Petals();
+flyOOP = new Flies();
 
   user = new Player(width / 2, height / 2);
 
@@ -225,7 +228,9 @@ function mazeSelection() {
   } else if (keyIsDown(50)) {
     state = "room8B"
   } else if (keyIsDown(51)) {
-    state = "room9C"
+    // state = "room9C"
+    state = "room8C"
+
   }
 }
 

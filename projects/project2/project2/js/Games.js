@@ -45,9 +45,12 @@ class Games {
     }
 
   gameN6() {
-    game6.checkFly();
-  game6.displayFly();
-game6.moveFly();
+    game6.setup();
+
+ game6.draw();
+ game6.checkFlies();
+ game6.displayFlies();
+ game6.checkAmount();
   }
 
 

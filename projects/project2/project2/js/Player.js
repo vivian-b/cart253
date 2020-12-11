@@ -14,7 +14,7 @@ class Player {
     this.y = y;
     this.vx = 0;
     this.vy = 0;
-    this.speed = 5;
+    this.speed = 6;
   }
 
 
