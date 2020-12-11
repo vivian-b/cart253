@@ -14,7 +14,7 @@ rightActive = true;
     // Layout: A (Room1 rightPortal)
 
     if ((rightCollision) && (state = "room1A")) {
-      returnFalse();
+      portalFalse();
 
       state = "room2A";
       user.y = exitRightY
@@ -31,7 +31,7 @@ rightActive = true;
       games.gameN1();
     }
     else if(!activatedG1){
-      returnTrue();
+      portalTrue();
     }
 
     // Entry from  Room3 + Game2 = clear
@@ -49,7 +49,7 @@ rightActive = true;
     // Layout: A (Room2 bottomPortal)
 
     if ((bottomCollision) && (state = "room2A")) {
-      returnFalse();
+      portalFalse();
 
       state = "room5A";
       user.y = exitBottomY
@@ -60,7 +60,7 @@ rightActive = true;
     // Layout: A (Room2 leftPortal)
 
     if ((leftCollision) && (state = "room2A")) {
-      returnFalse();
+      portalFalse();
 
       state = "room1A";
       user.y = exitLeftY
@@ -71,7 +71,7 @@ rightActive = true;
     // Layout: A (Room2 rightPortal)
 
     if ((rightCollision) && (state = "room2A")) {
-      returnFalse();
+      portalFalse();
 
       state = "room3A";
       user.y = exitRightY
@@ -89,7 +89,7 @@ rightActive = true;
       games.gameN2();
     }
     else if(!activatedG2){
-      returnTrue();
+      portalTrue();
     }
 
     // Entry from  Room2 + Game1 = clear
@@ -108,7 +108,7 @@ rightActive = true;
     // Layout: A (Room3 leftPortal)
 
     if ((leftCollision) && (state = "room3A")) {
-      returnFalse();
+      portalFalse();
 
       state = "room2A";
       user.y = exitLeftY
@@ -119,7 +119,7 @@ rightActive = true;
     // Layout: A (Room3 bottomPortal)
 
     if ((bottomCollision) && (state = "room3A")) {
-      returnFalse();
+      portalFalse();
 
       state = "room6A";
       user.y = exitBottomY
@@ -138,7 +138,7 @@ rightActive = true;
       games.gameN3();
     }
     else if(!activatedG3){
-      returnTrue();
+      portalTrue();
     }
 
     this.simulation();
@@ -150,7 +150,7 @@ rightActive = true;
 
 
     if ((bottomCollision) && (state = "room4A")) {
-      returnFalse();
+      portalFalse();
 
       user.y = exitBottomY;
       user.x = exitBottomX;
@@ -162,7 +162,7 @@ rightActive = true;
     // Layout: A (Room3 rightPortal)
 
     if ((rightCollision) && (state = "room4A")) {
-      returnFalse();
+      portalFalse();
 
       user.y = exitRightY;
       user.x = exitRightX;
@@ -181,14 +181,14 @@ if (activatedG4) {
   games.gameN4();
 }
 else if(!activatedG4){
-  returnTrue();
+  portalTrue();
 }
 
     // Room 5: Top Portal -> Room 2
     // Layout: A (Room5 rightPortal)
 
     if ((topCollision) && (state = "room5A")) {
-      returnFalse();
+      portalFalse();
       user.y = exitTopY
       user.x = exitTopX
       state = "room2A";
@@ -199,7 +199,7 @@ else if(!activatedG4){
     // Layout: A (Room5 leftPortal)
 
     if ((leftCollision) && (state = "room5A")) {
-      returnFalse();
+      portalFalse();
       user.y = exitLeftY
       user.x = exitLeftX
       state = "room4A";
@@ -210,7 +210,7 @@ else if(!activatedG4){
     // Layout: A (Room5 rightPortal)
 
     if ((rightCollision) && (state = "room5A")) {
-      returnFalse();
+      portalFalse();
 
       state = "room6A";
       user.y = exitRightY
@@ -229,7 +229,7 @@ else if(!activatedG4){
       games.gameN5();
     }
     else if(!activatedG5){
-      returnTrue();
+      portalTrue();
     }
 
   // Entry from  Room3 + Game2 = clear
@@ -246,7 +246,7 @@ else if(!activatedG4){
     // Layout: A (Room5 rightPortal)
 
     if ((leftCollision) && (state = "room6A")) {
-      returnFalse();
+      portalFalse();
 
       state = "room5A";
       user.y = exitLeftY
@@ -257,7 +257,7 @@ else if(!activatedG4){
     // Layout: A (Room6 bottomPortal)
 
     if ((bottomCollision) && (state = "room6A")) {
-      returnFalse();
+      portalFalse();
 
       state = "room9A";
       user.y = exitBottomY
@@ -269,7 +269,7 @@ else if(!activatedG4){
     // Layout: A (Room6 topPortal)
 
     if ((topCollision) && (state = "room6A")) {
-      returnFalse();
+      portalFalse();
 
       state = "room3A";
       user.y = exitTopY
@@ -290,7 +290,7 @@ topActive = true;
     // Layout: A (Room7 topPortal)
 
     if ((topCollision) && (state = "room7A")) {
-      returnFalse();
+      portalFalse();
       state = "room4A";
       user.y = exitTopY
       user.x = exitTopX
@@ -307,7 +307,7 @@ rightActive = true;
     // Layout: A (Room8 rightPortal)
 
     if ((rightCollision) && (state = "room8C")) {
-      returnFalse();
+      portalFalse();
 
       state = "room9A";
       user.y = exitRightY
@@ -331,14 +331,14 @@ topActive = true;
       games.gameN6();
     }
     else if(!activatedG6){
-      returnTrue();
+      portalTrue();
     }
 
     // Room 9: Top Portal -> Room 6
     // Layout: A (Room9 topPortal)
 
     if ((topCollision) && (state = "room9A")) {
-      returnFalse();
+      portalFalse();
 
       state = "room6A";
       user.y = exitTopY
@@ -350,7 +350,7 @@ topActive = true;
     // Layout: A (Room8 leftPortal)
 
     if ((leftCollision) && (state = "room9A")) {
-      returnFalse();
+      portalFalse();
 
       state = "room8A";
       user.y = exitLeftY
@@ -388,10 +388,6 @@ topActive = true;
 
   room4Display() {
     rooms.room4();
-
-    if(!activatedG3){
-       roomsC.room4A();
-     }
 
     bottomPortal.display();
     rightPortal.display();

@@ -1,3 +1,5 @@
+//minigame library
+
 class Games {
 
   constructor(x,y) {

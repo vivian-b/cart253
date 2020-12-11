@@ -80,6 +80,7 @@ honey() {
   noLives() {
     if (score <= 0) {
       state = "defeat";
+
     }
   }
 

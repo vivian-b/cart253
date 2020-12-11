@@ -61,6 +61,7 @@ let beeOOP;
 
 
 let games;
+
 let game1;
 let game2;
 let game3;
@@ -106,6 +107,7 @@ function setup() {
   roomsC = new RoomsClear();
 
   games = new Games();
+
   game1 = new Game1();
   game2 = new Game2();
   game3 = new Game3();
@@ -200,11 +202,13 @@ function draw() {
   //gameClear
   else if (state === `clear`) {
     gameClear();
+
   }
 
   //gameDefeat
   else if (state === `defeat`) {
     gameDefeat();
+
   }
 
   fill(55, 163, 41)
@@ -229,11 +233,12 @@ function mazeSelection() {
     state = "room8B"
   } else if (keyIsDown(51)) {
     state = "room9C"
-
   }
 }
 
 function gameClear() {
+  resetGames();
+
   push();
   background(200, 200, 200);
   textSize(40);
@@ -249,12 +254,12 @@ function gameClear() {
     background(0);
     state = "title";
     score = 5;
-
-resetGames();
   }
 }
 
 function gameDefeat() {
+  resetGames();
+
   push();
   background(200, 200, 200);
   textSize(40);
@@ -272,12 +277,10 @@ function gameDefeat() {
 
     state = "title";
     score = 5;
-resetGames();
-
   }
 }
 
-function returnFalse(){
+function portalFalse(){
 
   // relocking portals when entering the next room
   rightActive = false;
@@ -293,7 +296,7 @@ function returnFalse(){
 
 }
 
-function returnTrue(){
+function portalTrue(){
 
   //opening portals
   rightActive = true;
@@ -303,10 +306,10 @@ function returnTrue(){
 }
 
 function resetGames(){
-  activatedG1 = true;
-  activatedG2 = true;
-  activatedG3 = true;
-  activatedG4 = true;
-  activatedG5 = true;
-  activatedG6 = true;
+  let activatedG1 = false;
+  let activatedG2 = false;
+  let activatedG3 = false;
+  let activatedG4 = false;
+  let activatedG5 = false;
+  let activatedG6 = false;
 }
