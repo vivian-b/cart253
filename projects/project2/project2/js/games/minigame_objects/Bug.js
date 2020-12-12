@@ -15,12 +15,7 @@ class Bug {
             g: 250,
             b: 250,
           }
-
-          }
-
-
-
-
+        }
 
      display( ){
       push();

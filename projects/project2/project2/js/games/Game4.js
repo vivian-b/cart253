@@ -33,7 +33,6 @@ class Game4 {
       let bugOOP = new Bug(x, y, size);
 
       herd.bug.push(bugOOP)
-
     }
   }
 
@@ -47,7 +46,6 @@ class Game4 {
       }
       bugOOP.display(herd[j]);
       bugOOP.move(herd[j]);
-
     }
   }
 
@@ -57,19 +55,21 @@ class Game4 {
     for (i = 0; i < herd.bug.length; i++) {
       let currHerd = herd.bug[i];
       let d = dist(currHerd.x, currHerd.y, user.x, user.y);
-      if ((d < currHerd.size / 2 + user.size / 10) && (state === "room5A")) {
+
+
+      if ((d < currHerd.size / 2 + user.size / 20) && (state === "room5A")) {
         score -= 1;
         user.x = exitRightX;
         user.y = exitRightY;
       }
 
-      if ((d < currHerd.size / 2 + user.size / 10) && (state === "room4B")) {
+      if ((d < currHerd.size / 2 + user.size / 20) && (state === "room4B")) {
         score -= 1;
         user.x = exitLeftX;
         user.y = exitLeftY;
       }
 
-      if ((d < currHerd.size / 2 + user.size / 10) && (state === "room5C")) {
+      if ((d < currHerd.size / 2 + user.size / 20) && (state === "room5C")) {
         score -= 1;
         user.x = exitLeftX;
         user.y = exitLeftY;

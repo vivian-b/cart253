@@ -13,7 +13,7 @@ class RoomsClear {
   // Game 2 clear
   roomG2() {
     rooms.collision();
-    background(207, 97, 146);
+    background(217, 87, 176);
   }
 
   // Game 3 clear

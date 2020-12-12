@@ -20,7 +20,6 @@ class Game5 {
   }
   }
 
-
   checkFairy() {
 
       let d = dist(user.x, user.y, this.fairy_x, this.fairy_y);

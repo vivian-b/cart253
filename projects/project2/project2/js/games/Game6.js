@@ -17,6 +17,9 @@ class Game6 {
 
     this.min = 550;
     this.max = 700;
+
+    this.repositionX = 375;
+    this.repositionY = 300;
   }
 
   beeSpawn() {
@@ -38,7 +41,6 @@ class Game6 {
 
     for (let j = 0; j < swarm.bee.length; j++) {
       let beeOOP = swarm.bee[j];
-      //
       if (swarm.bee.length = swarm.numBee) {
         swarm.bee.length = swarm.numBee;
 
@@ -60,6 +62,9 @@ class Game6 {
       let d = dist(currHerd.x, currHerd.y, user.x, user.y);
       if (d < currHerd.size / 2 + user.size / 2) {
         score -= 1;
+        user.x = this.repositionX
+        user.y = this.repositionY
+
       }
     }
   }
