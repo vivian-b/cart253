@@ -20,7 +20,7 @@ class Game1 {
 
     if (this.trap_x > width + this.trapSize / 2) {
       this.trap_x = 0;
-      this.trap_y = random(5, 350);
+      this.trap_y = random(user.size, 350);
       this.trapSize = random(100, 200);
     }
   }
@@ -34,17 +34,11 @@ class Game1 {
       user.y = 525;
     }
 
-
-    fill(100, 100, 0);
+    fill(77, 63, 224);
     ellipse(this.trap_x, this.trap_y, this.trapSize);
   }
 
-
-
-  key() {
-
-    fill(0, 100, 100);
-    ellipse(this.key_x, this.key_y, this.keySize);
+  keyCheck() {
 
     let d = dist(user.x, user.y, this.key_x, this.key_y);
     if (d < this.keySize / 2 + user.size / 2) {
@@ -52,6 +46,12 @@ class Game1 {
     }
 
   }
+
+  keyDisplay(){
+    fill(100, 100, 0);
+    ellipse(this.key_x, this.key_y, this.keySize);
+  }
+
 
   noLives() {
     if (score <= 0) {

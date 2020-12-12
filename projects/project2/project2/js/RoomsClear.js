@@ -12,7 +12,7 @@ class RoomsClear {
 
   roomG2() {
     rooms.collision();
-    background(173, 139, 99);
+    background(207, 97, 146);
   }
 
   roomG3() {

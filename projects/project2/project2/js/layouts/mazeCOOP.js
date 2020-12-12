@@ -106,7 +106,6 @@ rightActive = true;
 
   room3() {
     this.room3Display();
-    this.simulation();
 
     //MiniGame #3:
     if (activatedG3) {
@@ -115,6 +114,7 @@ rightActive = true;
     else if(!activatedG3){
       portalTrue();
     }
+    this.simulation();
 
     // Entry from  Room2 + Game2 = clear
       if(!activatedG2){

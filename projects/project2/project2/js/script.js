@@ -225,7 +225,7 @@ function mazeSelection() {
   if (keyIsDown(49)) {
     state = "room7A"
   } else if (keyIsDown(50)) {
-    state = "room8B"
+    state = "room2B"
   } else if (keyIsDown(51)) {
     state = "room9C"
   }

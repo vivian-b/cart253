@@ -9,48 +9,44 @@ class Bees {
     this.vx= 1;
     this.vy= 25;
     this.speed= 10;
+    this.fill={
+      r:250,
+      g:220,
+      b:47
+    }
         }
-        // createBees(x, y) {
-        // let bee = {
-        //   x: x,
-        //   y: y,
-        //   size: 30,
-        //   vx: .1,
-        //   vy: .25,
-        //   speed: .25,
-        // }
-        // return bee;
-        // }
 
+//Bees moving around in a restricted space
       moveBees() {
+
+        //jittering
       let change = random(0, 1);
       if (change < .05) {
         this.vx = random(-this.speed, this.speed);
         this.vy = random(-this.speed, this.speed);
       }
 
+      //flying back when reaching edge (horizontal)
       if ((this.x <= 450) || (this.x >=650)) {
         this.vx = -this.vx
       }
 
+      //flying back when reaching edge (vertical)
       if ((this.y <= 0) || (this.y >=height-user.size)) {
         this.vy = -this.vy
       }
 
-
+      //bee movement
       this.x = this.x + this.vx;
       this.y = this.y + this.vy;
     }
 
-    display( ){
-     push();
-     noStroke();
 
-     //head
-     fill(250,250,250);
+    display( ){
+     noStroke();
+     fill(this.fill.r,this.fill.g,this.fill.b);
      ellipse(this.x, this.y, this.size, this.size);
 
-     pop();
    }
 
 }

@@ -45,7 +45,7 @@ class Game5 {
 
    displayFairy() {
       push();
-      fill(0, 255, 0);
+      fill(82, 255, 232);
       noStroke();
       ellipse(this.fairy_x, this.fairy_y, this.fairy_size);
       pop();

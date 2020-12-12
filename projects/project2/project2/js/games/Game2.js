@@ -7,16 +7,30 @@ class Game2 {
   constructor() {
 
     this.baby_x = 50;
-    this.baby_y = 50;
+    this.baby_y = 780;
     this.babySize = 40;
-    this.babySpeed = 10;
 
-    this.holeSize = 20;
-    this.hole_x = 600;
-    this.hole_y = 600;
+    this.holeSize = 100;
+    this.hole_x = 750;
+    this.hole_y = 0;
 
   }
 
+
+    hole() {
+
+
+      let d = dist(user.x, user.y, this.hole_x, this.hole_y);
+      if ((d < this.holeSize / 2 + user.size / 2) && (carry)) {
+              activatedG2 = false;
+              carry = false;
+      }
+    }
+
+    holeDisplay(){
+      fill(0, 100, 100);
+      ellipse(this.hole_x, this.hole_y, this.holeSize);
+    }
 
   babyCheck() {
 
@@ -27,31 +41,12 @@ class Game2 {
       this.baby_y = user.y - 20;
     }
 
+  }
 
+  babyDisplay(){
     fill(100, 100, 0);
     ellipse(this.baby_x, this.baby_y, this.babySize);
-  }
-
-
-
-  hole() {
-
-    fill(0, 100, 100);
-    ellipse(this.hole_x, this.hole_y, this.holeSize);
-
-    let d = dist(user.x, user.y, this.hole_x, this.hole_y);
-    if ((d < this.holeSize / 2 + user.size / 2) && (carry)) {
-            activatedG2 = false;
-            carry = false;
-
-    }
-
-  }
-
-  noLives() {
-    if (score <= 0) {
-      state = "defeat";
-    }
+        image(player_still, this.baby_x, this.baby_y-15,85,80);
   }
 
 }

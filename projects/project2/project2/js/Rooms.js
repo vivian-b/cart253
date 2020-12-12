@@ -7,7 +7,7 @@ class Rooms {
 
   room1() {
     this.collision();
-    background(8, 120, 64);
+    background(50, 41, 143);
   }
 
   room2() {

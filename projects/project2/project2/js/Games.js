@@ -11,16 +11,23 @@ class Games {
 
     game1.trapMove();
     game1.trapCheck();
-    game1.key();
+
+    game1.keyCheck();
+    game1.keyDisplay();
+
+
     game1.noLives();
   }}
 
   gameN2() {
     if (activatedG2){
 
-    game2.babyCheck();
     game2.hole();
-    game2.noLives();
+    game2.holeDisplay();
+
+    game2.babyCheck();
+    game2.babyDisplay();
+
   }
 }
 

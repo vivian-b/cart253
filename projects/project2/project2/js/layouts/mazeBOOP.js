@@ -7,7 +7,6 @@ class MazeB {
 
   room1() {
     this.room1Display();
-    this.simulation();
 
     //MiniGame #1:
     if (activatedG1) {
@@ -16,6 +15,8 @@ class MazeB {
     else if(!activatedG1){
       portalTrue();
     }
+
+    this.simulation();
 
     // Entry from  Room2 + Game2 = clear
       if(!activatedG2){
@@ -111,7 +112,6 @@ class MazeB {
 
   room3() {
     this.room3Display();
-    this.simulation();
 
 leftActive = true;
 
@@ -122,6 +122,8 @@ leftActive = true;
     else if(!activatedG3){
       portalTrue();
     }
+
+    this.simulation();
 
     // Room 3: Bottom Portal to Room 6
     // Layout: B (Room3 bottomPortal)
