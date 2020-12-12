@@ -62,9 +62,7 @@ class Player {
       image(player_moveUp, user.x, user.y,100,100);
 
     } else if (keyIsDown(DOWN_ARROW)) {
-      // image(player_moveDown, user.x, user.y,100,100);
-      image(player_still, user.x, user.y,100,100);
-
+      image(player_moveDown, user.x, user.y,100,100);
     }
     else {
       image(player_still, user.x, user.y,100,100);

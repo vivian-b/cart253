@@ -33,9 +33,9 @@ class Games {
 
   gameN3() {
     if (activatedG3){
-    game3.flowerPosition();
-    game3.flowerCheck();
-    game3.flowerClear();
+    game3.lightPosition();
+    game3.lightCheck();
+    game3.lightClear();
   }
   }
 

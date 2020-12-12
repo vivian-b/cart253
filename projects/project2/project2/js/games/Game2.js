@@ -13,12 +13,10 @@ class Game2 {
     this.holeSize = 100;
     this.hole_x = 750;
     this.hole_y = 0;
-
   }
 
 
     hole() {
-
 
       let d = dist(user.x, user.y, this.hole_x, this.hole_y);
       if ((d < this.holeSize / 2 + user.size / 2) && (carry)) {

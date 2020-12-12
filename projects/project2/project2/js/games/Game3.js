@@ -10,7 +10,7 @@ class Game3 {
 
   }
 
-  flowerPosition() {
+  lightPosition() {
     this.x =   this.x
     this.y =   this.y
 
@@ -18,15 +18,14 @@ class Game3 {
     ellipse(this.x, this.y, this.size);
   }
 
-  flowerCheck() {
+  lightCheck() {
     let d = dist(user.x, user.y, this.x, this.y);
     if (d < this.size / 2 + user.size / 2) {
-this.size += 3;
+this.size += 5;
     }
   }
 
-flowerClear(){
-  // if (this.flowersize > 500){
+lightClear(){
   if (this.size > 550){
     activatedG3 = false;
 }

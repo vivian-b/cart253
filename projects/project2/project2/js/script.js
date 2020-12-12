@@ -86,13 +86,14 @@ let img_idle;
 
 //assets
 function preload(){
-  player_still = loadImage("assets/images/blobstill.png")
-  player_moveRight = loadImage("assets/images/blobright.png")
-  player_moveLeft = loadImage("assets/images/blobleft.png")
-  player_moveUp = loadImage("assets/images/blobup.png")
-  player_moveDown = loadImage("assets/images/blobdown.png")
-
+  player_still = loadImage("assets/images/blob_still.png")
+  player_moveRight = loadImage("assets/images/blob_right.png")
+  player_moveLeft = loadImage("assets/images/blob_left.png")
+  player_moveUp = loadImage("assets/images/blob_up.png")
+  player_moveDown = loadImage("assets/images/blob_down.png")
+  img_flower = loadImage("assets/images/flower.png")
   }
+
 // setup()
 //Adding User & Portals class
 //Three Maze Layouts
