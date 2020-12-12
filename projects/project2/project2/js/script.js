@@ -327,8 +327,6 @@ function mazeSelection() {
 function mazeRestart(){
 
   if (keyIsDown(32))
-    textSize(20);
-    background(0);
 
     state = "title";
     score = 5;
