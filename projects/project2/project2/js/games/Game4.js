@@ -53,13 +53,25 @@ class Game4 {
       for(i = 0; i < herd.bug.length ; i++){
          let currHerd = herd.bug[i];
         let d = dist(currHerd.x, currHerd.y, user.x, user.y);
-         if (d < currHerd.size/2 + user.size / 10) {
+        if ((d < currHerd.size/2 + user.size / 10) && (state === "room5A")) {
            score -= 1;
-           user.x = exitTopX
-           user.y = exitTopY
+           user.x = exitRightX;
+           user.y = exitRightY;
        }
-    }
-  }
+
+     //   if ((d < currHerd.size/2 + user.size / 10) && (state === "room4B")) {
+     //     score -= 1;
+     //     user.x = exitLeftX;
+     //     user.y = exitLeftY;
+     // }
+
+       if ((d < currHerd.size/2 + user.size / 10) && ((state === "room5C")||(state === "room4B"))) {
+         score -= 1;
+         user.x = exitLeftX;
+         user.y = exitLeftY;
+     }
+}
+}
 
   flower() {
 

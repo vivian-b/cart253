@@ -1,52 +1,46 @@
 //game description:
 // Reach the switch to open the door and avoid the objects
 
+let carry= false;
+
 class Game2 {
   constructor() {
 
-    this.trap_x = 50;
-    this.trap_y = 50;
-    this.trapSize = 100;
-    this.trapSpeed = 10;
+    this.baby_x = 50;
+    this.baby_y = 50;
+    this.babySize = 40;
+    this.babySpeed = 10;
 
-    this.keySize = 20;
-    this.key_x = 480;
-    this.key_y = 480;
+    this.holeSize = 20;
+    this.hole_x = 600;
+    this.hole_y = 600;
 
   }
 
-  trapMove() {
-    this.trap_y += this.trapSpeed;
 
-    if (this.trap_y > height + this.trapSize / 2) {
-      this.trap_y = 0;
-      this.trap_x = random(5, 350);
-      this.trapSize = random(100, 200);
-    }
-  }
+  babyCheck() {
 
-  trapCheck() {
-
-    let d = dist(user.x, user.y, this.trap_x, this.trap_y);
-    if (d < this.trapSize / 2 + user.size / 2) {
-      this.trap_x = user.x;
-      this.trap_y = user.y - 10;
+    let d = dist(user.x, user.y, this.baby_x, this.baby_y);
+    if (d < this.babySize / 2 + user.size / 2) {
+      carry = true;
+      this.baby_x = user.x;
+      this.baby_y = user.y - 20;
     }
 
 
     fill(100, 100, 0);
-    ellipse(this.trap_x, this.trap_y, this.trapSize);
+    ellipse(this.baby_x, this.baby_y, this.babySize);
   }
 
 
 
-  key() {
+  hole() {
 
     fill(0, 100, 100);
-    ellipse(this.key_x, this.key_y, this.keySize);
+    ellipse(this.hole_x, this.hole_y, this.holeSize);
 
-    let d = dist(user.x, user.y, this.key_x, this.key_y);
-    if (d < this.keySize / 2 + user.size / 2) {
+    let d = dist(user.x, user.y, this.hole_x, this.hole_y);
+    if ((d < this.holeSize / 2 + user.size / 2) && (carry)) {
             activatedG2 = false;
     }
 

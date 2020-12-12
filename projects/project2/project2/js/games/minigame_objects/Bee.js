@@ -29,7 +29,7 @@ class Bees {
         this.vy = random(-this.speed, this.speed);
       }
 
-      if ((this.x <= 450) || (this.x >=600)) {
+      if ((this.x <= 450) || (this.x >=650)) {
         this.vx = -this.vx
       }
 

@@ -18,9 +18,8 @@ class Games {
   gameN2() {
     if (activatedG2){
 
-    game2.trapMove();
-    game2.trapCheck();
-    game2.key();
+    game2.babyCheck();
+    game2.hole();
     game2.noLives();
   }
 }

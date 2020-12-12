@@ -12,7 +12,7 @@ class Game6 {
   constructor() {
 
     this.honeySize = 50;
-    this.honey_x = 650;
+    this.honey_x = 700;
     this.honey_y = 375;
   }
 
