@@ -5,78 +5,35 @@ class RoomsClear {
 
   }
 
-  room1() {
-    this.collision();
-    background(10, 120, 120);
+  roomG1() {
+    rooms.collision();
+    background(16, 145, 87);
   }
 
-  room2() {
-    this.collision();
-    background(20, 20, 120);
+  roomG2() {
+    rooms.collision();
+    background(173, 139, 99);
   }
 
-  room3() {
-    this.collision();
-    background(30, 20, 120);
+  roomG3() {
+    rooms.collision();
+    background(240, 197, 67);
   }
 
-  room4A() {
-    this.collision();
-    background(200, 200, 200);
+  roomG4() {
+    rooms.collision();
+    background(176, 58, 137);
   }
 
-  room5() {
-    this.collision();
-    background(50, 20, 120);
+
+  roomG5() {
+    rooms.collision();
+    background(21, 191, 183);
   }
 
-  room6() {
-    this.collision();
-    background(60, 20, 120);
+  roomG6() {
+    rooms.collision();
+    background(21, 171, 96);
   }
 
-  room7() {
-    this.collision();
-    background(45, 145, 84);
-  }
-
-  room8() {
-    this.collision();
-    background(80, 20, 120);
-  }
-
-  room9() {
-    this.collision();
-    background(90, 20, 120);
-  }
-
-  roomEntrance() {
-    this.collision();
-    background(45, 145, 84);
-  }
-
-  roomExit() {
-    this.collision();
-    background(20, 20, 0);
-  }
-
-  collision() {
-    let bd = dist(user.x, user.y, bottomPortal.x, bottomPortal.y);
-    let td = dist(user.x, user.y, topPortal.x, topPortal.y);
-    let ld = dist(user.x, user.y, leftPortal.x, leftPortal.y);
-    let rd = dist(user.x, user.y, rightPortal.x, rightPortal.y);
-
-    if ((bd < bottomPortal.size / 2 + user.size / 2 ) && (bottomActive)) {
-      bottomCollision = true;
-    }
-     if ((td < topPortal.size / 2 + user.size / 2) && (topActive)){
-      topCollision = true;
-    }
-     if ((ld < leftPortal.size / 2 + user.size / 2)&& (leftActive)) {
-      leftCollision = true;
-    }
-     if ((rd < rightPortal.size / 2 + user.size / 2) && (rightActive)) {
-      rightCollision = true;
-    }
-  }
 }

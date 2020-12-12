@@ -20,6 +20,7 @@ class Flower {
       push();
       noStroke();
 
+// pistil
       fill(250,250,250);
       ellipse(this.x, this.y, this.size, this.size);
 

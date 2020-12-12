@@ -22,7 +22,7 @@ class Rooms {
 
   room4() {
     this.collision();
-    background(40, 20, 120);
+    background(24, 32, 140);
   }
 
   room5() {
@@ -52,12 +52,12 @@ class Rooms {
 
   roomEntrance() {
     this.collision();
-    background(45, 145, 84);
+    background(21, 171, 96);
   }
 
   roomExit() {
     this.collision();
-    background(20, 20, 0);
+    background(21, 171, 96);
   }
 
   collision() {

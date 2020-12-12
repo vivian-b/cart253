@@ -2,33 +2,32 @@
 // Reach the switch to open the door and avoid the objects
 
 class Game3 {
-  constructor() {
+  constructor(x,y,size) {
 
-    this.flower_x = 375;
-    this.flower_y = 375;
-    this.flowerSize = 100;
-    this.flowerSpeed = 10;
+    this.x = 375;
+    this.y = 375;
+    this.size = 20;
 
   }
 
   flowerPosition() {
-    this.flower_x =   this.flower_x
-    this.flower_y =   this.flower_y
-    
-    fill(100, 100, 0);
-    ellipse(this.flower_x, this.flower_y, this.flowerSize);
+    this.x =   this.x
+    this.y =   this.y
+
+    fill(240, 197, 67);
+    ellipse(this.x, this.y, this.size);
   }
 
   flowerCheck() {
-    let d = dist(user.x, user.y, this.flower_x, this.flower_y);
-    if (d < this.flowerSize / 2 + user.size / 2) {
-this.flowerSize += 3;
+    let d = dist(user.x, user.y, this.x, this.y);
+    if (d < this.size / 2 + user.size / 2) {
+this.size += 3;
     }
   }
 
 flowerClear(){
-  // if (this.flowerSize > 500){
-  if (this.flowerSize > 110){
+  // if (this.flowersize > 500){
+  if (this.size > 550){
     activatedG3 = false;
 }
 }

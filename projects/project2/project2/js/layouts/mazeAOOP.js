@@ -374,6 +374,10 @@ topActive = true;
   room2Display() {
     rooms.room2();
 
+    if(!activatedG1){
+      roomsC.roomG1()
+      }
+
     bottomPortal.display();
     leftPortal.display();
     rightPortal.display();
@@ -382,12 +386,20 @@ topActive = true;
   room3Display() {
     rooms.room3();
 
+    if(!activatedG2){
+      roomsC.roomG2()
+      }
+
     leftPortal.display();
     bottomPortal.display();
   }
 
   room4Display() {
     rooms.room4();
+
+if(!activatedG3){
+  roomsC.roomG3()
+  }
 
     bottomPortal.display();
     rightPortal.display();
@@ -398,6 +410,10 @@ topActive = true;
   room5Display() {
     rooms.room5();
 
+    if(!activatedG4){
+      roomsC.roomG4()
+      }
+
     topPortal.display();
     leftPortal.display();
     rightPortal.display();
@@ -406,6 +422,10 @@ topActive = true;
 
   room6Display() {
     rooms.room6();
+
+    if(!activatedG5){
+      roomsC.roomG5()
+      }
 
     leftPortal.display();
     topPortal.display();
@@ -427,6 +447,10 @@ topActive = true;
 
   room9Display() {
     rooms.room9();
+
+    if(!activatedG6){
+      roomsC.roomG6()
+      }
 
     topPortal.display();
     leftPortal.display();
