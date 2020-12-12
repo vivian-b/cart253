@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');
+
 body {
   padding: 0;
   margin: 0;
@@ -5,5 +7,5 @@ body {
   justify-content: center;
   align-content: center;
   height: 100vh;
-  background-color: black;
+  background-color: #006b5c;
 }

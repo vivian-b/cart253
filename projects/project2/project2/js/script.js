@@ -68,10 +68,14 @@ let game5;
 let game6;
 
 //text
-let cleared = 'YAY!'
-let defeated = 'Oh No!'
-let tempLayout = 'press 1, 2 or 3 for different layouts'
-let tempRestart = 'press spacebar to restart'
+let cleared = 'Clear!'
+let textDefeated = 'Oh No!'
+
+let titleText= 'Blob Escape'
+let startText = 'press 1, 2 or 3 to start!'
+let textRestart = 'press spacebar to try again'
+let instructionText = 'Use arrow keys to move around'
+let instructionText2 = 'Clear the minigame to interact with the exits'
 
 //Maze Layouts
 let mazeL1;
@@ -127,10 +131,11 @@ beeOOP = new Bees();
 // draw()
 //Map out all maze rooms for each layout
 function draw() {
+textFont(`Chewy`);
 
   //First Layout [A]
   if (state === `title`) {
-    mazeSelection();
+    titleScreen();
 
   } else if (state === `room1A`) {
     mazeL1.room1();
@@ -197,56 +202,52 @@ function draw() {
   //gameClear
   else if (state === `clear`) {
     gameClear();
-
   }
 
   //gameDefeat
   else if (state === `defeat`) {
     gameDefeat();
-
   }
 
   fill(55, 163, 41)
   textSize(22);
 
   text("score = " + score, 20, height - 30);
-
 }
 
-function mazeSelection() {
-  //temporary intro text
-  background(10, 10, 10);
+function titleScreen(){
+  mazeSelection();
+
+  background(21, 171, 96);
 
   push();
-  fill(200);
-  text(tempLayout, width / 5, height / 2);
+  fill(207, 252, 73);
+  textSize(150);
+  text(titleText, 45, height/2);
+
+  textSize(30);
+  text(startText, 60, 700);
   pop();
 
-  if (keyIsDown(49)) {
-    state = "room7A"
-  } else if (keyIsDown(50)) {
-    state = "room8B"
-  } else if (keyIsDown(51)) {
-    state = "room9C"
-  }
 }
 
 function gameClear() {
   resetGames();
+  background(170, 219, 35);
 
   push();
-  background(200, 200, 200);
-  textSize(40);
   textAlign(CENTER);
-  fill(10);
+  fill(214, 43, 126);
+
+  textSize(150);
   text(cleared, width / 2, height / 2);
-  textSize(20);
-  text(tempRestart, width / 2, height / 4 * 3);
+
+  textSize(30);
+  text(textRestart, width / 2, height / 4 * 3);
   pop();
 
   if (keyIsDown(32)) {
     textSize(20);
-    background(0);
     state = "title";
     score = 5;
   }
@@ -256,14 +257,16 @@ function gameDefeat() {
   resetGames();
 
   push();
-  background(200, 200, 200);
-  textSize(40);
   textAlign(CENTER);
-  fill(10);
-  text(defeated, width / 2, height / 2);
 
-  textSize(20);
-  text(tempRestart, width / 2, height / 5 * 3);
+  background(29, 27, 135)
+  fill(207, 252, 73);
+
+  textSize(150);
+  text(textDefeated, width / 2, height / 2);
+
+  textSize(30);
+  text(textRestart, width / 2, height / 5 * 3);
   pop();
 
   if (keyIsDown(32)) {
@@ -272,6 +275,17 @@ function gameDefeat() {
 
     state = "title";
     score = 5;
+  }
+}
+
+
+function mazeSelection() {
+  if (keyIsDown(49)) {
+    state = "room7A"
+  } else if (keyIsDown(50)) {
+    state = "room8B"
+  } else if (keyIsDown(51)) {
+    state = "room9C"
   }
 }
 

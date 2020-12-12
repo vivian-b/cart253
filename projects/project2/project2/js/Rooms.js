@@ -64,6 +64,12 @@ class Rooms {
   roomEntrance() {
     this.collision();
     background(21, 171, 96);
+    push();
+    textSize(30);
+    fill(250)
+    text(instructionText, 60, 650);
+    text(instructionText2, 60, 700);
+    pop()
   }
 
 // Empty Room
@@ -75,14 +81,13 @@ class Rooms {
     background(153, 224, 9);
   }
 
-
   // Exit Room
     // Maze A = Room 8
     // Maze B = Room 9
     // Maze C = Room 4
   roomExit() {
     this.collision();
-    background(21, 171, 96);
+    background(170, 219, 35);
   }
 
   // Player interaction with portals
