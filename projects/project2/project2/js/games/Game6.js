@@ -13,8 +13,8 @@ class Game6 {
 
     this.flowerImgSize = 100;
     this.flowerSize = 50;
-    this.flower_x = 700;
-    this.flower_y = 375;
+    this.flower_x = 375;
+    this.flower_y = 700;
   }
 
   beeSpawn(){
@@ -79,11 +79,6 @@ flowerDisplay(){
 }
 
 
-  noLives() {
-    if (score <= 0) {
-      state = "defeat";
 
-    }
-  }
 
 }

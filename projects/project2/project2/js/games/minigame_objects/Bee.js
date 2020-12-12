@@ -3,8 +3,12 @@ class Bees {
 
   constructor(x, y, size){
 
-    this.x= 450;
-    this.y= 370;
+    this.x= 375;
+    this.y= 600;
+
+    this.max = 700
+    this.min = 550;
+
     this.size= 10;
     this.vx= 1;
     this.vy= 25;
@@ -27,12 +31,12 @@ class Bees {
       }
 
       //flying back when reaching edge (horizontal)
-      if ((this.x <= 450) || (this.x >=650)) {
+      if ((this.x <= 0) || (this.x >= this.max)) {
         this.vx = -this.vx
       }
 
       //flying back when reaching edge (vertical)
-      if ((this.y <= 0) || (this.y >=height-user.size)) {
+      if ((this.y <= this.min) || (this.y >= this.max)) {
         this.vy = -this.vy
       }
 

@@ -52,10 +52,5 @@ class Game1 {
 
   }
 
-  noLives() {
-    if (score <= 0) {
-      state = "defeat";
-    }
-  }
 
 }

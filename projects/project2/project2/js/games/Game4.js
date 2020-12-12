@@ -88,11 +88,4 @@ class Game4 {
 
   }
 
-
-  noLives() {
-    if (score <= 0) {
-      state = "defeat";
-    }
-  }
-
 }

@@ -15,7 +15,7 @@ class Games {
     game1.trapMove();
     game1.trapCheck();
 
-    game1.noLives();
+    this.noLives();
   }
 }
 
@@ -48,7 +48,7 @@ class Games {
     game4.bugCheck();
     game4.bugSetUp();
 
-    game4.noLives();
+    this.noLives();
   }
 }
 
@@ -65,16 +65,23 @@ class Games {
   gameN6() {
     if (activatedG6){
 
+    game6.flower();
+    game6.flowerDisplay();
+
     game6.beeSpawn();
     game6.beeCheck();
     game6.beeSetUp();
 
-    game6.flower();
-    game6.flowerDisplay();
 
-    game6.noLives();
+    this.noLives();
   }
   }
 
+  noLives() {
+    if (score <= 0) {
+      state = "defeat";
+
+    }
+  }
 
 }
