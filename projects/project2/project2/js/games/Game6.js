@@ -13,7 +13,7 @@ class Game6 {
 
     this.honeySize = 50;
     this.honey_x = 650;
-    this.honey_y = 450;
+    this.honey_y = 375;
   }
 
   beeSpawn(){
@@ -57,7 +57,7 @@ class Game6 {
         let d = dist(currHerd.x, currHerd.y, user.x, user.y);
          if (d < currHerd.size/2 + user.size / 2) {
       score -= 1;
-user.x = user.x+60
+user.x = user.x+40
 
   }
 

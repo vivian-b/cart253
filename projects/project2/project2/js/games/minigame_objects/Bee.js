@@ -4,7 +4,7 @@ class Bees {
   constructor(x, y, size){
 
     this.x= 450;
-    this.y= 350;
+    this.y= 370;
     this.size= 10;
     this.vx= 1;
     this.vy= 25;
@@ -33,7 +33,7 @@ class Bees {
         this.vx = -this.vx
       }
 
-      if ((this.y <= 0) || (this.y >=height)) {
+      if ((this.y <= 0) || (this.y >=height-user.size)) {
         this.vy = -this.vy
       }
 

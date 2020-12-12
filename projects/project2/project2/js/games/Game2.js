@@ -29,9 +29,8 @@ class Game2 {
 
     let d = dist(user.x, user.y, this.trap_x, this.trap_y);
     if (d < this.trapSize / 2 + user.size / 2) {
-      score -= 1;
-      user.x = exitTopX;
-      user.y = exitTopY;
+      this.trap_x = user.x;
+      this.trap_y = user.y - 10;
     }
 
 
