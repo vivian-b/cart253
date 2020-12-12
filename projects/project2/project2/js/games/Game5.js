@@ -12,6 +12,12 @@ class Game5 {
   this.fairy_vy = 0;
   this.fairy_speed = 20;
   this.fairy_size = 20;
+
+  this.fill = {
+    r: 82,
+    g: 255,
+    b: 232,
+  }
   }
 
 
@@ -45,7 +51,7 @@ class Game5 {
 
    displayFairy() {
       push();
-      fill(82, 255, 232);
+      fill(this.fill.r, this.fill.g, this.fill.b);
       noStroke();
       ellipse(this.fairy_x, this.fairy_y, this.fairy_size);
       pop();

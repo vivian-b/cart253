@@ -6,8 +6,8 @@ class Bees {
     this.x= 375;
     this.y= 600;
 
-    this.max = 700
     this.min = 550;
+    this.max = 690
 
     this.size= 10;
     this.vx= 1;

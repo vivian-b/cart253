@@ -55,8 +55,6 @@ let roomsC;
 
 //minigame objects
 let bugOOP;
-let flowerOOP;
-let petalsOOP;
 let beeOOP;
 
 
@@ -114,8 +112,6 @@ resetGames();
   games = new Games();
 
 bugOOP = new Bug();
-flowerOOP = new Flower();
-petalsOOP = new Petals();
 beeOOP = new Bees();
 
   user = new Player(width / 2, height / 2);
@@ -227,7 +223,7 @@ function mazeSelection() {
   pop();
 
   if (keyIsDown(49)) {
-    state = "room9A"
+    state = "room7A"
   } else if (keyIsDown(50)) {
     state = "room8B"
   } else if (keyIsDown(51)) {

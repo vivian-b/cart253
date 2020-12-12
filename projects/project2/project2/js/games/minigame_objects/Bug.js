@@ -9,8 +9,16 @@ class Bug {
           this.vx = 0;
           this.vy = 0;
           this.speed = 4;
-        }
-      ;
+
+          this.fill= {
+            r: 250,
+            g: 250,
+            b: 250,
+          }
+
+          }
+
+
 
 
 
@@ -18,9 +26,8 @@ class Bug {
       push();
       noStroke();
 
-      fill(250,250,250);
+      fill(this.fill.r, this.fill.g, this.fill.b);
       ellipse(this.x, this.y, this.size, this.size);
-
 
       pop();
     }
