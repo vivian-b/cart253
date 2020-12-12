@@ -26,7 +26,7 @@ class Game2 {
     }
 
     holeDisplay(){
-      fill(0, 100, 100);
+      fill(240, 197, 67);
       ellipse(this.hole_x, this.hole_y, this.holeSize);
     }
 
@@ -42,9 +42,7 @@ class Game2 {
   }
 
   babyDisplay(){
-    fill(100, 100, 0);
-    ellipse(this.baby_x, this.baby_y, this.babySize);
-        image(player_still, this.baby_x, this.baby_y-15,85,80);
+        image(player_still, this.baby_x, this.baby_y-13,85,80);
   }
 
 }

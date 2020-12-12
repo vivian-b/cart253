@@ -12,9 +12,7 @@ class Games {
     game1.trapMove();
     game1.trapCheck();
 
-    game1.keyCheck();
-    game1.keyDisplay();
-
+    game1.flowerCheck();
 
     game1.noLives();
   }}

@@ -3,7 +3,6 @@ class Flower {
 
   constructor(x, y, size){
 
-    //createclown
           this.x = 20;
           this.y = y;
           this.size = size;
@@ -13,8 +12,6 @@ class Flower {
         }
       ;
 
-    //displayclown(clown)
-    //display the provided clown on the canvas
 
      display( ){
       push();

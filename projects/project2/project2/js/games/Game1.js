@@ -9,9 +9,9 @@ class Game1 {
     this.trapSize = 100;
     this.trapSpeed = 20;
 
-    this.keySize = 20;
-    this.key_x = 375;
-    this.key_y = 50;
+    this.flowerSize = 20;
+    this.flower_x = 375;
+    this.flower_y = 50;
 
   }
 
@@ -38,20 +38,13 @@ class Game1 {
     ellipse(this.trap_x, this.trap_y, this.trapSize);
   }
 
-  keyCheck() {
+  flowerCheck() {
 
-    let d = dist(user.x, user.y, this.key_x, this.key_y);
-    if (d < this.keySize / 2 + user.size / 2) {
+    let d = dist(user.x, user.y, this.flower_x, this.flower_y);
+    if (d < this.flowerSize / 2 + user.size / 2) {
       activatedG1 = false;
     }
-
   }
-
-  keyDisplay(){
-    fill(100, 100, 0);
-    ellipse(this.key_x, this.key_y, this.keySize);
-  }
-
 
   noLives() {
     if (score <= 0) {
