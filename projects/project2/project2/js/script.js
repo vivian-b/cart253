@@ -109,15 +109,8 @@ function setup() {
 resetGames();
   games = new Games();
 
-  // game1 = new Game1();
-  // game2 = new Game2();
-  // game3 = new Game3();
-  // game4 = new Game4();
-  // game5 = new Game5();
-  // game6 = new Game6();
-
 bugOOP = new Bug();
-flowerOOP = new Flowers();
+flowerOOP = new Flower();
 petalsOOP = new Petals();
 beeOOP = new Bees();
 
@@ -230,7 +223,7 @@ function mazeSelection() {
   pop();
 
   if (keyIsDown(49)) {
-    state = "room7A"
+    state = "room4A"
   } else if (keyIsDown(50)) {
     state = "room8B"
   } else if (keyIsDown(51)) {

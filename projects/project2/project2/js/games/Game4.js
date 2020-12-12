@@ -59,19 +59,19 @@ class Game4 {
            user.y = exitRightY;
        }
 
-     //   if ((d < currHerd.size/2 + user.size / 10) && (state === "room4B")) {
-     //     score -= 1;
-     //     user.x = exitLeftX;
-     //     user.y = exitLeftY;
-     // }
-
-       if ((d < currHerd.size/2 + user.size / 10) && ((state === "room5C")||(state === "room4B"))) {
+       if ((d < currHerd.size/2 + user.size / 10) && (state === "room4B")) {
          score -= 1;
          user.x = exitLeftX;
          user.y = exitLeftY;
      }
-}
-}
+
+       if ((d < currHerd.size/2 + user.size / 10) && (state === "room5C")) {
+         score -= 1;
+         user.x = exitLeftX;
+         user.y = exitLeftY;
+     }
+
+}}
 
   flower() {
 

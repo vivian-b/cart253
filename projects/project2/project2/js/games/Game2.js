@@ -42,6 +42,8 @@ class Game2 {
     let d = dist(user.x, user.y, this.hole_x, this.hole_y);
     if ((d < this.holeSize / 2 + user.size / 2) && (carry)) {
             activatedG2 = false;
+            carry = false;
+
     }
 
   }

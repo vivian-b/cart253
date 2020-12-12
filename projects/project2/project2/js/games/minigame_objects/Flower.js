@@ -1,5 +1,5 @@
 
-class Flowers {
+class Flower {
 
   constructor(x, y, size){
 
@@ -20,7 +20,6 @@ class Flowers {
       push();
       noStroke();
 
-      //head
       fill(250,250,250);
       ellipse(this.x, this.y, this.size, this.size);
 

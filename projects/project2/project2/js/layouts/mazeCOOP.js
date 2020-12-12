@@ -10,7 +10,7 @@ class MazeC {
     this.room1Display();
     this.simulation();
 
-bottomActive = true;
+rightActive = true;
 
     //MiniGame #1:
     if (activatedG1) {
@@ -156,6 +156,7 @@ bottomActive = true;
     this.room4Display();
     this.simulation();
 
+topActive = true;
 
     // Room 4: Top Portal to Room 1
     // Layout: C (Room4 topPortal)

@@ -7,11 +7,11 @@ class Game1 {
     this.trap_x = 50;
     this.trap_y = 50;
     this.trapSize = 100;
-    this.trapSpeed = 10;
+    this.trapSpeed = 20;
 
     this.keySize = 20;
-    this.key_x = 480;
-    this.key_y = 480;
+    this.key_x = 375;
+    this.key_y = 50;
 
   }
 
@@ -30,8 +30,8 @@ class Game1 {
     let d = dist(user.x, user.y, this.trap_x, this.trap_y);
     if (d < this.trapSize / 2 + user.size / 2) {
       score -= 1;
-      user.x = exitTopX;
-      user.y = exitTopY;
+      user.x = 375;
+      user.y = 525;
     }
 
 
