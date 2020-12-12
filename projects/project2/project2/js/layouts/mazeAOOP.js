@@ -367,7 +367,7 @@ topActive = true;
   }
 
   room1Display() {
-    rooms.room1();
+    rooms.roomRest();
     rightPortal.display();
   }
 

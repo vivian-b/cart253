@@ -372,12 +372,20 @@ topActive = true;
   room1Display() {
     rooms.room1();
 
+    if(!activatedG1){
+      roomsC.roomG1()
+      }
+
     bottomPortal.display();
     rightPortal.display();
   }
 
   room2Display() {
     rooms.room2();
+
+    if(!activatedG2){
+      roomsC.roomG2()
+      }
 
     bottomPortal.display();
     leftPortal.display();
@@ -387,12 +395,21 @@ topActive = true;
   room3Display() {
     rooms.room3();
 
+    if(!activatedG3){
+      roomsC.roomG3()
+      }
+
     leftPortal.display();
     bottomPortal.display();
   }
 
   room4Display() {
     rooms.room4();
+
+    if(!activatedG4){
+      roomsC.roomG4()
+      }
+
     topPortal.display();
     bottomPortal.display();
     rightPortal.display();
@@ -400,6 +417,10 @@ topActive = true;
 
   room5Display() {
     rooms.room5();
+
+    if(!activatedG5){
+      roomsC.roomG5()
+      }
 
     topPortal.display();
     bottomPortal.display();
@@ -410,25 +431,29 @@ topActive = true;
   room6Display() {
     rooms.room6();
 
+    if(!activatedG6){
+      roomsC.roomG6()
+      }
+
     topPortal.display();
     bottomPortal.display();
   }
 
   room7Display() {
-    rooms.room7();
+    rooms.roomRest();
 
     topPortal.display();
   }
 
   room8Display() {
-    rooms.room8();
+    rooms.roomEntrance();
 
     topPortal.display();
 
   }
 
   room9Display() {
-    rooms.room9();
+    rooms.roomExit();
 
     topPortal.display();
     exitPortal.display();

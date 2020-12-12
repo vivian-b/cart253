@@ -7,7 +7,7 @@ class Rooms {
 
   room1() {
     this.collision();
-    background(10, 120, 120);
+    background(8, 120, 64);
   }
 
   room2() {
@@ -27,7 +27,7 @@ class Rooms {
 
   room5() {
     this.collision();
-    background(50, 20, 120);
+    background(31, 42, 145);
   }
 
   room6() {
@@ -55,6 +55,10 @@ class Rooms {
     background(21, 171, 96);
   }
 
+roomRest(){
+  this.collision();
+  background(153, 224, 9);
+}
   roomExit() {
     this.collision();
     background(21, 171, 96);

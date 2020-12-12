@@ -223,7 +223,7 @@ function mazeSelection() {
   pop();
 
   if (keyIsDown(49)) {
-    state = "room4A"
+    state = "room7A"
   } else if (keyIsDown(50)) {
     state = "room8B"
   } else if (keyIsDown(51)) {

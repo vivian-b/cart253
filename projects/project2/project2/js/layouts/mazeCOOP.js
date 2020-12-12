@@ -238,6 +238,8 @@ topActive = true;
     this.room6Display();
     this.simulation();
 
+    bottomActive = true;
+
     //MiniGame #5:
     if (activatedG5) {
       games.gameN5();
@@ -372,6 +374,9 @@ topActive = true;
   room1Display() {
     rooms.room1();
 
+    if(!activatedG1){
+      roomsC.roomG1()
+      }
 
     bottomPortal.display();
     rightPortal.display();
@@ -381,6 +386,10 @@ topActive = true;
   room2Display() {
     rooms.room2();
 
+    if(!activatedG2){
+      roomsC.roomG2()
+      }
+
     bottomPortal.display();
     leftPortal.display();
     rightPortal.display();
@@ -389,14 +398,16 @@ topActive = true;
   room3Display() {
     rooms.room3();
 
+    if(!activatedG3){
+      roomsC.roomG3()
+      }
 
     bottomPortal.display();
     leftPortal.display();
   }
 
   room4Display() {
-    rooms.room4();
-
+    rooms.roomExit();
 
     topPortal.display();
     exitPortal.display();
@@ -406,6 +417,9 @@ topActive = true;
   room5Display() {
     rooms.room5();
 
+    if(!activatedG4){
+      roomsC.roomG4()
+      }
 
     topPortal.display();
     bottomPortal.display();
@@ -416,6 +430,9 @@ topActive = true;
   room6Display() {
     rooms.room6();
 
+    if(!activatedG5){
+      roomsC.roomG5()
+      }
 
     topPortal.display();
     bottomPortal.display();
@@ -423,8 +440,7 @@ topActive = true;
   }
 
   room7Display() {
-    rooms.room7();
-
+    rooms.roomRest();
 
     rightPortal.display();
 
@@ -433,14 +449,16 @@ topActive = true;
   room8Display() {
     rooms.room8();
 
+    if(!activatedG6){
+      roomsC.roomG6()
+      }
 
     topPortal.display();
     leftPortal.display();
   }
 
   room9Display() {
-    rooms.room9();
-
+    rooms.roomEntrance();
 
     topPortal.display();
 

@@ -33,7 +33,7 @@ class RoomsClear {
 
   roomG6() {
     rooms.collision();
-    background(21, 171, 96);
+    background(139, 222, 133);
   }
 
 }
