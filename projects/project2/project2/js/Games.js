@@ -9,13 +9,15 @@ class Games {
   gameN1() {
     if (activatedG1){
 
+    game1.flowerCheck();
+    game1.flowerDisplay();
+
     game1.trapMove();
     game1.trapCheck();
 
-    game1.flowerCheck();
-
     game1.noLives();
-  }}
+  }
+}
 
   gameN2() {
     if (activatedG2){
@@ -39,11 +41,13 @@ class Games {
 
   gameN4() {
     if (activatedG4){
+    game4.flowerDisplay();
+    game4.flower();
+
     game4.bugSpawn();
     game4.bugCheck();
     game4.bugSetUp();
 
-    game4.flower();
     game4.noLives();
   }
 }
@@ -65,7 +69,8 @@ class Games {
     game6.beeCheck();
     game6.beeSetUp();
 
-    game6.honey();
+    game6.flower();
+    game6.flowerDisplay();
 
     game6.noLives();
   }

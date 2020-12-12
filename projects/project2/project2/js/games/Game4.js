@@ -14,6 +14,7 @@ class Game4 {
     this.bugSize = 20;
 
     this.flowerSize = 50;
+    this.flowerImgSize = 100
     this.flower_x = 375;
     this.flower_y = 375;
 
@@ -75,15 +76,18 @@ class Game4 {
 
   flower() {
 
-    fill(0, 100, 100);
-    ellipse(this.flower_x, this.flower_y, this.flowerSize);
-
     let d = dist(user.x, user.y, this.flower_x, this.flower_y);
     if (d < this.flowerSize/2  + user.size/2 ) {
       activatedG4 = false;
     }
 
   }
+
+  flowerDisplay(){
+    image(img_flower, this.flower_x, this.flower_y,this.flowerImgSize,this.flowerImgSize);
+
+  }
+
 
   noLives() {
     if (score <= 0) {

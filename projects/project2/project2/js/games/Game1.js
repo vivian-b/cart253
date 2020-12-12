@@ -10,6 +10,7 @@ class Game1 {
     this.trapSpeed = 20;
 
     this.flowerSize = 20;
+    this.flowerImgSize = 100;
     this.flower_x = 375;
     this.flower_y = 50;
 
@@ -44,6 +45,11 @@ class Game1 {
     if (d < this.flowerSize / 2 + user.size / 2) {
       activatedG1 = false;
     }
+  }
+
+  flowerDisplay(){
+    image(img_flower, this.flower_x, this.flower_y,this.flowerImgSize,this.flowerImgSize);
+
   }
 
   noLives() {

@@ -11,9 +11,10 @@ let swarm = {
 class Game6 {
   constructor() {
 
-    this.honeySize = 50;
-    this.honey_x = 700;
-    this.honey_y = 375;
+    this.flowerImgSize = 100;
+    this.flowerSize = 50;
+    this.flower_x = 700;
+    this.flower_y = 375;
   }
 
   beeSpawn(){
@@ -63,18 +64,20 @@ user.x = user.x+40
 
 }}
 
-honey() {
+flower() {
 
-  fill(0, 100, 100);
-  ellipse(this.honey_x, this.honey_y, this.honeySize);
-
-  let d = dist(user.x, user.y, this.honey_x, this.honey_y);
-  if (d < this.honeySize/2  + user.size/2 ) {
-    score += 1;
+  let d = dist(user.x, user.y, this.flower_x, this.flower_y);
+  if (d < this.flowerSize/2  + user.size/2 ) {
     activatedG6 = false;
   }
 
 }
+
+flowerDisplay(){
+  image(img_flower, this.flower_x, this.flower_y,this.flowerImgSize,this.flowerImgSize);
+
+}
+
 
   noLives() {
     if (score <= 0) {

@@ -28,6 +28,7 @@ class Game2 {
     holeDisplay(){
       fill(240, 197, 67);
       ellipse(this.hole_x, this.hole_y, this.holeSize);
+
     }
 
   babyCheck() {

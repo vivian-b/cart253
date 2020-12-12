@@ -83,6 +83,7 @@ let mazeL3;
 let state = 'title';
 
 let img_idle;
+let img_flower;
 
 //assets
 function preload(){
@@ -91,6 +92,7 @@ function preload(){
   player_moveLeft = loadImage("assets/images/blob_left.png")
   player_moveUp = loadImage("assets/images/blob_up.png")
   player_moveDown = loadImage("assets/images/blob_down.png")
+ img_flower = loadImage("assets/images/flower.png")
 
   }
 
@@ -225,7 +227,7 @@ function mazeSelection() {
   pop();
 
   if (keyIsDown(49)) {
-    state = "room2A"
+    state = "room9A"
   } else if (keyIsDown(50)) {
     state = "room8B"
   } else if (keyIsDown(51)) {
