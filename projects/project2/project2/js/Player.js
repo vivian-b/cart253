@@ -17,14 +17,6 @@ class Player {
     this.speed = 8;
   }
 
-
-  display() {
-    // noFill();
-    fill(100,100,100);
-    noStroke();
-    ellipse(this.x, this.y+15, this.size);
-  }
-
   move() {
     this.x = this.x + this.vx;
     this.y = this.y + this.vy;
@@ -64,14 +56,15 @@ class Player {
 
     } else if (keyIsDown(RIGHT_ARROW)) {
       image(player_moveRight, user.x, user.y,100,100);
-
     }
 
     else if (keyIsDown(UP_ARROW)) {
       image(player_moveUp, user.x, user.y,100,100);
 
     } else if (keyIsDown(DOWN_ARROW)) {
+      // image(player_moveDown, user.x, user.y,100,100);
       image(player_still, user.x, user.y,100,100);
+
     }
     else {
       image(player_still, user.x, user.y,100,100);

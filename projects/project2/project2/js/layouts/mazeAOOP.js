@@ -7,7 +7,7 @@ class MazeA {
 
   room1() {
     this.room1Display();
-    this.simulation();
+    simulation();
 
 rightActive = true;
     // Room 1: Right Portal -> Room 2
@@ -24,7 +24,7 @@ rightActive = true;
 
   room2() {
     this.room2Display();
-    this.simulation();
+    simulation();
 
     //MiniGame #1:
     if (activatedG1) {
@@ -82,7 +82,7 @@ rightActive = true;
 
   room3() {
     this.room3Display();
-    this.simulation();
+    simulation();
 
     //MiniGame #2:
     if (activatedG2) {
@@ -141,7 +141,7 @@ rightActive = true;
       portalTrue();
     }
 
-    this.simulation();
+    simulation();
 
 
 
@@ -172,7 +172,7 @@ rightActive = true;
 
   room5() {
     this.room5Display();
-    this.simulation();
+    simulation();
 
 leftActive = true;
 
@@ -222,7 +222,7 @@ else if(!activatedG4){
 
   room6() {
     this.room6Display();
-    this.simulation();
+    simulation();
 
     //MiniGame #5:
     if (activatedG5) {
@@ -283,7 +283,7 @@ else if(!activatedG4){
   room7() {
     rooms.room7();
     this.room7Display();
-    this.simulation();
+    simulation();
 
 topActive = true;
     // Room 7: Top Portal -> Room 4
@@ -300,7 +300,7 @@ topActive = true;
 
   room8() {
     this.room8Display();
-    this.simulation();
+    simulation();
 
 rightActive = true;
     // Room 8: Right Portal -> Room 9
@@ -323,7 +323,7 @@ rightActive = true;
 
   room9() {
     this.room9Display();
-    this.simulation();
+    simulation();
 
 topActive = true;
     //MiniGame #6:
@@ -359,12 +359,6 @@ topActive = true;
 
   }
 
-  simulation() {
-    user.move();
-    user.handleInput();
-    user.handleDisplay();
-    user.display();
-  }
 
   room1Display() {
     rooms.roomRest();

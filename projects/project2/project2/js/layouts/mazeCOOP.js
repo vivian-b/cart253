@@ -8,7 +8,7 @@ class MazeC {
 
   room1() {
     this.room1Display();
-    this.simulation();
+    simulation();
 
 rightActive = true;
 
@@ -48,7 +48,7 @@ rightActive = true;
 
   room2() {
     this.room2Display();
-    this.simulation();
+    simulation();
 
     //MiniGame #2:
     if (activatedG2) {
@@ -114,7 +114,7 @@ rightActive = true;
     else if(!activatedG3){
       portalTrue();
     }
-    this.simulation();
+    simulation();
 
     // Entry from  Room2 + Game2 = clear
       if(!activatedG2){
@@ -154,7 +154,7 @@ rightActive = true;
   room4() {
 
     this.room4Display();
-    this.simulation();
+    simulation();
 
 topActive = true;
 
@@ -179,7 +179,7 @@ topActive = true;
 
   room5() {
     this.room5Display();
-    this.simulation();
+    simulation();
 
     //MiniGame #4:
     if (activatedG4) {
@@ -236,7 +236,7 @@ topActive = true;
 
   room6() {
     this.room6Display();
-    this.simulation();
+    simulation();
 
     bottomActive = true;
 
@@ -288,7 +288,7 @@ topActive = true;
 
   room7() {
     this.room7Display();
-    this.simulation();
+    simulation();
 
 rightActive = true;
     // Room 7: Right Portal -> Room 8
@@ -306,7 +306,7 @@ rightActive = true;
 
   room8() {
     this.room8Display();
-    this.simulation();
+    simulation();
 
     //MiniGame #6:
     if (activatedG6) {
@@ -348,7 +348,7 @@ rightActive = true;
 
   room9() {
     this.room9Display();
-    this.simulation();
+    simulation();
 
 topActive = true;
     // Room 9: Top Portal -> Room 6

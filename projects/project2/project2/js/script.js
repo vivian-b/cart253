@@ -86,10 +86,11 @@ let img_idle;
 
 //assets
 function preload(){
-  player_still = loadImage("assets/images/blobl.png")
-  player_moveRight = loadImage("assets/images/blobllll.png")
-  player_moveLeft = loadImage("assets/images/bloblll.png")
-  player_moveUp = loadImage("assets/images/blobll.png")
+  player_still = loadImage("assets/images/blobstill.png")
+  player_moveRight = loadImage("assets/images/blobright.png")
+  player_moveLeft = loadImage("assets/images/blobleft.png")
+  player_moveUp = loadImage("assets/images/blobup.png")
+  player_moveDown = loadImage("assets/images/blobdown.png")
 
   }
 // setup()
@@ -274,6 +275,12 @@ function gameDefeat() {
     score = 5;
   }
 }
+
+function simulation() {
+    user.move();
+    user.handleInput();
+    user.handleDisplay();
+  }
 
 function portalFalse(){
 
