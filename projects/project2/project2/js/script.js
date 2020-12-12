@@ -57,7 +57,6 @@ let roomsC;
 let bugOOP;
 let beeOOP;
 
-
 let games;
 
 let game1;
@@ -84,11 +83,22 @@ let mazeL3;
 
 let state = 'title';
 
+// Assets
 let img_idle;
 let img_flower;
+let nomSFX;
+let squeakSFX;
+
+let oscillator;
 
 //assets
 function preload(){
+
+// sound assets
+nomSFX = loadSound(`assets/sounds/nom.mp3`)
+squeakSFX = loadSound(`assets/sounds/squeak.mp3`)
+
+  // image assets
   player_still = loadImage("assets/images/blob_still.png")
   player_moveRight = loadImage("assets/images/blob_right.png")
   player_moveLeft = loadImage("assets/images/blob_left.png")
@@ -125,6 +135,8 @@ beeOOP = new Bees();
   rightPortal = new Portal(width, height / 2);
   bottomPortal = new Portal(width / 2, height);
   exitPortal = new Portal(width / 2, height / 2)
+
+  oscillator = new p5.TriOsc;
 
 }
 
@@ -209,10 +221,10 @@ textFont(`Chewy`);
     gameDefeat();
   }
 
-  fill(55, 163, 41)
+  fill(21, 171, 96)
   textSize(22);
 
-  text("score = " + score, 20, height - 30);
+  text("Lives = " + score, 20, height - 30);
 }
 
 function titleScreen(){

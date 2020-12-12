@@ -61,18 +61,24 @@ class Game4 {
         score -= 1;
         user.x = exitRightX;
         user.y = exitRightY;
+        squeakSFX.play();
+
       }
 
       if ((d < currHerd.size / 2 + user.size / 20) && (state === "room4B")) {
         score -= 1;
         user.x = exitLeftX;
         user.y = exitLeftY;
+        squeakSFX.play();
+
       }
 
       if ((d < currHerd.size / 2 + user.size / 20) && (state === "room5C")) {
         score -= 1;
         user.x = exitLeftX;
         user.y = exitLeftY;
+        squeakSFX.play();
+
       }
 
     }
@@ -82,6 +88,8 @@ class Game4 {
     let d = dist(user.x, user.y, this.flower_x, this.flower_y);
     if (d < this.flowerSize / 2 + user.size / 2) {
       activatedG4 = false;
+      nomSFX.play();
+
     }
 
   }

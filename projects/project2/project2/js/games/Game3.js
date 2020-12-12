@@ -29,12 +29,19 @@ class Game3 {
     let d = dist(user.x, user.y, this.x, this.y);
     if (d < this.size / 2 + user.size / 2) {
       this.size += 5;
-    }
+      oscillator.start();
+}
+   else {
+      oscillator.stop();
+      }
+
   }
 
   lightClear() {
     if (this.size > 550) {
       activatedG3 = false;
+      oscillator.stop();
+
     }
   }
 

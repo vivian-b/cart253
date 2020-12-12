@@ -25,6 +25,8 @@ class Game5 {
       let d = dist(user.x, user.y, this.fairy_x, this.fairy_y);
       if (d < user.size / 2 + this.fairy_size /2) {
         activatedG5 = false;
+        nomSFX.play();
+
     }
   }
 

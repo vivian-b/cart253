@@ -50,6 +50,8 @@ class Game1 {
       score -= 1;
       user.x = this.repositionX;
       user.y = this.repositionY;
+      squeakSFX.play();
+
     }
 
   }
@@ -64,6 +66,8 @@ class Game1 {
     let d = dist(user.x, user.y, this.flower_x, this.flower_y);
     if (d < this.flowerSize / 2 + user.size / 2) {
       activatedG1 = false;
+      nomSFX.play();
+
     }
   }
 
