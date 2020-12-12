@@ -21,7 +21,7 @@ class Games {
   gameN2() {
     if (activatedG2) {
 
-      game2.hole();
+      game2.checkHole();
       game2.holeDisplay();
 
       game2.babyCheck();
@@ -33,7 +33,6 @@ class Games {
   gameN3() {
     if (activatedG3) {
 
-      game3.lightPosition();
       game3.lightDisplay();
 
       game3.lightCheck();
@@ -45,7 +44,7 @@ class Games {
     if (activatedG4) {
 
       game4.flowerDisplay();
-      game4.flower();
+      game4.flowerCheck();
 
       game4.bugSpawn();
       game4.bugCheck();
@@ -68,7 +67,7 @@ class Games {
   gameN6() {
     if (activatedG6) {
 
-      game6.flower();
+      game6.flowerCheck();
       game6.flowerDisplay();
 
       game6.beeSpawn();
@@ -80,6 +79,7 @@ class Games {
     }
   }
 
+// Check when no lives = Game Over
   noLives() {
     if (score <= 0) {
       state = "defeat";

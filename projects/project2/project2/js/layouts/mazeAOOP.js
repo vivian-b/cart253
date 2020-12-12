@@ -1,7 +1,9 @@
 //layout [A]
 
 class MazeA {
-  constructor() {}
+  constructor() {
+    
+  }
 
   room1() {
     this.room1Display();
@@ -319,7 +321,7 @@ class MazeA {
     // Layout: A (Room8 leftPortal)
     if ((leftCollision) && (state = "room9A")) {
       portalFalse();
-      
+
       state = "room8A";
       user.y = exitLeftY
       user.x = exitLeftX
@@ -334,6 +336,7 @@ class MazeA {
   room2Display() {
     rooms.room2();
 
+// if Game 1 (clear) = Cleared Room Dispplayed
     if (!activatedG1) {
       roomsC.roomG1()
     }
@@ -346,6 +349,7 @@ class MazeA {
   room3Display() {
     rooms.room3();
 
+    // if Game 2 (clear) = Cleared Room Dispplayed
     if (!activatedG2) {
       roomsC.roomG2()
     }
@@ -357,6 +361,7 @@ class MazeA {
   room4Display() {
     rooms.room4();
 
+    // if Game 3 (clear) = Cleared Room Dispplayed
     if (!activatedG3) {
       roomsC.roomG3()
     }
@@ -370,6 +375,7 @@ class MazeA {
   room5Display() {
     rooms.room5();
 
+    // if Game 4 (clear) = Cleared Room Dispplayed
     if (!activatedG4) {
       roomsC.roomG4()
     }
@@ -382,6 +388,7 @@ class MazeA {
   room6Display() {
     rooms.room6();
 
+    // if Game 5 (clear) = Cleared Room Dispplayed
     if (!activatedG5) {
       roomsC.roomG5()
     }
@@ -405,6 +412,7 @@ class MazeA {
   room9Display() {
     rooms.room9();
 
+    // if Game 6 (clear) = Cleared Room Dispplayed
     if (!activatedG6) {
       roomsC.roomG6()
     }

@@ -8,11 +8,15 @@ let player_moveDown;
 class Player {
   constructor(x, y) {
 
+    // player image + hitbox size
     this.size = 50;
     this.imgSize = 100;
 
+    // player position
     this.x = x;
     this.y = y;
+
+    // player movement
     this.vx = 0;
     this.vy = 0;
     this.speed = 8;
@@ -42,6 +46,7 @@ class Player {
     } else if (keyIsDown(RIGHT_ARROW)) {
       this.vx = this.speed * 1.5;
 
+      // Iddle
     } else {
       this.vx = 0;
     }

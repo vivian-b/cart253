@@ -1,54 +1,66 @@
 //Game description:
 // Bring the baby to the hole
 
-let carry= false;
+// contact between baby + user
+let carry = false;
 
 class Game2 {
   constructor() {
 
-    this.baby_x = 50;
-    this.baby_y = 780;
+    // Baby Position
+    this.babyX = 50;
+    this.babyY = 780;
+
+    // Baby Size
     this.babySize = 40;
+
+    // Baby Width + Height
     this.babyW = 85;
     this.babyH = 80
 
+    // Hole Size
     this.holeSize = 100;
-    this.hole_x = 750;
-    this.hole_y = 0;
-    this.fill={
+
+    // Hole Position
+    this.holeX = 750;
+    this.holeY = 0;
+
+    // Hole Fill
+    this.fill = {
       r: 240,
       g: 197,
       b: 67,
     }
   }
 
-
-    hole() {
-      let d = dist(user.x, user.y, this.hole_x, this.hole_y);
-      if ((d < this.holeSize / 2 + user.size / 2) && (carry)) {
-              activatedG2 = false;
-              carry = false;
-      }
+  // Contact between Hole + User
+  checkHole() {
+    let d = dist(user.x, user.y, this.holeX, this.holeY);
+    if ((d < this.holeSize / 2 + user.size / 2) && (carry)) {
+      activatedG2 = false;
+      carry = false;
     }
-
-    holeDisplay(){
-      fill(this.fill.r, this.fill.g, this.fill.b);
-      ellipse(this.hole_x, this.hole_y, this.holeSize);
-    }
-
-  babyCheck() {
-
-    let d = dist(user.x, user.y, this.baby_x, this.baby_y);
-    if (d < this.babySize / 2 + user.size / 2) {
-      carry = true;
-      this.baby_x = user.x;
-      this.baby_y = user.y;
-    }
-
   }
 
-  babyDisplay(){
-        image(player_still, this.baby_x, this.baby_y-33,this.babyW,this.babyH);
+  // Display Hole
+  holeDisplay() {
+    fill(this.fill.r, this.fill.g, this.fill.b);
+    ellipse(this.holeX, this.holeY, this.holeSize);
+  }
+
+  // Contact between Baby + User
+  babyCheck() {
+    let d = dist(user.x, user.y, this.babyX, this.babyY);
+    if (d < this.babySize / 2 + user.size / 2) {
+      carry = true;
+      this.babyX = user.x;
+      this.babyY = user.y;
+    }
+  }
+
+  // Diplay Baby
+  babyDisplay() {
+    image(player_still, this.babyX, this.babyY - 33, this.babyW, this.babyH);
   }
 
 }

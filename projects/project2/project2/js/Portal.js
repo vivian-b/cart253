@@ -1,11 +1,14 @@
 class Portal {
 
-  constructor(x,y,size,fill) {
+  constructor(x, y, size, fill) {
+    // Portal size
     this.size = 75;
 
+    // portal position
     this.x = x;
     this.y = y;
 
+    // portal color
     this.fill = {
       r: 4,
       g: 128,
@@ -13,6 +16,7 @@ class Portal {
     }
   }
 
+  // portal display
   display() {
     push();
     noStroke();

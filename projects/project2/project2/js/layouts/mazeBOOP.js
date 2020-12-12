@@ -352,6 +352,7 @@ class MazeB {
   room1Display() {
     rooms.room1();
 
+    // if Game 1 (clear) = Cleared Room Dispplayed
     if (!activatedG1) {
       roomsC.roomG1()
     }
@@ -363,6 +364,7 @@ class MazeB {
   room2Display() {
     rooms.room2();
 
+    // if Game 2 (clear) = Cleared Room Dispplayed
     if (!activatedG2) {
       roomsC.roomG2()
     }
@@ -375,6 +377,7 @@ class MazeB {
   room3Display() {
     rooms.room3();
 
+    // if Game 3 (clear) = Cleared Room Dispplayed
     if (!activatedG3) {
       roomsC.roomG3()
     }
@@ -386,6 +389,7 @@ class MazeB {
   room4Display() {
     rooms.room4();
 
+    // if Game 4 (clear) = Cleared Room Dispplayed
     if (!activatedG4) {
       roomsC.roomG4()
     }
@@ -398,6 +402,7 @@ class MazeB {
   room5Display() {
     rooms.room5();
 
+    // if Game 5 (clear) = Cleared Room Dispplayed
     if (!activatedG5) {
       roomsC.roomG5()
     }
@@ -410,6 +415,7 @@ class MazeB {
   room6Display() {
     rooms.room6();
 
+    // if Game 6 (clear) = Cleared Room Dispplayed
     if (!activatedG6) {
       roomsC.roomG6()
     }
