@@ -8,7 +8,7 @@ Simulation of a maze with mini-game rooms.
 
 "use strict";
 
-var score = 1;
+var score = 5;
 
 let activatedG1 = true;
 let activatedG2 = true;
@@ -255,7 +255,7 @@ function gameClear() {
     textSize(20);
     background(0);
     state = "title";
-    score = 1;
+    score = 5;
   }
 }
 
@@ -278,7 +278,7 @@ function gameDefeat() {
     background(0);
 
     state = "title";
-    score = 1;
+    score = 5;
   }
 }
 

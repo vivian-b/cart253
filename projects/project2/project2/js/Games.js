@@ -47,12 +47,9 @@ class Games {
   gameN5() {
     if (activatedG5){
 
-    game5.checkPetals();
- // game5.all();
- // game5.gameSetup();
- // game5.createPetals();
- game5.movePetals();
- game5.displayPetals();
+    game5.checkFairy();
+ game5.moveFairy();
+ game5.displayFairy();
 }
 
     }

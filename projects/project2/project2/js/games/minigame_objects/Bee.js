@@ -3,12 +3,12 @@ class Bees {
 
   constructor(x, y, size){
 
-    this.x= 200;
-    this.y= 200;
+    this.x= 450;
+    this.y= 350;
     this.size= 10;
     this.vx= 1;
     this.vy= 25;
-    this.speed= 25;
+    this.speed= 10;
         }
         // createBees(x, y) {
         // let bee = {
@@ -29,13 +29,17 @@ class Bees {
         this.vy = random(-this.speed, this.speed);
       }
 
+      if ((this.x <= 450) || (this.x >=600)) {
+        this.vx = -this.vx
+      }
+
+      if ((this.y <= 0) || (this.y >=height)) {
+        this.vy = -this.vy
+      }
 
 
       this.x = this.x + this.vx;
       this.y = this.y + this.vy;
-
-      this.x = constrain(this.x, user.size, width-user.size);
-      this.y = constrain(this.y, user.size, height-user.size);
     }
 
     display( ){

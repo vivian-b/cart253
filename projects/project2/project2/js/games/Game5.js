@@ -6,49 +6,48 @@ class Game5 {
   constructor() {
 
 
-  this.petal_x = 50;
-  this.petal_y = 50;
-  this.petal_vx = 20;
-  this.petal_vy = 20;
-  this.petal_speed = 10;
-  this.petal_size = 20;
+  this.fairy_x = 700;
+  this.fairy_y = 350;
+  this.fairy_vx = 0;
+  this.fairy_vy = 0;
+  this.fairy_speed = 20;
+  this.fairy_size = 20;
   }
 
 
-  checkPetals() {
+  checkFairy() {
 
-      let d = dist(user.x, user.y, this.petal_x, this.petal_y);
-      if (d < user.size / 2 + this.petal_size /2) {
-        // activatedG5 = false;
+      let d = dist(user.x, user.y, this.fairy_x, this.fairy_y);
+      if (d < user.size / 2 + this.fairy_size /2) {
+        activatedG5 = false;
     }
   }
 
 
-// gameSetup(){
-//   for (let i = 0; i < numPetals; i++) {
-//       petals[i] = this.createPetals(random(0, 50), random(0, 50));
-//     }
-//   }
 
-   movePetals() {
-     let change = random(0, 10);
-     if (change < .05) {
-       this.petal_vx = random(2,10);
-       this.petal_vy = random(2,10);
+   moveFairy() {
+
+     let change = random(0, 1);
+     if (change < .1) {
+
+       this.fairy_vx = random(-this.fairy_speed ,this.fairy_speed);
+       this.fairy_vy = random(-this.fairy_speed,this.fairy_speed);
      }
-  this.petal_x =   this.petal_x + random(-this.petal_speed, this.petal_speed);
-  this.petal_y =   this.petal_y + random(-this.petal_speed, this.petal_speed);
 
-  this.petal_x = constrain(this.petal_x, 0, width);
-  this.petal_y = constrain(this.petal_y, 0, height);
+     this.fairy_x +=  this.fairy_vx;
+     this.fairy_y += this.fairy_vy;
+
+
+  this.fairy_x = constrain(this.fairy_x, 0, width);
+  this.fairy_y = constrain(this.fairy_y, 0, height);
 }
 
 
-   displayPetals() {
+   displayFairy() {
       push();
       fill(0, 255, 0);
       noStroke();
-      ellipse(this.petal_x, this.petal_y, this.petal_size);
+      ellipse(this.fairy_x, this.fairy_y, this.fairy_size);
       pop();
   }
 

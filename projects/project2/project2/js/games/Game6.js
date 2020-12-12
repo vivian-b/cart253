@@ -3,7 +3,7 @@
 
 let swarm = {
   bee: [],
-  numbee: 10,
+  numBee: 20,
   caught: false,
 };
 
@@ -12,14 +12,14 @@ class Game6 {
   constructor() {
 
     this.honeySize = 50;
-    this.honey_x = 375;
-    this.honey_y = 375;
+    this.honey_x = 650;
+    this.honey_y = 450;
   }
 
   beeSpawn(){
 
-    for (let j = 0; j < swarm.numbee; j++) {
-    swarm.numbee = 20;
+    for (let j = 0; j < swarm.numBee; j++) {
+    swarm.numBee = 20;
     let x =   0;
     let y =   0;
     let size = this.beeSize;
@@ -36,8 +36,8 @@ class Game6 {
     for (let j = 0; j < swarm.bee.length; j++) {
     let beeOOP = swarm.bee[j];
   //
-  if (swarm.bee.length = swarm.numbee){
-    swarm.bee.length = swarm.numbee;
+  if (swarm.bee.length = swarm.numBee){
+    swarm.bee.length = swarm.numBee;
 
   push();
       beeOOP.moveBees(swarm[j]);
@@ -57,8 +57,7 @@ class Game6 {
         let d = dist(currHerd.x, currHerd.y, user.x, user.y);
          if (d < currHerd.size/2 + user.size / 2) {
       score -= 1;
-user.x = user.x-60
-user.y = user.y-60
+user.x = user.x+60
 
   }
 
